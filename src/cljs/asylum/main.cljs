@@ -21,11 +21,7 @@
            (v/display @state)))
 
 (defn apply-event-choice [choice]
-  (swap! state e/apply-event-choice choice))
-
-(defn register-next []
-      (jq/bind ($ "#nextTurn") :click advance-turn))
+      (swap! state e/apply-event-choice choice))
 
 ($ (fn []
-       (register-next)
-       (v/init-view @state)))
+       (v/init-view @state advance-turn apply-event-choice)))
