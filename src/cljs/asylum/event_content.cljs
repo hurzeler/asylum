@@ -258,4 +258,46 @@ An additional 4,000 places are made available under the Family stream of the mig
    {:good {:effect (ee/dsr-factor :morrison -0.02) :title "Reject" :description ""}
     :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Adopt" :description "You pass the legislation that make offshore processing legal"}}})
 
+(def expert-panel-recommendations
+  {:title "Expert Panel recommendations"
+   :media {:name "australian-government.jpg" :type :image}
+   :content "After six weeks of consultation and research, the Expert Panel releases a report containing 22 recommendations. These include:
+Working towards the development of a cooperative regional framework for improving protection and asylum systems;
+Increasing Australia¡¯s Refugee and Humanitarian Program to 20,000 places annually;
+Reintroducing offshore processing of asylum seekers in Nauru and Papua New Guinea¡¯s Manus Island; and
+Changing Australia¡¯s humanitarian family reunion policies to make it more difficult for refugees who arrive by boat to reunite with their family members.
+Central to the Expert Panel¡¯s recommendations is the \"no advantage\" test, which stipulates that refugees arriving by boat should not receive an \"advantage\" over refugees awaiting resettlement overseas. On this basis, the Panel proposes that asylum seekers who are processed offshore and found to be refugees should have to \"wait\" for resettlement for the same amount of time they would have waited if they had applied for resettlement from overseas. The Panel does not specify a \"waiting time\" or explain how a fair \"waiting time\" could be calculated.
+On the same day, the Australian Government endorses in principle all 22 of the Expert Panel¡¯s recommendations. From this point, the processing of asylum claims made by people who arrived by boat after today is effectively suspended."
+   :event-date "14 August 2012"
+   :links ["http://expertpanelonasylumseekers.dpmc.gov.au/report"] 
+   :constraints {:morrison [0 1]
+                 :turn [1 3]}
+    :options
+   {:good {:effect (ee/dsr-factor :morrison 0.05) :title "Adopt" :description "You adopt the recommendation"}
+    :bad {:effect (ee/dsr-factor :morrison -0.05) :title "Reject" :description "You do not trust the expert panel"}}})
+
+(def expert-panel-angus-houston
+  {:title ""
+   :media {:name "angus-houston.jpg" :type :image}
+   :content "Following the sinking of several boats en route to Australia and the resulting deaths of dozens of asylum seekers, Prime Minister considers appointing an Expert Panel to \"provide a report on the best way forward for Australia to prevent asylum seekers risking their lives on dangerous boat journeys to Australia\". The Panel is led by Air Chief Marshal Angus Houston, the former chief of Australia¡¯s defence force, and includes Paris Aristotle, Director of Foundation House, and Professor Michael L¡¯Estrange, the Director of the National Security College at the Australian National University."
+   :event-date "28 June 2012"
+   :links [] 
+   :constraints {:morrison [0 1]
+                 :turn [1 100]}
+    :options
+   {:good {:effect (ee/dsr-factor :morrison 0.05) :title "Implement" :description "You appoint an expert panel"}
+    :bad {:effect (ee/dsr-factor :morrison -0.05) :title "Take no action" :description "You reconsider and will not appoint an expert panel"}}})
+
+(def joint-select-committee
+  {:title "Joint Select Committee's findings"
+   :media {:name "senate-entrance.jpg" :type :image}
+   :content "The Joint Select Committee on Australia's Immigration Detention Network releases its findings. Key recommendations include a 90-day time limit on detention for asylum seekers who pass inital identity, health, character and security checks; the publication of reasons for continued detention beyond 90 days; the replacement of the Minister for Immigration as the legal guardian of unaccompanied minors; using detention as a last resort for the shortest practicable time; and allowing the Administrative Appeals Tribunal to review negative ASIO assessments of refugees and asylum seekers. The report can be read here."
+   :event-date "30 March 2012"
+   :links ["http://www.aph.gov.au/Parliamentary_Business/Committees/Senate_Committees?url=immigration_detention_ctte/immigration_detention/report/index.htm"] 
+   :constraints {:morrison [0 1]
+                 :turn [1 100]}
+    :options
+   {:good {:effect (ee/dsr-factor :morrison 0.07) :title "Adopt" :description "You adopt the findings"}
+    :bad {:effect (ee/dsr-factor :morrison -0.05) :title "Reject" :description "You reject the findings"}}})
+
 
