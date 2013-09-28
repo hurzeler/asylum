@@ -132,3 +132,39 @@
    {:good {:effect (ee/dsr-factor :morrison -0.03) :title "Accept findings" :description "You accept the courts findings and seek to implement changes"}
     :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Appeal" :description "You fight the courts decision"}}})
 
+(def resettlemet-deal-new-zealand
+  {:title "Resettlemet deal with New Zealand"
+   :media {:name "nz-refugees.jpg" :type :image}
+   :content "The Australian Government enter a new resettlemet deal with New Zealand, whereby 150 places from New Zealand¡¯s overall resettlement quota of 750 will be allocated to refugees who sought asylum in Australia. The refugees may be resettled directly from Australia or from offshore processing centres in Nauru and Manus Island."
+   :event-date "9 February 2013"
+   :links ["http://www.immigration.govt.nz/migrant/general/generalinformation/media/refugeefactsheet.htm"] 
+   :constraints {:morrison [0 1]
+                 :turn [1 100]}
+    :options
+   {:good {:effect (ee/dsr-factor :morrison -0.01) :title "Accept" :description "You accept the resettlement deal with New Zealand"}
+    :bad {:effect (ee/dsr-factor :morrison 0.02) :title "Reject" :description "You reject the deal"}}})
+
+(def manus-island-unhcr-report
+  {:title "Manus Island UNHCR report"
+   :media {:name "manus-island-2.jpg" :type :image}
+   :content "UNHCR releases a report on conditions in the offshore processing facility on Manus Island which similarly concludes that ¡°the transfer of asylum-seekers to unsatisfactory temporary facilities, within a closed detention setting, and in the absence of a legal framework and functional system to assess refugee claims, do not currently meet the required international protection standards¡±. It also expresses concern about the situation of children transferred to Manus Island, noting that ¡°the lack of any appropriate legal or regulatory framework for their treatment (in what UNHCR finds to be a mandatory, arbitrary and indefinite detention setting), and on-going delays in establishing any procedures to assess children¡¯s refugee protection needs, and broader best interests, is particularly troubling¡±."
+   :event-date "4 February 2013"
+   :links ["http://unhcr.org.au/unhcr/images/2013-02-04%20Manus%20Island%20Report%20Final.pdf"] 
+   :constraints {:morrison [0.3 1]
+                 :turn [3 100]}
+    :options
+   {:good {:effect (ee/dsr-factor :morrison -0.03) :title "Accept findings" :description "You accept the findings and seek to improve conditions"}
+    :bad {:effect (ee/dsr-factor :morrison 0.07) :title "Ignore" :description "You choose to ignore the UNHCR report"}}})
+
+(def unhcr-nauru-report
+  {:title "UNHCR Nauru condition report"
+   :media {:name "nauru.jpg" :type :image}
+   :content "UNHCR releases a report on conditions in the offshore processing facility in Nauru. It concludes that ¡°the transfer of asylum-seekers to what are currently harsh and unsatisfactory temporary facilities, with in a closed detention setting, and in the absence of a fully functional legal framework and adequately capacitated system to assess refugee claims, do not currently meet the required protection standards.¡±"
+   :event-date "14 December 2012"
+   :links ["http://unhcr.org.au/unhcr/images/Amended%20footnote%202012-12-14%20nauru%20monitoring%20report%20final_2.pdf"] 
+   :constraints {:morrison [0.2 1]
+                 :turn [2 100]}
+    :options
+   {:good {:effect (ee/dsr-factor :morrison -0.03) :title "Accept findings" :description "You accept the findings and seek to improve conditions"}
+    :bad {:effect (ee/dsr-factor :morrison 0.07) :title "Ignore" :description "You choose to ignore the UNHCR report"}}})
+
