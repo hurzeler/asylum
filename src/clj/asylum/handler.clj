@@ -8,7 +8,7 @@
 
             ring.adapter.jetty))
 
-(def dev true)
+(def dev false)
 
 (if dev
   (enlive/deftemplate page
@@ -16,15 +16,11 @@
     []
     [:body] (enlive/append
              (enlive/html [:script (browser-connected-repl-js)])))
-  (enlive/deftemplate page
-    "public/index.html"
-    []
-    [:body] (enlive/append
-             (enlive/html [:div]))))
+  nil)
 
 (defroutes main
   (resources "/")
-  (GET "/*" reg (page))
+  (GET "/*" req (enlive/html-resource (io/resource "public/index.html")))
   (not-found "I still haven't found what you're looking for."))
 
 (defn run
