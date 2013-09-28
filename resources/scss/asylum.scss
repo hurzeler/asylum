@@ -71,6 +71,7 @@ body * {
 		position: relative;
 		z-index: 1;
 		a {
+			text-decoration: none;
 			border-radius: 0 5px 0 0;
 			display:block;
 			background: $blue;
@@ -113,6 +114,7 @@ body * {
 	box-shadow: 0 2px 5px rgba(0,0,0,0.2);  
 	@media screen and (min-width:500px) {
 		position: absolute;
+		 // MOVE IT BACK TO 10% WHEN THE PANEL SWITCH IS DONE
 		top:20%;
 		left:50%;
 		margin-left:-250px;
@@ -134,17 +136,77 @@ body * {
 }
 //GAUGES
 .gaugesPanel {
-
+	position: absolute;
+	top:5%;
+	left:50%;
 	@media screen and (min-width:500px){
 		width: 500px;
+		margin-left:-250px;
 	}
 	@media screen and (min-width:720px){
-		max-width: 720px;
-		width:100%;
+		width:720px;
+		margin-left: -360px;
 	}
-	.popularity {}
-	.profile {}
-	.deaths {}
+	
+	.profileBox {
+		position: relative;
+		z-index: 2;
+		width:20px;
+		height:50px;
+		float:left;
+		.profile{
+			position:absolute;
+			top:50%;
+			left:50%;
+			margin-top:-55px;
+			margin-left:-55px;
+			border-radius: 100%;
+			width:110px;
+			height:110px;
+			padding:10px;
+			background: $bgColour;
+			overflow: hidden;
+			box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+			img {
+				height:100%;
+				width:100%;
+				border-radius: 100%;
+				box-shadow: 0 1px 0 rgba(255,255,255,0.9), inset 0 1px 1px rgba(0,0,0,1);
+			}
+		}
+	}
+	.popularity, .deaths {
+		// border: 1px solid rgba(255,255,255,0.6);
+		// background: rgba(255,255,255,0.5);
+		border-radius: 50px;
+		width:350px;
+		height:50px;
+		position:relative;
+		// overflow: hidden;
+
+	}
+	.popularity {
+		float: left;
+		.popularityValue {
+			float:right;
+			width: 56%;
+			height:50px;
+			background:$blue;
+			border-radius: 50px;
+			box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+		}
+	}
+	.deaths {
+		float: right;
+		.deathsValue {
+			float:left;
+			width: 46%;
+			height:50px;
+			background:$orange;
+			border-radius: 50px;
+			box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+		}
+	}
 }
 
 // TYPOGRAPHY
