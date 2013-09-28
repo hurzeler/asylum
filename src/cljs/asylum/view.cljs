@@ -21,6 +21,7 @@
                                                     :center "-25.085875,134.284057"
                                                     :draggable false
                                                     :disableDefaultUI true
+                                                    :disableDoubleClickZoom true
                                                     :styles 
                                                     [
                                                      (clj->js {
@@ -113,11 +114,20 @@
              (.val ($ "#offshore-intake") (:offshore-intake levers))
              (.val ($ "#detention-proportion") (:detention-proportion levers)))))
 
+(defn option-colour 
+     [{morrison-index :morrison}]
+     (log morrison-index)
+     (if (> morrison-index 1) "orange" "blue")) 
+
 (defn- option-button
-       [click-fn [option-kw {title :title}]]
-       (-> ($ "<button>")
-         (.text title)
-         (.on "click" (partial click-fn option-kw))))
+       [click-fn [option-kw {title :title effect :effect}]]
+       (let [morrison-index (effect {:morrison 1} 1)
+             button-colour (option-colour morrison-index)]
+            (-> ($ "<button>")
+	         (.addClass "button")
+	         (.addClass button-colour)
+	         (.text title)
+	         (.on "click" (partial click-fn option-kw)))))
 
 
 (defn show-event 
@@ -125,7 +135,7 @@
       (let [option-buttons (to-array (map (partial option-button apply-event-choice-fn) options))
             content-div ($ "#event-panel")]           
            (-> content-div (.find "header h2") (.text title))
-           (-> content-div (.find "section p") (.text content))
+           (-> content-div (.find "section p") (.html content))
            (-> content-div (.find "footer") (.empty) (.append option-buttons))))
 
 
@@ -144,8 +154,4 @@
       {:levers {:offshore-intake (-> (.val ($ "#offshore-intake")) js/parseInt)
                 :detention-proportion (-> (.val ($ "#detention-proportion"))  js/parseFloat)}})
 
-(defn init-view
-      [state advance-turn-fn apply-event-choice-fn]
-      (log state)
-      (init-map)
-      (display state (comp advance-turn-fn apply-event-choice-fn)))
+($ init-map)
