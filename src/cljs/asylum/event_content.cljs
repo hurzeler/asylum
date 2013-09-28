@@ -55,7 +55,7 @@
    :media {:name manus-island.jpg :type image}
    :content "A second UNCHR report on conditions in the offshore processing facility on Manus Island acknowledges that, while there have been some positive developments, ¡°conditions remain below international standards for the reception and treatment of asylum-seekers¡±. In particular, UNHCR expresses ongoing concern about the harsh physical living conditions, the mandatory and indefinite detention of asylum seekers, the lack of adequate safeguards in transfer arrangements and shortcomings in the legal framework for refugee status determination."
    :event-date "12 July 2013"
-   :links [http://unhcr.org.au/unhcr/files/2013-07-12_Manus_Island_Report_Final%281%29.pdf] 
+   :links ["http://unhcr.org.au/unhcr/files/2013-07-12_Manus_Island_Report_Final%281%29.pdf"] 
    :constraints {:morrison [0 1]
                  :turn [1 6]}
    :effectss 1
@@ -76,7 +76,7 @@
   {:title "Parliamentary Joint Committee on Human Rights"
    :content "The Parliamentary Joint Committee on Human Rights releases the report of its inquiry into changes introduced in response to the Expert Panel¡¯s recommendations. The Committee, which includes MPs and Senators from the Australian Labor Party, Liberal Party and the Australian Greens, concludes that ¡°the measures as currently implemented carry a significant risk of being incompatible with a range of human rights¡±."
    :event-date "19 June 2013"
-   :links [http://www.aph.gov.au/Parliamentary_Business/Committees] 
+   :links ["http://www.aph.gov.au/Parliamentary_Business/Committees"] 
    :constraints {:morrison [0 1]
                  :turn [1 6]}
    :effectss 1
@@ -87,7 +87,7 @@
    :media {:name community-proposal-pilot.jpg :type image}
    :content "The Community Proposal Pilot commences. The program allows approved community organisations in Australia to propose humanitarian entrants for resettlement in Australia and help them to settle once they arrive. Organisations are expected to pay a substantial visa fee and meet a range of costs related to the person¡¯s resettlement in Australia (such as airfares, medical checks and on-arrival support)."
    :event-date "3 June 2013"
-   :links [http://www.immi.gov.au/visas/humanitarian/offshore/community-proposal-pilot.htm] 
+   :links ["http://www.immi.gov.au/visas/humanitarian/offshore/community-proposal-pilot.htm"] 
    :constraints {:morrison [0 1]
                  :turn [1 6]}
    :effectss 1
@@ -98,7 +98,7 @@
    :media {:name redcross.png :type image}
    :content "The Red Cross releases its inaugural Vulnerability Report, focusing on asylum seekers living in the Australian community under the ¡°no advantage¡± test. The Report reveals that many people seeking asylum live in the Australian community in a state of poverty, with many struggling to access adequate and sustainable housing and afford basics such as food, furniture and bedding. In launching the report, Red Cross CEO Robert Tickner says ¡°We are not talking about destitution here by normal standards. We're talking about what is by any measure among the most destitute people in the country, who are absolutely marginalised by every reasonable measure.¡±"
    :event-date "June 2013"
-   :links [http://www.redcross.org.au/files/20130614_Inaugural_Vulnerability_Report_LR.pdf] 
+   :links ["http://www.redcross.org.au/files/20130614_Inaugural_Vulnerability_Report_LR.pdf"] 
    :constraints {:morrison [0 1]
                  :turn [1 6]}
    :effectss 1

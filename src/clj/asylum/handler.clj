@@ -13,7 +13,7 @@
 (defn make-page []
   (let [res (enlive/html-resource (io/resource "public/index.html"))
         res (if dev
-              (enlive/transform res [:body] (enlive/append (enlive/html (browser-connected-repl-js))))
+              (enlive/transform res [:body] (enlive/append (enlive/html [:script (browser-connected-repl-js)])))
               res)]
     (apply str (enlive/emit* res))))
 
