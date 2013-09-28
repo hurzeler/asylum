@@ -225,9 +225,9 @@ body * {
     background: #6699ff;
     padding: 1rem;
     color: #fff; }
-    .popUp header h1 {
+    .popUp header h2 {
       font-size: 2rem;
-      font-weight: 300; }
+      font-weight: 100; }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0.5em 0 1em;
