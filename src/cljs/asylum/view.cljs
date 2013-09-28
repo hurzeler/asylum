@@ -13,6 +13,15 @@
 			:map (clj->js {
 				:address "NT, australia"
 				:options (clj->js {
+<<<<<<< HEAD
+							:color "#476DD5"
+							:zoom 4
+							:mapTypeId js/google.maps.MapTypeId.ROADMAP,
+					       	:scrollwheel false
+					        :center "-17.289374,150.820313"
+					        :draggable false
+					        :disableDefaultUI true})})})))
+=======
 					:color "#476DD5"
 					:zoom 4
 					:mapTypeId js/google.maps.MapTypeId.ROADMAP,
@@ -69,4 +78,5 @@
 
 (defn display [state]
   (say "turn" (str (-> state :turn))))
+>>>>>>> 4d2e7db5de658ae4dcd70359b193151c51e87373
 
