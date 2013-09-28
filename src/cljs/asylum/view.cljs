@@ -148,4 +148,4 @@
       [state advance-turn-fn apply-event-choice-fn]
       (log state)
       (init-map)
-      (display state apply-event-choice-fn))
+      (display state (comp advance-turn-fn apply-event-choice-fn)))
