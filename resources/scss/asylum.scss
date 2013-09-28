@@ -76,6 +76,14 @@ body * {
 			background: $blue;
 			padding: $defaultPadding/2;
 			margin-top:5px;
+
+			// transitions
+			-webkit-transition: box-shadow 0.1s ease;
+			-moz-transition: box-shadow 0.1s ease;
+			-o-transition: box-shadow 0.1s ease;
+			-ms-transition: box-shadow 0.1s ease;
+			transition: box-shadow 0.1s ease;
+
 			span {
 				display: block;
 				background: white;
@@ -84,6 +92,9 @@ body * {
 				width: 25px;
 				font-size:0.5rem;
 				line-height: 1;
+			}
+			&:hover {
+
 			}
 		}
 	}
