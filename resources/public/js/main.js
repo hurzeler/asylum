@@ -24965,8 +24965,12 @@ goog.require("jayq.core");
 goog.require("jayq.util");
 goog.require("jayq.core");
 asylum.view.init_map = function init_map(map_selector) {
-  return jayq.core.$.call(null, map_selector).gmap3(cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:map", cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:address", "1 macquarie st, sydney", "\ufdd0:options", cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:color", "#476DD5", "\ufdd0:zoom", 4, "\ufdd0:mapTypeId", google.maps.MapTypeId.ROADMAP, "\ufdd0:scrollwheel", false, "\ufdd0:center", "-25.085875,134.284057", 
-  "\ufdd0:draggable", false, "\ufdd0:disableDefaultUI", true], true))], true))], true)))
+  return jayq.core.$.call(null, map_selector).gmap3(cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:map", cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:address", "NT, australia", "\ufdd0:options", cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:color", "#476DD5", "\ufdd0:zoom", 4, "\ufdd0:mapTypeId", google.maps.MapTypeId.ROADMAP, "\ufdd0:scrollwheel", false, "\ufdd0:center", "-25.085875,134.284057", 
+  "\ufdd0:draggable", false, "\ufdd0:disableDefaultUI", true, "\ufdd0:styles", cljs.core.PersistentVector.fromArray([cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:featureType", "administrative.province", "\ufdd0:elementType", "labels.text", "\ufdd0:stylers", cljs.core.PersistentVector.fromArray([cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:visibility", "off"], true))], true)], true)), cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:featureType", 
+  "administrative.locality", "\ufdd0:elementType", "labels", "\ufdd0:stylers", cljs.core.PersistentVector.fromArray([cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:visibility", "off"], true))], true)], true)), cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:featureType", "administrative.province", "\ufdd0:elementType", "geometry", "\ufdd0:stylers", cljs.core.PersistentVector.fromArray([cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:visibility", 
+  "off"], true))], true)], true)), cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:featureType", "water", "\ufdd0:elementType", "labels.text", "\ufdd0:stylers", cljs.core.PersistentVector.fromArray([cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:visibility", "off"], true))], true)], true)), cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:featureType", "administrative.country", "\ufdd0:elementType", "labels", 
+  "\ufdd0:stylers", cljs.core.PersistentVector.fromArray([cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:visibility", "off"], true))], true)], true)), cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:featureType", "administrative.country", "\ufdd0:elementType", "geometry", "\ufdd0:stylers", cljs.core.PersistentVector.fromArray([cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:visibility", "off"], true))], 
+  true)], true)), cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:featureType", "landscape.natural.landcover", "\ufdd0:elementType", "geometry", "\ufdd0:stylers", cljs.core.PersistentVector.fromArray([cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:visibility", "simplified"], true))], true)], true))], true)], true))], true))], true)))
 };
 goog.provide("goog.disposable.IDisposable");
 goog.disposable.IDisposable = function() {
@@ -37894,16 +37898,11 @@ goog.require("cljs.core");
 goog.require("jayq.core");
 goog.require("jayq.core");
 goog.require("asylum.view");
+goog.require("jayq.core");
 goog.require("domina.css");
 goog.require("domina.events");
 goog.require("domina");
 goog.require("clojure.browser.repl");
-asylum.main.hello = function hello() {
-  return alert("hello")
-};
-asylum.main.whoami = function whoami() {
-  return navigator.userAgent
-};
 asylum.main.say = function() {
   var say = null;
   var say__1 = function(something) {
@@ -37925,9 +37924,31 @@ asylum.main.say = function() {
   say.cljs$core$IFn$_invoke$arity$2 = say__2;
   return say
 }();
+asylum.main.state = cljs.core.atom.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:turn", 0, "\ufdd0:changes", 0], true));
+asylum.main.display = function display() {
+  asylum.main.say.call(null, "turn", [cljs.core.str((new cljs.core.Keyword("\ufdd0:turn")).call(null, cljs.core.deref.call(null, asylum.main.state)))].join(""));
+  return asylum.main.say.call(null, "changes", [cljs.core.str((new cljs.core.Keyword("\ufdd0:changes")).call(null, cljs.core.deref.call(null, asylum.main.state)))].join(""))
+};
+asylum.main.advance_turn = function advance_turn() {
+  cljs.core.swap_BANG_.call(null, asylum.main.state, cljs.core.update_in, cljs.core.PersistentVector.fromArray(["\ufdd0:turn"], true), cljs.core.inc);
+  return asylum.main.display.call(null)
+};
+asylum.main.hello = function hello() {
+  return alert("Hello")
+};
+asylum.main.register_next = function register_next() {
+  return jayq.core.bind.call(null, jayq.core.$.call(null, "#nextTurn"), "\ufdd0:click", asylum.main.advance_turn)
+};
+asylum.main.register_change = function register_change() {
+  return jayq.core.bind.call(null, jayq.core.$.call(null, "#changeSomething"), "\ufdd0:click", function() {
+    return cljs.core.swap_BANG_.call(null, asylum.main.state, cljs.core.update_in, cljs.core.PersistentVector.fromArray(["\ufdd0:changes"], true), cljs.core.inc)
+  })
+};
 jayq.core.$.call(null, function() {
-  asylum.main.say.call(null, "Hell WOrld");
-  return asylum.view.init_map.call(null, "#map")
+  asylum.main.register_next.call(null);
+  asylum.main.register_change.call(null);
+  asylum.view.init_map.call(null, "#map");
+  return asylum.main.say.call(null, "Welcome to Asylum")
 });
 goog.provide("asylum.util");
 goog.require("cljs.core");

@@ -1,6 +1,7 @@
 (ns asylum.view
 	(:use [jayq.core :only [$]]
-		  [jayq.util :only [log]]))
+		[jayq.util :only [log]]))
+
 
 
 (defn init-map 
@@ -10,8 +11,9 @@
 		($ map-selector)
 		(clj->js {
 			:map (clj->js {
-				:address "1 macquarie st, sydney"
+				:address "NT, australia"
 				:options (clj->js {
+<<<<<<< HEAD
 							:color "#476DD5"
 							:zoom 4
 							:mapTypeId js/google.maps.MapTypeId.ROADMAP,
@@ -19,4 +21,62 @@
 					        :center "-17.289374,150.820313"
 					        :draggable false
 					        :disableDefaultUI true})})})))
+=======
+					:color "#476DD5"
+					:zoom 4
+					:mapTypeId js/google.maps.MapTypeId.ROADMAP,
+					:scrollwheel false
+					:center "-25.085875,134.284057"
+					:draggable false
+					:disableDefaultUI true
+					:styles 
+					[
+					(clj->js {
+						:featureType "administrative.province"
+						:elementType "labels.text"
+						:stylers [(clj->js { :visibility "off" })]
+						}),
+					(clj->js {
+						:featureType "administrative.locality"
+						:elementType "labels"
+						:stylers [(clj->js { :visibility "off" })]
+						}),
+					(clj->js {
+						:featureType "administrative.province"
+						:elementType "geometry"
+						:stylers [(clj->js { :visibility "off" })]
+						}),
+					(clj->js {
+						:featureType "water"
+						:elementType "labels.text"
+						:stylers [(clj->js { :visibility "off" })]
+						}),
+					(clj->js {
+						:featureType "administrative.country"
+						:elementType "labels"
+						:stylers [(clj->js { :visibility "off" })]
+						}),
+					(clj->js {
+						:featureType "administrative.country"
+						:elementType "geometry"
+						:stylers [(clj->js { :visibility "off" })]
+						}),
+					(clj->js {
+						:featureType "landscape.natural.landcover"
+						:elementType "geometry"
+						:stylers [(clj->js { :visibility "simplified" })]
+						})
+					]})})})))
+
+
+
+(defn say
+  ([something]
+     (say "greeting" something))
+  ([id something]
+     (.text ($ (str "#" id)) something)))
+
+(defn display [state]
+  (say "turn" (str (-> state :turn))))
+>>>>>>> 4d2e7db5de658ae4dcd70359b193151c51e87373
 
