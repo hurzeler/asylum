@@ -9,3 +9,5 @@ pom.xml.asc
 /.nrepl-port
 /.repl
 /out
+resources/public/js/main.js
+/resources/public/main.js

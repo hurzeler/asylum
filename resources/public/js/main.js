@@ -24965,7 +24965,8 @@ goog.require("jayq.core");
 goog.require("jayq.util");
 goog.require("jayq.core");
 asylum.view.init_map = function init_map(map_selector) {
-  return jayq.core.$.call(null, map_selector).gmap3(cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["options", cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["color", "#476DD5", "zoom", 4, "mapTypeId", google.maps.MapTypeId.SATELLITE, "mapTypeControl", false, "navigationControl", false, "scrollwheel", false, "streetViewControl", false], true))], true)))
+  return jayq.core.$.call(null, map_selector).gmap3(cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:map", cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:address", "1 macquarie st, sydney", "\ufdd0:options", cljs.core.clj__GT_js.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:color", "#476DD5", "\ufdd0:zoom", 4, "\ufdd0:mapTypeId", google.maps.MapTypeId.ROADMAP, "\ufdd0:scrollwheel", false, "\ufdd0:center", "-25.085875,134.284057", 
+  "\ufdd0:draggable", false, "\ufdd0:disableDefaultUI", true], true))], true))], true)))
 };
 goog.provide("goog.disposable.IDisposable");
 goog.disposable.IDisposable = function() {
@@ -37892,6 +37893,7 @@ goog.provide("asylum.main");
 goog.require("cljs.core");
 goog.require("jayq.core");
 goog.require("jayq.core");
+goog.require("asylum.view");
 goog.require("domina.css");
 goog.require("domina.events");
 goog.require("domina");
@@ -37924,7 +37926,8 @@ asylum.main.say = function() {
   return say
 }();
 jayq.core.$.call(null, function() {
-  return asylum.main.say.call(null, "Hell WOrld")
+  asylum.main.say.call(null, "Hell WOrld");
+  return asylum.view.init_map.call(null, "#map")
 });
 goog.provide("asylum.util");
 goog.require("cljs.core");
