@@ -106,11 +106,29 @@
       ([id something]
        (.text ($ (str "#" id)) something)))
 
+(defn update-levers
+      [state]
+      (let [levers (:levers state)]
+	      (do 
+	        (.val ($ "#offshore-intake") (:offshore-intake levers))
+	        (.val ($ "#detention-proportion") (:detention-proportion levers)))))
+      
+
 (defn display [state]
       (do 
         (say "turn" (str (-> state :turn)))
-        (show-boats (-> state :current :transit))))
+        (show-boats (-> state :current :transit))
+        (update-levers state)))
+
+
+(defn lever-values 
+      "Collect the lever values"
+      []
+      {:levers {:offshore-intake (-> (.val ($ "#offshore-intake")) js/parseInt)
+                :detention-proportion (-> (.val ($ "#detention-proportion"))  js/parseFloat)}})
 
 (defn init-view
-      []
-      (init-map))
+      [state]
+      (log state)
+      (init-map)
+      (update-levers state))
