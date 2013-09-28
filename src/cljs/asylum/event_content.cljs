@@ -312,5 +312,29 @@ On the same day, the Australian Government endorses in principle all 22 of the E
    {:good {:effect (ee/dsr-factor :morrison 0.07) :title "Adopt" :description "You adopt a simple processing system"}
     :bad {:effect (ee/dsr-factor :morrison -0.05) :title "Reject" :description ""}}})
 
+(def resettlement-workgroup
+  {:title "Single Processing System"
+   :media {:name "business-council.jpg" :type :image}
+   :content "Australia considers hosting a meeting of the Working Group on Resettlement (WGR) in Melbourne. The meeting would bring together 87 leaders of government, NGO and UN refugee resettlement programs to discuss post-arrival settlement support for resettled refugees. It would be the first WGR meeting in the Southern Hemisphere and the first WGR meeting to focus exclusively on post-arrival support."
+   :event-date "20-23 February 2012"
+   :links [] 
+   :constraints {:morrison [0 0.5]
+                 :turn [1 10]}
+    :options
+   {:good {:effect (ee/dsr-factor :morrison 0.03) :title "Support" :description "You facilitate the meeting"}
+    :bad {:effect (ee/dsr-factor :morrison -0.05) :title "Reject" :description "You have no interest meeting other world leaders"}}})
+
+(def shp-visa-high-court-decision
+  {:title "High Court desicion on SHP visas"
+   :media {:name "fereral-court.jpg" :type :image}
+   :content "The High Court of Australia rules that it was not a requirement for the grant of an Special Humanitarian Program (SHP) visa for the sponsor to be under 18 both at the time of application and the time of decision. The ruling removes the barrier to family reunion faced by unaccompanied minors who apply to sponsor their parents for resettlement but turn 18 before a decision is made on the application."
+   :event-date "14 December 2011"
+   :links [] 
+   :constraints {:morrison [0 1]
+                 :turn [1 10]}
+    :options
+   {:good {:effect (ee/dsr-factor :morrison 0.03) :title "Support" :description "You are ready to implement the High Courts decision"}
+    :bad {:effect (ee/dsr-factor :morrison -0.03) :title "Appeal Decision" :description "You do not accept the court decision"}}})
+
 
 
