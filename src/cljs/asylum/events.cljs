@@ -28,15 +28,29 @@
    :options {}})
 
 (def event-store
-  (atom #{dummy-event
-          end-event-0 end-event-1
+  (atom #{end-event-0 end-event-1
           ec2/operation-steel-fences
           ec/mou-naru
           ec/int-covenant-breach
           ec/naru-riot
           ec/png-resettlement
           ec/unchr-report-manus-island
-          ec/resumption-processing-asylum-claims}))
+          ec/resumption-processing-asylum-claims
+          ec/parliamentary-joint-committee'
+          ec/community-proposal-pilot
+          ec/redcross-inaugural-vulnerability-report
+          ec/excision-policy
+          ec/full-federal-court-challange
+          ec/resettlemet-deal-new-zealand
+          ec/manus-island-unhcr-report
+          ec/unhcr-nauru-report
+          ec/no-advantage-test
+          ec/offshore-processing-png
+          ec/enhanced-screening
+          ec/implemenation-expert-panel
+          ec/nauru-transfer
+          ec/increase-intake-20000
+          ec/offshore-legislation}))
 
 (defn in-range [n [x y]]
   (<= x n y))
@@ -60,8 +74,11 @@
   (let [effect (get-in state [:next-event :options choice :effect])]
     (update-in state [:effects] conj [1 effect])))
 
+(defn cap-state-values [state]
+  (assoc state :morrison (min 1 (max 0 (:morrison state)))))
+
 (defn apply-single-effect [state [age effect]]
-  (effect state age))
+  (cap-state-values (effect state age)))
 
 (defn age-effects [effects]
   (map (fn [[age effect]] [(inc age) effect]) effects))
