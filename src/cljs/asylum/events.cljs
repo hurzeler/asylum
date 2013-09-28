@@ -12,7 +12,7 @@
     :bad {:effect (ee/dsr-factor :morrison 0.2) :title "Bad" :description "Shit fuck crap"}}})
 
 (def event-store
-  [dummy-event])
+  (atom #{dummy-event}))
 
 (defn in-range [n [x y]]
   (<= x n y))
@@ -25,10 +25,12 @@
      (in-range turn (:turn constraints)))))
 
 (defn choose-event [state]
-  (let [{:keys [morrison turn]} state
-        potentials (filter (partial does-apply? state) event-store)]
-    (when-not (empty? potentials)
-      {:next-event (rand-nth potentials)})))
+  (let [potentials (filter (partial does-apply? state) @event-store)]
+    (let [chosen (when-not (empty? potentials)
+                   (rand-nth potentials))]
+      (swap! event-store disj chosen)
+      (when chosen
+        {:next-event chosen}))))
 
 (defn apply-event-choice [state choice]
   (let [effect (get-in state [:next-event :options choice :effect])]
