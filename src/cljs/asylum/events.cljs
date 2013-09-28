@@ -29,7 +29,13 @@
 (def event-store
   (atom #{dummy-event
           end-event-0 end-event-1
-          ec2/operation-steel-fences}))
+          ec2/operation-steel-fences
+          ec/mou-naru
+          ec/int-covenant-breach
+          ec/naru-riot
+          ec/png-resettlement
+          ec/unchr-report-manus-island
+          ec/resumption-processing-asylum-claims}))
 
 (defn in-range [n [x y]]
   (<= x n y))
