@@ -5,7 +5,7 @@
 
 (def map-selector "#map")
 
-(defn init-map 
+(defn- init-map 
       "Initialise the map background that forms the basis for the asylum UI"
       []
       (.gmap3 
@@ -85,9 +85,9 @@
       [-10.228437 142.456053]
       [-5.528511 100.532225]])
 
-(def boat-marker-opts {:options {:icon "/img/boatPin.png"}})
+(def boat-marker-opts {:options {:icon "img/boatPin.png"}})
 
-(defn show-boats
+(defn- show-boats
       "Given a number of boats to display, randomly place them on a journey to australia"
       [num-boats]
       (let [boats-coords (take num-boats (shuffle possible-boat-coords))
@@ -101,44 +101,47 @@
                        }))))
 
 
-(defn say
+(defn- say
       ([something]
        (say "greeting" something))
       ([id something]
        (.text ($ (str "#" id)) something)))
 
-(defn update-levers
+(defn- update-levers
       [state]
       (let [levers (:levers state)]
            (do 
              (.val ($ "#offshore-intake") (:offshore-intake levers))
              (.val ($ "#detention-proportion") (:detention-proportion levers)))))
 
-(defn option-colour 
+(defn- option-colour 
      [{morrison-index :morrison}]
      (log morrison-index)
      (if (> morrison-index 1) "orange" "blue")) 
 
+(defmulti on-event-choice-selection key)
+(defmethod on-event-choice-selection :continue [option]
+           (-> ($ ".gaugesPanel") (.removeClass "inactive") (.addClass "active"))
+           :continue)
+(defmethod on-event-choice-selection :default [option] (key option))
+
 (defn- option-button
-       [click-fn [option-kw {title :title effect :effect}]]
+       [click-fn [option-kw {title :title effect :effect} :as option]]
        (let [morrison-index (effect {:morrison 1} 1)
              button-colour (option-colour morrison-index)]
             (-> ($ "<button>")
 	         (.addClass "button")
 	         (.addClass button-colour)
 	         (.text title)
-	         (.on "click" (partial click-fn option-kw)))))
+	         (.on "click" (comp click-fn (partial on-event-choice-selection option))))))
 
-
-(defn show-event 
+(defn- show-event 
       [{:keys [title content options]} apply-event-choice-fn]
       (let [option-buttons (to-array (map (partial option-button apply-event-choice-fn) options))
             content-div ($ "#event-panel")]           
            (-> content-div (.find "header h2") (.text title))
-           (-> content-div (.find "section p") (.html content))
+           (-> content-div (.find "section") (.html content))
            (-> content-div (.find "footer") (.empty) (.append option-buttons))))
-
-
 
 (defn display [state apply-event-choice-fn]
       (do 
@@ -148,7 +151,7 @@
         (show-event (:next-event state) apply-event-choice-fn)))
 
 
-(defn lever-values 
+(defn- lever-values 
       "Collect the lever values"
       []
       {:levers {:offshore-intake (-> (.val ($ "#offshore-intake")) js/parseInt)

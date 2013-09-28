@@ -301,7 +301,13 @@ body * {
       margin: 0.2em 0;
       font-size: 1.4rem; }
   .popUp section {
-    padding: 0.5rem 1rem; }
+    padding: 0 1rem; }
+    .popUp section p:first-of-type {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      font-weight: 400; }
+  .popUp footer {
+    padding: 0 1rem; }
 
 .gaugesPanel {
   position: absolute;
@@ -372,11 +378,13 @@ body * {
   font-size: 1.2rem;
   font-weight: 100;
   padding: 0.8rem 1.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
   border-radius: 3px;
-  box-shadow: 0 1px 2px rgba(255, 255, 255, 0.5) inset, 1px 1px 2px rgba(0, 0, 0, 0.4);
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   letter-spacing: 1px;
+  border: none;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0) inset;
   -webkit-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
@@ -384,22 +392,34 @@ body * {
   transition: all 0.2s ease; }
   .button.blue {
     background: #2881e2;
-    border: 1px solid darker(#2881e2, 10%);
+    border: 1px solid #1f7ce1;
     color: #fff;
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5); }
+    text-shadow: 0 0px 0px rgba(0, 0, 0, 0.3); }
   .button.darkBlue {
     color: #fff;
     background: #104386;
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5); }
+    border: 1px solid #0f3e7d;
+    text-shadow: 0 0px 0px rgba(0, 0, 0, 0.3); }
   .button.grey {
     color: #212121;
     background: #a1a1a1;
-    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.7); }
+    border: 1px solid #9c9c9c;
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0.7); }
   .button.orange {
     color: #fff;
     border: 1px solid #df4206;
     background: #e94506;
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5); }
+    text-shadow: 0 0px 0px rgba(0, 0, 0, 0.3); }
+  .button:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3) inset; }
+    .button:hover.blue {
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
+    .button:hover.darkBlue {
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
+    .button:hover.grey {
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7); }
+    .button:hover.orange {
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0.5em 0 1em;
@@ -407,7 +427,9 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  line-height: 1.4; }
+  line-height: 1.4;
+  font-size: 0.8rem;
+  font-weight: 200; }
 
 ul {
   padding-left: 1.5rem; }
