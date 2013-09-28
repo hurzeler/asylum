@@ -120,3 +120,15 @@
    {:good {:effect (ee/dsr-factor :morrison -0.03) :title "Reject" :description ""}
     :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Pass" :description "Pass excission policy legislation"}}})
 
+(def full-federal-court-challange
+  {:title "Full Federal Court finds that the International Treaty Obligations Assessment process unlawful"
+   :media {:name "federal-court.jpg" :type :image}
+   :content "In Minister for Immigration and Citizenship v SZQRB, the Full Federal Court finds that the International Treaty Obligations Assessment process (used by the Government to assess complementary protection needs) is not being carried out in accordance with the law. It also finds that the Minister¡¯s decision not to exercise his non-compellable public interest powers to grant the plaintiff a visa, irrespective of the merits of the case, denied the plaintiff procedural fairness ¡°in the most fundamental way¡±. The Court issues an injunction preventing the deportation of the plaintiff until his claims have been assessed according to law. As a result, deportations of other asylum seekers in a similar position to the plaintiff are temporarily suspended."
+   :event-date "20 March 2013"
+   :links ["http://www.austlii.edu.au/au/cases/cth/FCAFC/2013/33.html"] 
+   :constraints {:morrison [0 1]
+                 :turn [1 100]}
+    :options
+   {:good {:effect (ee/dsr-factor :morrison -0.03) :title "Accept findings" :description "You accept the courts findings and seek to implement changes"}
+    :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Appeal" :description "You fight the courts decision"}}})
+
