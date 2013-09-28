@@ -1,4 +1,4 @@
-(defproject asylm "1.0.0"
+(defproject asylum "1.0.0"
   :description "Asylum - A Clojure Cup game"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
