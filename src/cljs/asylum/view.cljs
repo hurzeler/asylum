@@ -61,3 +61,12 @@
 
 
 
+(defn say
+  ([something]
+     (say "greeting" something))
+  ([id something]
+     (.text ($ (str "#" id)) something)))
+
+(defn display [state]
+  (say "turn" (str (-> state :turn))))
+
