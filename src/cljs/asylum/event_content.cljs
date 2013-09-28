@@ -168,3 +168,18 @@
    {:good {:effect (ee/dsr-factor :morrison -0.03) :title "Accept findings" :description "You accept the findings and seek to improve conditions"}
     :bad {:effect (ee/dsr-factor :morrison 0.07) :title "Ignore" :description "You choose to ignore the UNHCR report"}}})
 
+(def no-advantage
+  {:title "¡°no advantage¡± test"
+   :media {:name "no-advantage.jpg" :type :image}
+   :content "Following a significant increase in boat arrivals, the Australian Government considers not to transfer all asylum seekers who arrived by boat after today to offshore processing centres in the immediate future. As a result, some of these asylum seekers will be processed in Australia, but will still be subject to the ¡°no advantage¡± test. This would mean that:
+They will be released into the community on bridging visas but will not have the right to work.
+If they are found to be refugees, they will remain on bridging visas and will not receive a permanent visa until they have ¡°waited¡± for the same length of time that they would have waited, if they had applied for resettlement overseas.
+They may be transferred to Nauru or Manus Island at any time."
+   :event-date "21 November 2012"
+   :links ["http://www.refugeecouncil.org.au/n/mr/121121_noadvantage.pdf"] 
+   :constraints {:morrison [0.2 1]
+                 :turn [2 100]}
+    :options
+   {:good {:effect (ee/dsr-factor :morrison -0.03) :title "Take no action" :description ""}
+    :bad {:effect (ee/dsr-factor :morrison 0.07) :title "Introduce no-advantage test" :description "You accept that a no-advantage test is necessary"}}})
+
