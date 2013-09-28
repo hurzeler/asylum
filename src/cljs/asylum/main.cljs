@@ -7,6 +7,10 @@
       [jayq.util :only [log]]
       [asylum.state :only [state]]))
 
+(defn apply-event-choice [choice]
+      (log (str "Player chose " (name choice)))
+      (swap! state e/apply-event-choice choice))
+
 (defn advance-turn []
       (let [turn-levers (v/lever-values)]
            (swap! state update-in [:turn] inc)
@@ -18,11 +22,7 @@
            (log "<<<STATE POST EVENT PROCESSING>>>")
            (log @state)
            (swap! state merge (e/choose-event @state))
-           (v/display @state)))
-
-(defn apply-event-choice [choice]
-      (log (str "Player chose " (name choice)))
-      (swap! state e/apply-event-choice choice))
+           (v/display @state advance-turn apply-event-choice)))
 
 ($ (fn []
-       (v/init-view @state advance-turn apply-event-choice)))
+       (v/display @state advance-turn apply-event-choice)))
