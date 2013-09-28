@@ -18,7 +18,7 @@
    :effectss 1
    :effect (ee/dsr-factor :population -0.2)})
 
-n(def int-covenant-breach
+(def int-covenant-breach
   {:title "Australia has breached the International Covenant on Civil and Political Rights by indefinitely detaining refugees who have failed security assessments"
    :media {:name mou-naru.jpg :type image}
    :content "The UN Human Rights Committee finds that Australia has breached the International Covenant on Civil and Political Rights by indefinitely detaining refugees who have failed security assessments. It asserts that Australia has violated Articles 7 and 9 of the Convention through detaining refugees arbitrarily, failing to provide an effective judicial remedy and subjecting detainees to conditions of detention which are ¡°cumulatively inflicting serious psychological harm upon them¡±. The Committee directs the Australian Government to provide all refugees in this situation with an effective remedy, including release from detention under appropriate conditions, rehabilitation and appropriate compensation."
