@@ -1,5 +1,8 @@
 (ns asylum.event-engine)
 
+(defn get-turn [state]
+  (:turn state))
+
 (defn- polynomial [& coeffiecients]
   (fn [x] (reduce + (map-indexed (fn [pow co] (* co (Math/pow x pow))) (reverse coeffiecients)))))
 
@@ -12,24 +15,23 @@
 
 (defn- damped-step-response
   "Takes up to 2 arguments (mu, rho) and returns a damped step response function f(x) = mp * x * (1-e^(-rho*t) * (sin(mu*t +phi)/sin(phi)"
-  ([]
-     (damped-step-response 3 0.5))
-  ([mu]
-     (damped-step-response mu 0.5))
-  ([mu rho]
+  ([state]
+     (damped-step-response state 3 0.5))
+  ([state mu]
+     (damped-step-response state mu 0.5))
+  ([state mu rho]
      (fn [value, step] (let [phi (/ Math/PI 2)]
-                 (-> (* (s :turn) mu)
+                 (-> (* (get-turn state) mu)
                   (+ phi)
                   (Math/sin)
                   (/ (Math/sin phi)) 
-                  (* (Math/exp (unchecked-negate (* rho (s :turn)))))
+                  (* (Math/exp (unchecked-negate (* rho (get-turn state)))))
                   (unchecked-negate)
                   (+ 1)
                   (*  (* step value))
-                  (+ value)))
-       )))
+                  (+ value))))))
 
 (defn- dsr-factor [ks step & params]
     (let [ks (if (coll? ks) ks [ks])]
-     (fn [system]
-       (update-in system ks #((apply damped-step-response params) % step )))))
+     (fn [state]
+       (update-in state ks #((apply damped-step-response (cons state params)) % step )))))
