@@ -113,7 +113,7 @@ body * {
 	box-shadow: 0 2px 5px rgba(0,0,0,0.2);  
 	@media screen and (min-width:500px) {
 		position: absolute;
-		top:10%;
+		top:20%;
 		left:50%;
 		margin-left:-250px;
 		width: 500px;
@@ -131,6 +131,20 @@ body * {
 		padding:$defaultPadding;
 	}
 
+}
+//GAUGES
+.gaugesPanel {
+
+	@media screen and (min-width:500px){
+		width: 500px;
+	}
+	@media screen and (min-width:720px){
+		max-width: 720px;
+		width:100%;
+	}
+	.popularity {}
+	.profile {}
+	.deaths {}
 }
 
 // TYPOGRAPHY
