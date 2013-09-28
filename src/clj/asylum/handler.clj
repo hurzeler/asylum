@@ -33,6 +33,9 @@
     (ring.adapter.jetty/run-jetty #'main {:port 3000 :join? false}))
   server)
 
+(defn non-browser-repl []
+  (cemerick.piggieback/cljs-repl :repl-env (cemerick.austin/exec-env)))
+
 (defn start-server-and-repl
   []
   (run)
