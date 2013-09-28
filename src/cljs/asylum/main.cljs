@@ -13,10 +13,15 @@
            (swap! state merge turn-levers)
            (log "<<<STATE PRIOR TO EVENT PROCESSING>>>")
            (log @state)
-           (swap! state e/apply-event)
+           (swap! state e/apply-effects)
+           (swap! state e/apply-levers)
            (log "<<<STATE POST EVENT PROCESSING>>>")
            (log @state)
+           (swap! state merge (e/choose-event @state))
            (v/display @state)))
+
+(defn apply-event-choice [choice]
+  (swap! state e/apply-event-choice choice))
 
 (defn register-next []
       (jq/bind ($ "#nextTurn") :click advance-turn))

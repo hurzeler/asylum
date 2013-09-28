@@ -1,7 +1,7 @@
 (ns asylum.state)
 
 (def state
-  (atom {:turn 0
+  (atom {:turn 1
          :morrison 0.5
          :current {:arrivals 250
                    :deaths 10
