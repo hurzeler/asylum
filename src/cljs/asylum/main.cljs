@@ -14,7 +14,10 @@
          :accumulated {:deported 0
                        :offshore 0
                        :detention 0
-                       :community 0}}))
+                       :community 0}
+         :policies []
+         :levers {:offshore-intake 1000
+                  :detention-proportion 0.5}}))
 
 (defn advance-turn []
   (swap! state update-in [:turn] inc)
