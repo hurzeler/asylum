@@ -23,7 +23,8 @@
          ;; :gem-version "3.2.1"
          }
 
-  :plugins [[lein-haml-sass "0.2.5"]]
+  :plugins [[lein-haml-sass "0.2.5"]
+            [com.cemerick/austin "0.1.1"]]
 
   :source-paths ["src/clj" "src/cljs"]
 
@@ -31,7 +32,7 @@
   
   :profiles {:dev
              {:repl-options {:init-ns asylum.handler}
-              :plugins [[com.cemerick/austin "0.1.1"]
+              :plugins [
                         [lein-cljsbuild "0.3.2"]
                         [lein-ring "0.8.5"]]
               :cljsbuild {:builds [{:source-paths ["src/cljs"]
