@@ -227,7 +227,7 @@ body * {
   position: absolute;
   bottom: 0;
   left: 50%;
-  margin-left: -250px; }
+  margin-left: -360px; }
   #logoBox h1 {
     float: right;
     margin: 0;
@@ -278,14 +278,20 @@ body * {
 
 .popUp {
   background: #f5ede3;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: absolute; }
   @media screen and (min-width: 500px) {
     .popUp {
-      position: absolute;
       top: 20%;
       left: 50%;
       margin-left: -250px;
       width: 500px; } }
+  @media screen and (min-width: 720px) {
+    .popUp {
+      top: 20%;
+      left: 50%;
+      margin-left: -360px;
+      width: 720px; } }
   .popUp header {
     background: #104386;
     padding: 1rem;
@@ -337,24 +343,29 @@ body * {
     width: 350px;
     height: 50px;
     position: relative; }
+  .gaugesPanel .popularity .popularityValue, .gaugesPanel .deaths .deathsValue {
+    height: 50px;
+    border-radius: 50px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-weight: 100;
+    font-size: 1.5rem;
+    padding: 0.8rem;
+    line-height: 1; }
   .gaugesPanel .popularity {
     float: left; }
     .gaugesPanel .popularity .popularityValue {
       float: right;
-      width: 56%;
-      height: 50px;
       background: #6699ff;
-      border-radius: 50px;
-      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); }
+      text-align: left;
+      width: 56%; }
   .gaugesPanel .deaths {
     float: right; }
     .gaugesPanel .deaths .deathsValue {
       float: left;
-      width: 46%;
-      height: 50px;
       background: #ff6600;
-      border-radius: 50px;
-      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); }
+      text-align: right;
+      width: 88%; }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0.5em 0 1em;

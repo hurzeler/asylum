@@ -51,7 +51,7 @@ body * {
 	position: absolute;
 	bottom:0;
 	left:50%;
-	margin-left:-250px;
+	margin-left:-360px;
 	h1 { 
 		float:right;
 		margin:0;
@@ -112,13 +112,20 @@ body * {
 .popUp {
 	background: $bgColour;
 	box-shadow: 0 2px 5px rgba(0,0,0,0.2);  
+	position: absolute;
 	@media screen and (min-width:500px) {
-		position: absolute;
 		 // MOVE IT BACK TO 10% WHEN THE PANEL SWITCH IS DONE
 		top:20%;
 		left:50%;
 		margin-left:-250px;
 		width: 500px;
+	}
+	@media screen and (min-width:720px) {		
+		 // MOVE IT BACK TO 10% WHEN THE PANEL SWITCH IS DONE
+		top:20%;
+		left:50%;
+		margin-left:-360px;
+		width: 720px;
 	}
 	header {
 		background: $darkBlue;
@@ -185,26 +192,33 @@ body * {
 		// overflow: hidden;
 
 	}
+
+	.popularity .popularityValue, .deaths .deathsValue {
+		height:50px;
+		border-radius: 50px;
+		box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+		color:#fff;
+		font-weight: 100;
+		font-size: 1.5rem;
+		padding:0.8rem;
+		line-height: 1;
+	}
 	.popularity {
 		float: left;
 		.popularityValue {
 			float:right;
-			width: 56%;
-			height:50px;
 			background:$blue;
-			border-radius: 50px;
-			box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+			text-align: left;
+					width: 56%;
 		}
 	}
 	.deaths {
 		float: right;
 		.deathsValue {
 			float:left;
-			width: 46%;
-			height:50px;
 			background:$orange;
-			border-radius: 50px;
-			box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+			text-align: right;
+					width: 88%;
 		}
 	}
 }
