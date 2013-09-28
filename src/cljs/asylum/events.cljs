@@ -36,7 +36,22 @@
           ec/naru-riot
           ec/png-resettlement
           ec/unchr-report-manus-island
-          ec/resumption-processing-asylum-claims}))
+          ec/resumption-processing-asylum-claims
+          ec/parliamentary-joint-committee'
+          ec/community-proposal-pilot
+          ec/redcross-inaugural-vulnerability-report
+          ec/excision-policy
+          ec/full-federal-court-challange
+          ec/resettlemet-deal-new-zealand
+          ec/manus-island-unhcr-report
+          ec/unhcr-nauru-report
+          ec/no-advantage-test
+          ec/offshore-processing-png
+          ec/enhanced-screening
+          ec/implemenation-expert-panel
+          ec/nauru-transfer
+          ec/increase-intake-20000
+          ec/offshore-legislation}))
 
 (defn in-range [n [x y]]
   (<= x n y))
