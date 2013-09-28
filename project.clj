@@ -7,11 +7,12 @@
                  [org.clojure/clojurescript "0.0-1847"]
                  [compojure "1.1.5"]
                  [ring "1.2.0"]
+                 [enlive "1.1.1"]
                  [domina "1.0.2-SNAPSHOT"]]
 
   :source-paths ["src/clj" "src/cljs"]
 
-  :ring {:handler asylum.handler/app}
+  :ring {:handler asylum.handler/main}
   
   :profiles {:dev
              {:repl-options {:init-ns clojure-cup-prep.core}
