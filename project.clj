@@ -30,12 +30,12 @@
   :ring {:handler asylum.handler/main}
   
   :profiles {:dev
-             {:repl-options {:init-ns clojure-cup-prep.core}
+             {:repl-options {:init-ns asylum.handler}
               :plugins [[com.cemerick/austin "0.1.1"]
                         [lein-cljsbuild "0.3.2"]
                         [lein-ring "0.8.5"]]
               :cljsbuild {:builds [{:source-paths ["src/cljs"]
-                                    :compiler {:output-to "resources/public/main.js"
-                                               :optimizations :simple
+                                    :compiler {:output-to "resources/public/js/main.js"
+                                               :optimizations :whitespace
                                                :pretty-print true}}]}}})
 
