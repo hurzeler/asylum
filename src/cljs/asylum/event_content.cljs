@@ -208,7 +208,7 @@
     :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Implement enhanced screening" :description "Implement and start enhanced screening for Sri Lankan asylum seekers"}}})
 
 (def implemenation-expert-panel
-  {:title "Implementation of the Expert Panel¡¯s recommendations on humanitarian family reunion"
+  {:title "Implementation of the Expert Panel's recommendations on humanitarian family reunion"
    :media {:name "family-reunion.jpg" :type :image}
    :content "The Australian Government announces that it will consider the implemention of the Expert Panel¡¯s recommendations on humanitarian family reunion:
 Refugees who arrived by boat before today (except for unaccompanied minors) will have to meet additional criteria if they wish to sponsor family members for resettlement under the Special Humanitarian Program, and their applications will be given the lowest processing priority.
@@ -299,5 +299,17 @@ On the same day, the Australian Government endorses in principle all 22 of the E
     :options
    {:good {:effect (ee/dsr-factor :morrison 0.07) :title "Adopt" :description "You adopt the findings"}
     :bad {:effect (ee/dsr-factor :morrison -0.05) :title "Reject" :description "You reject the findings"}}})
+
+(def single-processing-system
+  {:title "Single processing system for asylum seekers"
+   :media {:name "processing.jpg" :type :image}
+   :content "The single processing system for asylum seekers, regardless of their mode of arrival, comes info effect."
+   :event-date "24 March 2012"
+   :links [] 
+   :constraints {:morrison [0 1]
+                 :turn [1 100]}
+    :options
+   {:good {:effect (ee/dsr-factor :morrison -0.04) :title "Adopt" :description "You adopt a simplified processing system"}
+    :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Reject" :description "You reject the new system"}}})
 
 
