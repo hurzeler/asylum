@@ -84,12 +84,13 @@
       [-10.228437 142.456053]
       [-5.528511 100.532225]])
 
+(def boat-marker-opts {:options {:icon "/img/boatPin.png"}})
 
 (defn show-boats
       "Given a number of boats to display, randomly place them on a journey to australia"
       [num-boats]
       (let [boats-coords (take num-boats (shuffle possible-boat-coords))
-            boats (map #(clj->js {:latLng %}) boats-coords)]
+            boats (map #(clj->js (merge {:latLng %} boat-marker-opts)) boats-coords)]
            (.gmap3 
              ($ map-selector)
              
@@ -108,5 +109,5 @@
 (defn display [state]
       (do 
         (say "turn" (str (-> state :turn)))
-        (show-boats 3)))
+        (show-boats (-> state :current :transit))))
 
