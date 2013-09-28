@@ -23752,12 +23752,6 @@ jayq.core.ajax_m = cljs.core.PersistentArrayMap.fromArray(["\ufdd0:return", cljs
   return jayq.core.done.call(null, jayq.core.ajax.call(null, a), b)
 }, "\ufdd0:zero", cljs.core.identity], !0);
 var asylum = {main:{}};
-asylum.main.hello = function() {
-  return alert("hello")
-};
-asylum.main.whoami = function() {
-  return navigator.userAgent
-};
 asylum.main.say = function() {
   var a = null, b = function(b) {
     return a.call(null, "greeting", b)
@@ -23776,6 +23770,28 @@ asylum.main.say = function() {
   a.cljs$core$IFn$_invoke$arity$2 = c;
   return a
 }();
+asylum.main.state = cljs.core.atom.call(null, cljs.core.PersistentArrayMap.fromArray(["\ufdd0:turn", 0, "\ufdd0:changes", 0], !0));
+asylum.main.display = function() {
+  asylum.main.say.call(null, "turn", "" + cljs.core.str((new cljs.core.Keyword("\ufdd0:turn")).call(null, cljs.core.deref.call(null, asylum.main.state))));
+  return asylum.main.say.call(null, "changes", "" + cljs.core.str((new cljs.core.Keyword("\ufdd0:changes")).call(null, cljs.core.deref.call(null, asylum.main.state))))
+};
+asylum.main.advance_turn = function() {
+  cljs.core.swap_BANG_.call(null, asylum.main.state, cljs.core.update_in, cljs.core.PersistentVector.fromArray(["\ufdd0:turn"], !0), cljs.core.inc);
+  return asylum.main.display.call(null)
+};
+asylum.main.hello = function() {
+  return alert("Hello")
+};
+asylum.main.register_next = function() {
+  return jayq.core.bind.call(null, jayq.core.$.call(null, "#nextTurn"), "\ufdd0:click", asylum.main.advance_turn)
+};
+asylum.main.register_change = function() {
+  return jayq.core.bind.call(null, jayq.core.$.call(null, "#changeSomething"), "\ufdd0:click", function() {
+    return cljs.core.swap_BANG_.call(null, asylum.main.state, cljs.core.update_in, cljs.core.PersistentVector.fromArray(["\ufdd0:changes"], !0), cljs.core.inc)
+  })
+};
 jayq.core.$.call(null, function() {
-  return asylum.main.say.call(null, "Hell WOrld")
+  asylum.main.register_next.call(null);
+  asylum.main.register_change.call(null);
+  return asylum.main.say.call(null, "Welcome to Asylum")
 });
