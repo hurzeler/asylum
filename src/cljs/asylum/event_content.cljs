@@ -7,7 +7,7 @@
    :content "<p>The Australian Government could sign a new memorandum of understanding with Nauru similar to its Regional Resettlement Arrangement with Papua New Guinea. Asylum seekers who are transferred to Nauru for processing and found to be refugees could be settled in Nauru permanently.</p>"
    :event-date "3 Aug 2013"
    :links ["http://www.sbs.com.au/news/article/2013/08/04/australia-signs-asylum-deal-nauru"] 
-   :constraints {:morrison [0 1]
+   :constraints {:morrison [0.05 0.95]
                  :turn [1 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.02) :title "No action" :description ""}
@@ -19,7 +19,7 @@
    :content "<p>The UN Human Rights Committee finds that Australia has breached the International Covenant on Civil and Political Rights by indefinitely detaining refugees who have failed security assessments. It asserts that Australia has violated Articles 7 and 9 of the Convention through detaining refugees arbitrarily, failing to provide an effective judicial remedy and subjecting detainees to conditions of detention which are cumulatively inflicting serious psychological harm upon them . The Committee directs the Australian Government to provide all refugees in this situation with an effective remedy, including release from detention under appropriate conditions, rehabilitation and appropriate compensation.</p>"
    :event-date "25 and 26 July 2013"
    :links ["http://tbinternet.ohchr.org/Treaties/CCPR/Shared%20Documents/AUS/CCPR_C_108_D_2094_2011_20720_E.pdf" "http://tbinternet.ohchr.org/Treaties/CCPR/Shared%20Documents/AUS/CCPR_C_108_D_2136_2012_20721_E.pdf"]
-   :constraints {:morrison [0.5 1]
+   :constraints {:morrison [0.5 0.95]
                  :turn [1 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.02) :title "No action" :description "Accept the UN's findings"}
@@ -31,7 +31,7 @@
    :content "<p>A peaceful protest at the offshore processing facility in Nauru degenerates into a riot. Several buildings are destroyed and over 100 detainees are arrested. On 23 July, a group of present and former Salvation Army staff members who had worked in the Nauru facility release a public statement asserting that this riot although shocking, was an inevitable outcome from a cruel and degrading policy . They describe the constant degradation and suffering  experienced by detainees in the Nauru facility and claim that the riot was not borne out of malice was not borne out of malice. It was a build up of pressure and anxiety over ten months of degrading treatment, and a planned peaceful protest that degenerated. It was a reaction to a refugee processing system that is devoid of logic and fairness .</p>"
    :event-date "19 July 2013"
    :links ["http://www.refugeecouncil.org.au/n/mr/130723-Salvos-Nauru.pdf"] 
-   :constraints {:morrison [0.5 1]
+   :constraints {:morrison [0.5 0.95]
                  :turn [10 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.03) :title "Review current policies" :description ""}
@@ -43,7 +43,7 @@
    :content "<p>Prime Minister considers a new Regional Resettlement Arrangement with Papua New Guinea, whereby all asylum seekers arriving in Australia by boat will be transferred to Papua New Guinea for processing and, if they are found to be refugees, permanent settlement. They would not have the opportunity to seek asylum or settle in Australia.</p>"
    :event-date "19 July 2013"
    :links ["http://unhcr.org.au/unhcr/index.php?option=com_content&view=article&id=344:unhcr-australia-papua-new-guinea-asylum-agreement-presents-protection-challenges-&catid=35:news-a-media&Itemid=63"] 
-   :constraints {:morrison [0.2 1]
+   :constraints {:morrison [0.2 0.95]
                  :turn [4 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.02) :title "No action" :description ""}
@@ -55,7 +55,7 @@
    :content "<p>A second UNCHR report on conditions in the offshore processing facility on Manus Island acknowledges that, while there have been some positive developments, conditions remain below international standards for the reception and treatment of asylum-seekers . In particular, UNHCR expresses ongoing concern about the harsh physical living conditions, the mandatory and indefinite detention of asylum seekers, the lack of adequate safeguards in transfer arrangements and shortcomings in the legal framework for refugee status determination.</p>"
    :event-date "12 July 2013"
    :links ["http://unhcr.org.au/unhcr/files/2013-07-12_Manus_Island_Report_Final%281%29.pdf"] 
-   :constraints {:morrison [0.4 1]
+   :constraints {:morrison [0.4 0.95]
                  :turn [4 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.02) :title "Review" :description "Order a review of offshore facilities"}
@@ -67,7 +67,7 @@
    :content "<p>The Government could resume processing of asylum claims for people who arrived by boat. By this point, the backlog stands at over 20,000.</p>"
    :event-date "3 July 2013"
    :links [] 
-   :constraints {:morrison [0.3 1]
+   :constraints {:morrison [0.3 0.95]
                  :turn [3 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.02) :title "Resume" :description "Resume processing claims"}
@@ -78,7 +78,7 @@
      :content "The Parliamentary Joint Committee on Human Rights releases the report of its inquiry into changes introduced in response to the Expert Panel¡¯s recommendations. The Committee, which includes MPs and Senators from the Australian Labor Party, Liberal Party and the Australian Greens, concludes that the measures as currently implemented carry a significant risk of being incompatible with a range of human rights .</p>"
    :event-date "19 June 2013"
    :links ["http://www.aph.gov.au/Parliamentary_Business/Committees"] 
-   :constraints {:morrison [0 1]
+   :constraints {:morrison [0.05 0.95]
                  :turn [1 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.02) :title "Accept report" :description "You review and implement the committee's recommenations"}
@@ -90,7 +90,7 @@
    :content "<p>Community Proposal Pilot. The program could allow approved community organisations in Australia to propose humanitarian entrants for resettlement in Australia and help them to settle once they arrive. Organisations are expected to pay a substantial visa fee and meet a range of costs related to the person¡¯s resettlement in Australia (such as airfares, medical checks and on-arrival support).</p>"
    :event-date "3 June 2013"
    :links ["http://www.immi.gov.au/visas/humanitarian/offshore/community-proposal-pilot.htm"] 
-   :constraints {:morrison [0 1]
+   :constraints {:morrison [0.05 0.95]
                  :turn [1 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.02) :title "Accept proposal" :description "You will allow asylum seekers to enter the community"}
@@ -102,7 +102,7 @@
    :content "<p>The Red Cross releases its inaugural Vulnerability Report, focusing on asylum seekers living in the Australian community under the no advantage  test. The Report reveals that many people seeking asylum live in the Australian community in a state of poverty, with many struggling to access adequate and sustainable housing and afford basics such as food, furniture and bedding. In launching the report, Red Cross CEO Robert Tickner says We are not talking about destitution here by normal standards. We're talking about what is by any measure among the most destitute people in the country, who are absolutely marginalised by every reasonable measure. </p>"
    :event-date "June 2013"
    :links ["http://www.redcross.org.au/files/20130614_Inaugural_Vulnerability_Report_LR.pdf"] 
-   :constraints {:morrison [0.3 1]
+   :constraints {:morrison [0.3 0.95]
                  :turn [3 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.03) :title "Accept report" :description "Address regugee's vulnerabilities"}
@@ -114,7 +114,7 @@
    :content "<p>The Australian Parliament could pass legislation which extends the excision policy to the Australian mainland. This means that asylum seekers who arrive by boat anywhere in Australia cannot lodge a valid protection claim except at the discretion of the Minister for Immigration, and are at risk of being transferred offshore for processing. Previously, the excision policy applied only to excised offshore places, such as Christmas Island.</p>"
    :event-date "16 May 2013"
    :links ["http://www.redcross.org.au/files/20130614_Inaugural_Vulnerability_Report_LR.pdf"] 
-   :constraints {:morrison [0 1]
+   :constraints {:morrison [0 0.95]
                  :turn [1 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.03) :title "Reject" :description ""}
@@ -126,7 +126,7 @@
    :content "<p>In Minister for Immigration and Citizenship v SZQRB, the Full Federal Court finds that the International Treaty Obligations Assessment process (used by the Government to assess complementary protection needs) is not being carried out in accordance with the law. It also finds that the Minister¡¯s decision not to exercise his non-compellable public interest powers to grant the plaintiff a visa, irrespective of the merits of the case, denied the plaintiff procedural fairness in the most fundamental way . The Court issues an injunction preventing the deportation of the plaintiff until his claims have been assessed according to law. As a result, deportations of other asylum seekers in a similar position to the plaintiff are temporarily suspended.</p>"
    :event-date "20 March 2013"
    :links ["http://www.austlii.edu.au/au/cases/cth/FCAFC/2013/33.html"] 
-   :constraints {:morrison [0 1]
+   :constraints {:morrison [0.05 0.95]
                  :turn [1 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.03) :title "Accept findings" :description "You accept the courts findings and seek to implement changes"}
@@ -138,7 +138,7 @@
    :content "<p>The Australian Government enter a new resettlemet deal with New Zealand, whereby 150 places from New Zealand¡¯s overall resettlement quota of 750 will be allocated to refugees who sought asylum in Australia. The refugees may be resettled directly from Australia or from offshore processing centres in Nauru and Manus Island.</p>"
    :event-date "9 February 2013"
    :links ["http://www.immigration.govt.nz/migrant/general/generalinformation/media/refugeefactsheet.htm"] 
-   :constraints {:morrison [0 1]
+   :constraints {:morrison [0.05 0.95]
                  :turn [1 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.01) :title "Accept" :description "You accept the resettlement deal with New Zealand"}
@@ -150,7 +150,7 @@
    :content "<p>UNHCR releases a report on conditions in the offshore processing facility on Manus Island which similarly concludes that the transfer of asylum-seekers to unsatisfactory temporary facilities, within a closed detention setting, and in the absence of a legal framework and functional system to assess refugee claims, do not currently meet the required international protection standards . It also expresses concern about the situation of children transferred to Manus Island, noting that the lack of any appropriate legal or regulatory framework for their treatment (in what UNHCR finds to be a mandatory, arbitrary and indefinite detention setting), and on-going delays in establishing any procedures to assess children¡¯s refugee protection needs, and broader best interests, is particularly troubling .</p>"
    :event-date "4 February 2013"
    :links ["http://unhcr.org.au/unhcr/images/2013-02-04%20Manus%20Island%20Report%20Final.pdf"] 
-   :constraints {:morrison [0.3 1]
+   :constraints {:morrison [0.3 0.95]
                  :turn [3 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.03) :title "Accept findings" :description "You accept the findings and seek to improve conditions"}
@@ -162,7 +162,7 @@
    :content "<p>UNHCR releases a report on conditions in the offshore processing facility in Nauru. It concludes that the transfer of asylum-seekers to what are currently harsh and unsatisfactory temporary facilities, with in a closed detention setting, and in the absence of a fully functional legal framework and adequately capacitated system to assess refugee claims, do not currently meet the required protection standards. </p>"
    :event-date "14 December 2012"
    :links ["http://unhcr.org.au/unhcr/images/Amended%20footnote%202012-12-14%20nauru%20monitoring%20report%20final_2.pdf"] 
-   :constraints {:morrison [0.2 1]
+   :constraints {:morrison [0.2 0.95]
                  :turn [2 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.03) :title "Accept findings" :description "You accept the findings and seek to improve conditions"}
@@ -177,7 +177,7 @@
    They may be transferred to Nauru or Manus Island at any time.</p>"
    :event-date "21 November 2012"
    :links ["http://www.refugeecouncil.org.au/n/mr/121121_noadvantage.pdf"] 
-   :constraints {:morrison [0.2 1]
+   :constraints {:morrison [0.2 0.95]
                  :turn [2 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.03) :title "Take no action" :description ""}
@@ -189,7 +189,7 @@
    :content "<p>Australia considers transferring asylum seekers, including families with young children, to the re-established offshore processing centre on Papua New Guinea¡¯s Manus Island.</p>"
    :event-date "21 November 2012"
    :links ["http://www.refugeeaction.org.au/?page_id=980"] 
-   :constraints {:morrison [0 1]
+   :constraints {:morrison [0.05 0.95]
                  :turn [1 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.02) :title "Take no action" :description ""}
@@ -201,7 +201,7 @@
    :content "<p>The Australian Government proposes to introduce an enhanced screening  process for Sri Lankan asylum seekers who arrive by boat. Under this process, an asylum seeker is interviewed by two officers from the Department of Immigration and Citizenship, about their reasons for travelling to Australia. If the asylum seeker raises concerns which suggest that they may have a valid protection claim, they are screened in  so that their claim can be formally processed. If they do not raise any protection concerns, they are screened out  and returned to Sri Lanka without having the opportunity to formally lodge a protection claim."
       :event-date "October 2012.</p>"
    :links ["http://www.humanrights.gov.au/sites/default/files/document/publication/enhanced-screening.pdf"] 
-   :constraints {:morrison [0 1]
+   :constraints {:morrison [0.05 0.95]
                  :turn [1 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.02) :title "Reject proposal" :description ""}
@@ -216,7 +216,7 @@
 <p>An additional 4,000 places are made available under the Family stream of the migration program for humanitarian entrants seeking to sponsor family members.</p>"
    :event-date "22 September 2012"
    :links ["http://www.immi.gov.au/visas/humanitarian/family-reunion.htm"] 
-   :constraints {:morrison [0 1]
+   :constraints {:morrison [0.05 0.95]
                  :turn [1 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.02) :title "Adopt recommendations" :description "You are in favour of family reunion"}
@@ -228,7 +228,7 @@
    :content "<p>Australia considers transferring asylum seekers to the re-established offshore processing centre in Nauru.</p>"
    :event-date "14 September 2012"
    :links [] 
-   :constraints {:morrison [0 1]
+   :constraints {:morrison [0.05 0.95]
                  :turn [1 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.02) :title "Reject" :description "You are not in favour of offshore processing"}
@@ -240,7 +240,7 @@
    :content "<p>In line with the Expert Panel¡¯s recommendations, the Australian Government considers that the Refugee and Humanitarian Program will be increased to 20,000 places annually.</p>"
    :event-date "23 August 2012"
    :links [] 
-   :constraints {:morrison [0 1]
+   :constraints {:morrison [0.05 0.95]
                  :turn [1 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.02) :title "Adopt" :description "You are willing to increase the refugee intake by 20000"}
@@ -252,7 +252,7 @@
    :content "<p>The Australian Government considers introducing legislation to allow offshore processing of asylum seekers in Nauru and Papua New Guinea. It is passed by both houses of Parliament and becomes law. The legislation strips away legal safeguards for asylum seekers subject to offshore processing, including those which led the High Court to rule the Malaysia arrangement invalid. Any asylum seeker who arrived in Australia after today is now at risk of being processed offshore.</p>"
    :event-date "14 August 2012"
    :links [] 
-   :constraints {:morrison [0 1]
+   :constraints {:morrison [0.05 0.95]
                  :turn [1 3]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.02) :title "Reject" :description ""}
