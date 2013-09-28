@@ -109,18 +109,33 @@
 (defn update-levers
       [state]
       (let [levers (:levers state)]
-	      (do 
-	        (.val ($ "#offshore-intake") (:offshore-intake levers))
-	        (.val ($ "#detention-proportion") (:detention-proportion levers)))))
+           (do 
+             (.val ($ "#offshore-intake") (:offshore-intake levers))
+             (.val ($ "#detention-proportion") (:detention-proportion levers)))))
 
-(defn show-event [] nil)      
+(defn- option-button
+       [click-fn [option-kw {title :title}]]
+       (-> ($ "<button>")
+         (.text title)
+         (.on "click" (partial click-fn option-kw))))
 
-(defn display [state]
+
+(defn show-event 
+      [{:keys [title content options]} apply-event-choice-fn]
+      (let [option-buttons (to-array (map (partial option-button apply-event-choice-fn) options))
+            content-div ($ "#event-panel")]           
+           (-> content-div (.find "header h2") (.text title))
+           (-> content-div (.find "section p") (.text content))
+           (-> content-div (.find "footer") (.empty) (.append option-buttons))))
+
+
+
+(defn display [state apply-event-choice-fn]
       (do 
         (say "turn" (str (-> state :turn)))
         (show-boats (-> state :current :transit))
         (update-levers state)
-        (show-event (:next-event state))))
+        (show-event (:next-event state) apply-event-choice-fn)))
 
 
 (defn lever-values 
@@ -133,4 +148,4 @@
       [state advance-turn-fn apply-event-choice-fn]
       (log state)
       (init-map)
-      (update-levers state))
+      (display state apply-event-choice-fn))
