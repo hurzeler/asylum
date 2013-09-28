@@ -35,7 +35,7 @@
                  :turn [10 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.03) :title "Review current policies" :description ""}
-    :bad {:effect (ee/dsr-factor :morrison 0.05) :title "No action" :description "Review beeing a signatory to UN convention"}}})
+    :bad {:effect (ee/dsr-factor :morrison 0.05) :title "No action" :description "Review beeing a signatory to the UNHCR convention"}}})
 
 (def png-resettlement
   {:title "Regional Resettlement Arrangement with Papua New Guinea"
@@ -59,7 +59,7 @@
                  :turn [4 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.02) :title "Review" :description "Order a review of offshore facilities"}
-    :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Ignore Report" :description ""}}})
+    :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Ignore Report" :description "You consider the Australian government not being a signatury of the UNHCR convention"}}})
 
 (def resumption-processing-asylum-claims
   {:title "Australian Government could resume processing of asylum claims"
@@ -81,13 +81,8 @@
    :constraints {:morrison [0 1]
                  :turn [1 100]}
     :options
-   {:good {:effect (ee/dsr-factor :morrison -0.02) :title "No action" :description "You ignore the committee's recommenations"}
+   {:good {:effect (ee/dsr-factor :morrison -0.02) :title "Accept report" :description "You review and implement the committee's recommenations"}
     :bad {:effect (ee/dsr-factor :morrison 0.05) :title "No Action" :description "You ignore the committee's recommenations"}}})
-
-
-
-
-
 
 (def community-proposal-pilot
   {:title "Community Proposal Pilot"
@@ -98,14 +93,8 @@
    :constraints {:morrison [0 1]
                  :turn [1 100]}
     :options
-   {:good {:effect (ee/dsr-factor :morrison -0.02) :title "Accept findings" :description "You will allow asylum seekers to enter the community"}
+   {:good {:effect (ee/dsr-factor :morrison -0.02) :title "Accept proposal" :description "You will allow asylum seekers to enter the community"}
     :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Reject proposal" :description "You will try to keep the refugees out of the community"}}})
-
-
-
-
-
-
 
 (def redcross-inaugural-vulnerability-report
   {:title "Red Cross Inaugural Vulnerability Report"
@@ -113,9 +102,21 @@
    :content "The Red Cross releases its inaugural Vulnerability Report, focusing on asylum seekers living in the Australian community under the ¡°no advantage¡± test. The Report reveals that many people seeking asylum live in the Australian community in a state of poverty, with many struggling to access adequate and sustainable housing and afford basics such as food, furniture and bedding. In launching the report, Red Cross CEO Robert Tickner says ¡°We are not talking about destitution here by normal standards. We're talking about what is by any measure among the most destitute people in the country, who are absolutely marginalised by every reasonable measure.¡±"
    :event-date "June 2013"
    :links ["http://www.redcross.org.au/files/20130614_Inaugural_Vulnerability_Report_LR.pdf"] 
+   :constraints {:morrison [0.3 1]
+                 :turn [3 100]}
+    :options
+   {:good {:effect (ee/dsr-factor :morrison -0.03) :title "Accept report" :description "Address regugee's vulnerabilities"}
+    :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Try to refute findings" :description "There is nothing wrong with the no advantage test"}}})
+
+(def excision-policy 
+  {:title "Extend excision policy to the Australian mainland"
+   :media {:name "christmas-island.jpg" :type :image}
+   :content "The Australian Parliament could pass legislation which extends the excision policy to the Australian mainland. This means that asylum seekers who arrive by boat anywhere in Australia cannot lodge a valid protection claim except at the discretion of the Minister for Immigration, and are at risk of being transferred offshore for processing. Previously, the excision policy applied only to excised offshore places, such as Christmas Island."
+   :event-date "16 May 2013"
+   :links ["http://www.redcross.org.au/files/20130614_Inaugural_Vulnerability_Report_LR.pdf"] 
    :constraints {:morrison [0 1]
                  :turn [1 100]}
     :options
-   {:good {:effect (ee/dsr-factor :morrison -0.03) :title "Increase intake" :description ""}
-    :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Try to refute findings" :description "Review beeing a signatory to UN convention"}}})
+   {:good {:effect (ee/dsr-factor :morrison -0.03) :title "Reject" :description ""}
+    :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Pass" :description "Pass excission policy legislation"}}})
 
