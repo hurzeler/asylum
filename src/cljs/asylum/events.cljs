@@ -11,8 +11,20 @@
    {:good {:effect (ee/dsr-factor :morrison -0.2) :title "Good" :description "Very good stuff"}
     :bad {:effect (ee/dsr-factor :morrison 0.2) :title "Bad" :description "Shit fuck crap"}}})
 
+(def end-event-0
+  {:constraints {:morrison [0 0.2] :turn [1 100]}
+   :title "The game has ended"
+   :content "I'm sorry Prime Minister, but you have just been removed from office.  With your popularity in free fall over the last months, your caucus colleagues have finally lost confidence in your ability to deliver them to office in the next election.  You will be remembered fondly by Meusli eating, sandal wearing greenies, but the rest of us think you're a spineless traitor who prefers foreign queue-jumping asylum seekers to your own true blue Australian people.  Good riddance."
+   :options {}})
+
+(def end-event-1
+  {:constraints {:morrison [0.8 1] :turn [1 100]}
+   :title "The game has ended"
+   :content "Congratulations, your popularity with the Australian people is sky high, especially with the Southern Cross Tattoo contingent.  Your hard handed policies have resulted in international condemnation, cruelty that was unimaginable only a few years ago, and thousands of deaths.  But hey, you'll probably win the next election, so good on ya mate."
+   :options {}})
+
 (def event-store
-  [dummy-event])
+  (atom #{end-event-0 end-event-1 dummy-event}))
 
 (defn in-range [n [x y]]
   (<= x n y))
@@ -25,10 +37,12 @@
      (in-range turn (:turn constraints)))))
 
 (defn choose-event [state]
-  (let [{:keys [morrison turn]} state
-        potentials (filter (partial does-apply? state) event-store)]
-    (when-not (empty? potentials)
-      {:next-event (rand-nth potentials)})))
+  (let [potentials (filter (partial does-apply? state) @event-store)]
+    (let [chosen (when-not (empty? potentials)
+                   (rand-nth potentials))]
+      (swap! event-store disj chosen)
+      (when chosen
+        {:next-event chosen}))))
 
 (defn apply-event-choice [state choice]
   (let [effect (get-in state [:next-event :options choice :effect])]
