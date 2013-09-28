@@ -2,7 +2,8 @@
   (:require [clojure.browser.repl]
             [domina :as d]
             [domina.events :as evt]
-            [domina.css :as css])
+            [domina.css :as css]
+            [asylum.view :as v])
   (:use [jayq.core :only [$ css html]]))
 
 (defn hello
@@ -19,4 +20,7 @@
   ([id something]
      (d/set-text! (d/by-id id) something)))
 
-($ (fn [] (say "Hell WOrld")))
+($ (fn [] 
+      (do 
+        (say "Hell WOrld")
+        (v/init-map "#map"))))

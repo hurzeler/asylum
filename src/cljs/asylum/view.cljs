@@ -9,16 +9,14 @@
 	(.gmap3 
 		($ map-selector)
 		(clj->js {
-			"options" (clj->js {
-						"color" "#476DD5"
-						"zoom" 4
-						"mapTypeId" js/google.maps.MapTypeId.SATELLITE,
-			        	"mapTypeControl" false
-				        "navigationControl" false
-				       	"scrollwheel" false
-				        "streetViewControl" false
-					})
-
-			})
-	))
+			:map (clj->js {
+				:address "1 macquarie st, sydney"
+				:options (clj->js {
+							:color "#476DD5"
+							:zoom 4
+							:mapTypeId js/google.maps.MapTypeId.ROADMAP,
+					       	:scrollwheel false
+					        :center "-25.085875,134.284057"
+					        :draggable false
+					        :disableDefaultUI true})})})))
 
