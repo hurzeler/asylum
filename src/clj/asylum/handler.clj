@@ -3,15 +3,14 @@
             [compojure.route :refer (resources not-found)]
             [cemerick.austin.repls :refer (browser-connected-repl-js)]
             [net.cgrand.enlive-html :as enlive]
+            net.cgrand.reload
             [clojure.java.io :as io]
 
             ring.adapter.jetty))
 
-(defn main-file [_]
-  "Hello")
 
 (enlive/deftemplate page
-  (io/resource "public/index.html")
+  "public/index.html"
   []
   [:body] (enlive/append
            (enlive/html [:script (browser-connected-repl-js)])))
@@ -27,10 +26,11 @@
     (ring.adapter.jetty/run-jetty #'main {:port 3000 :join? false}))
   server)
 
-
 (defn start-server-and-repl
   []
   (run)
   (cemerick.austin.repls/cljs-repl
    (reset! cemerick.austin.repls/browser-repl-env
            (cemerick.austin/repl-env))))
+
+(net.cgrand.reload/auto-reload *ns*)
