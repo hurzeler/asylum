@@ -97,8 +97,7 @@
              
              (clj->js {
                        :clear (clj->js {:name ["marker"]})
-                       :marker (clj->js {:values boats})
-                       }))))
+                       :marker (clj->js {:values boats})}))))
 
 
 (defn- say
@@ -114,16 +113,24 @@
              (.val ($ "#offshore-intake") (:offshore-intake levers))
              (.val ($ "#detention-proportion") (:detention-proportion levers)))))
 
+(defn- update-gauges 
+       [{popularity :popularity deaths :deaths}]
+       (-> ($ ".popularityValue") (.text (str (int (* 100 popularity)) "%")))
+       (-> ($ ".deathsValue") (.text (str (int (* 100 deaths)) "%"))))
+
 (defn- option-colour 
      [{morrison-index :morrison}]
      (log morrison-index)
      (if (> morrison-index 1) "orange" "blue")) 
 
 (defmulti on-event-choice-selection key)
+
 (defmethod on-event-choice-selection :continue [option]
            (-> ($ ".gaugesPanel") (.removeClass "inactive") (.addClass "active"))
            :continue)
+
 (defmethod on-event-choice-selection :default [option] (key option))
+
 
 (defn- option-button
        [click-fn [option-kw {title :title effect :effect} :as option]]
@@ -148,6 +155,7 @@
         (say "turn" (str (-> state :turn)))
         (show-boats (-> state :current :transit))
         (update-levers state)
+        (update-gauges state)
         (show-event (:next-event state) apply-event-choice-fn)))
 
 
