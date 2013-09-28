@@ -4,7 +4,6 @@
 (def dummy-event
   {:constraints {:morrison [0 1]
                  :turn [1 6]}
-   :effectss 1
    :effect (ee/dsr-factor :population -0.2)})
 
 (def mou-naru
@@ -15,8 +14,8 @@
    :links ["http://www.sbs.com.au/news/article/2013/08/04/australia-signs-asylum-deal-nauru"] 
    :constraints {:morrison [0 1]
                  :turn [1 6]}
-   :effectss 1
-   :effect (ee/dsr-factor :population -0.2)})
+   :options [{:title "Sign" :effect (ee/dsr-factor :morrison 0.01)}
+             {:title "Reject" :effect (ee/dsr-factor :morrison -0.01)}]})
 
 (def int-covenant-breach
   {:title "Australia has breached the International Covenant on Civil and Political Rights by indefinitely detaining refugees who have failed security assessments"
