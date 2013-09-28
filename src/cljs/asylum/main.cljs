@@ -24,7 +24,7 @@
   (swap! state e/apply-event)
   (v/display @state))
 
-(defn hello []
+(defn hello [] 
   (js/alert "Hello"))
 
 (defn register-next []
@@ -32,4 +32,4 @@
 
 ($ (fn []
      (register-next)
-     (v/init-map "#map")))
+     (v/init-map)))
