@@ -8,7 +8,7 @@
                  [org.clojure/clojurescript "0.0-1847"]
                  [compojure "1.1.5"]
                  [ring "1.2.0"]
-                 [enlive "1.1.1"]
+                 [enlive "1.1.4"]
                  [domina "1.0.2-SNAPSHOT"]
   				 [jayq "2.4.0"]]
 

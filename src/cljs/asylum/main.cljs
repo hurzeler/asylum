@@ -1,8 +1,9 @@
-(ns cemerick.austin.bcrepl-sample
+(ns asylum.main
   (:require [clojure.browser.repl]
             [domina :as d]
-            [domina.css :as css]
-            [domina.events :as evts]))
+            [domina.events :as evt]
+            [domina.css :as css])
+  (:use [jayq.core :only [$ css html]]))
 
 (defn hello
   []
@@ -12,14 +13,10 @@
   []
   (.-userAgent js/navigator))
 
-(defn say [something]
-  (js/alert something))
+(defn say
+  ([something]
+     (say "greeting" something))
+  ([id something]
+     (d/set-text! (d/by-id id) something)))
 
-(defn say-in
-  ([msg] (say-in "h1" msg))
-  ([sel msg]
-     (d/set-text! (css/sel sel) msg)))
-
-(def say-h2 (partial say-in "h2"))
-
-(evts/listen! js/window :load (fn [] (say-in "h1" "Hello there")))
+($ (fn [] (say "Hell WOrld")))
