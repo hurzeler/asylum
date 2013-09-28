@@ -6,9 +6,11 @@ $defaultFontSize: 12px;
 $defaultPadding: 1rem;
 $bgColour: #F5EDE3;
 // darker bg colour E1D4C0 
-$blue: #6699FF;
+$blue: #2881E2;
 $darkBlue: #104386;
-$orange: #FF6600;
+$orange: #E94506;
+$grey: #a1a1a1 ;
+$black: #212121;
 
 // clearfix 
 .cf:before,
@@ -134,10 +136,11 @@ body * {
 		h2 {
 			font-weight: 100;
 			margin: 0.2em 0;
+			font-size:1.4rem;
 		}
 	}
 	section {
-		padding:$defaultPadding;
+		padding:$defaultPadding/2 $defaultPadding;
 	}
 
 }
@@ -222,6 +225,47 @@ body * {
 		}
 	}
 }
+//BUTTON
+.button {
+	font-size:1.2rem;
+	font-weight: 100;
+	padding: $defaultPadding*0.8 $defaultPadding*1.5;
+	margin-bottom: 0.5rem;
+	border-radius:3px;
+	box-shadow: 0 1px 2px rgba(255,255,255,0.5) inset, 1px 1px 2px rgba(0,0,0,0.4) ;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	letter-spacing: 1px;
+
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+
+	&.blue {
+		background: $blue;
+		border:1px solid darker($blue, 10%);
+		color:#fff;
+		text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+	}
+	&.darkBlue {
+		color:#fff;
+		background: $darkBlue;
+		text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+	}
+	&.grey {
+		color:$black;
+		background: $grey;
+		text-shadow: 1px 1px 0 rgba(255,255,255,0.7);
+	}
+	&.orange {
+		color:#fff;
+		border:1px solid darken($orange, 2%);
+		background: $orange;
+		text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+	}
+}
+
 
 // TYPOGRAPHY
 h1, h2 , h3, h4, h5, h6 {
@@ -229,6 +273,13 @@ h1, h2 , h3, h4, h5, h6 {
 	font-family: 'Roboto Slab',  'Times', serif;
 }
 
+p  {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height:1.4;
+}
 
 
 
+ul	{
+	padding-left: 1.5rem;
+}
