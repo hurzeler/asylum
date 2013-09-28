@@ -19,4 +19,4 @@
 
 ($ (fn []
      (register-next)
-     (v/init-map)))
+     (v/init-view)))
