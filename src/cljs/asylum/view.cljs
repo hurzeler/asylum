@@ -112,13 +112,15 @@
 	      (do 
 	        (.val ($ "#offshore-intake") (:offshore-intake levers))
 	        (.val ($ "#detention-proportion") (:detention-proportion levers)))))
-      
+
+(defn show-event [] nil)      
 
 (defn display [state]
       (do 
         (say "turn" (str (-> state :turn)))
         (show-boats (-> state :current :transit))
-        (update-levers state)))
+        (update-levers state)
+        (show-event (:next-event state))))
 
 
 (defn lever-values 
@@ -128,7 +130,7 @@
                 :detention-proportion (-> (.val ($ "#detention-proportion"))  js/parseFloat)}})
 
 (defn init-view
-      [state]
+      [state advance-turn-fn]
       (log state)
       (init-map)
       (update-levers state))
