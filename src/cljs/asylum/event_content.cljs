@@ -40,7 +40,7 @@
    :effectss 1
    :effect (ee/dsr-factor :population -0.2)})
 
-(def naru-riot
+(def png-resettlement
   {:title "Regional Resettlement Arrangement¡± with Papua New Guinea"
    :media {:name resettlement-agreement.jpg :type image}
    :content "Prime Minister Kevin Rudd announces a new ¡°Regional Resettlement Arrangement¡± with Papua New Guinea, whereby all asylum seekers arriving in Australia by boat from 19 July onwards will be transferred to Papua New Guinea for processing and, if they are found to be refugees, permanent settlement. They will not have the opportunity to seek asylum or settle in Australia."
