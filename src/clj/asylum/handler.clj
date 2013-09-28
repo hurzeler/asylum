@@ -8,7 +8,7 @@
 
             ring.adapter.jetty))
 
-(def dev false)
+(def dev true)
 
 (if dev
   (enlive/deftemplate page
@@ -27,13 +27,13 @@
   (GET "/*" reg (page))
   (not-found "I still haven't found what you're looking for."))
 
-#(defn run
+(defn run
   []
   (defonce ^:private server
     (ring.adapter.jetty/run-jetty #'main {:port 3000 :join? false}))
   server)
 
-#(defn start-server-and-repl
+(defn start-server-and-repl
   []
   (run)
   (cemerick.austin.repls/cljs-repl
