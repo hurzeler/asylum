@@ -213,6 +213,11 @@ body * {
 		font-size: 1.5rem;
 		padding:0.8rem;
 		line-height: 1;
+		-webkit-transition: width 0.5s ease;
+		-moz-transition: width 0.5s ease;
+		-o-transition: width 0.5s ease;
+		-ms-transition: width 0.5s ease;
+		transition: width 0.5s ease;
 	}
 	.popularity {
 		float: left;
@@ -220,7 +225,7 @@ body * {
 			float:right;
 			background:$blue;
 			text-align: left;
-					width: 56%;
+			min-width:30%;		
 		}
 	}
 	.deaths {
@@ -229,7 +234,7 @@ body * {
 			float:left;
 			background:$orange;
 			text-align: right;
-					width: 88%;
+			min-width:30%;
 		}
 	}
 }
