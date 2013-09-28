@@ -358,21 +358,26 @@ body * {
     font-weight: 100;
     font-size: 1.5rem;
     padding: 0.8rem;
-    line-height: 1; }
+    line-height: 1;
+    -webkit-transition: width 0.5s ease;
+    -moz-transition: width 0.5s ease;
+    -o-transition: width 0.5s ease;
+    -ms-transition: width 0.5s ease;
+    transition: width 0.5s ease; }
   .gaugesPanel .popularity {
     float: left; }
     .gaugesPanel .popularity .popularityValue {
       float: right;
       background: #2881e2;
       text-align: left;
-      width: 56%; }
+      min-width: 30%; }
   .gaugesPanel .deaths {
     float: right; }
     .gaugesPanel .deaths .deathsValue {
       float: left;
       background: #e94506;
       text-align: right;
-      width: 88%; }
+      min-width: 30%; }
 
 .button {
   font-size: 1.2rem;
