@@ -21,6 +21,7 @@
            (v/display @state)))
 
 (defn apply-event-choice [choice]
+      (log (str "Player chose " (name choice)))
       (swap! state e/apply-event-choice choice))
 
 ($ (fn []

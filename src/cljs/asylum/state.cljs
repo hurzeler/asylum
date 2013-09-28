@@ -21,4 +21,4 @@ We invite you, the player, to sit in the hot seat of asylum policy.  As Prime Mi
 Asylum is a turn-based game, each turn representing a month.  You will be shown a major event that happened in the past month, and the accumulated statistics.  You will be able to change some policy levers, and even bring into effect entire new policies avery once in a while.  Will you be able to survive without sacrificing your values?
 Good luck Prime Minister, you're going to need it!
 "
-                      :options {:continue {:effect (fn [s _] s) :title "Continue"}}}}))
+                      :options {:continue {:effect (fn [s _] s) :title "I got this!"}}}}))
