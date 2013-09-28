@@ -125,7 +125,7 @@
       (let [option-buttons (to-array (map (partial option-button apply-event-choice-fn) options))
             content-div ($ "#event-panel")]           
            (-> content-div (.find "header h2") (.text title))
-           (-> content-div (.find "section p") (.text content))
+           (-> content-div (.find "section p") (.html content))
            (-> content-div (.find "footer") (.empty) (.append option-buttons))))
 
 
@@ -144,8 +144,4 @@
       {:levers {:offshore-intake (-> (.val ($ "#offshore-intake")) js/parseInt)
                 :detention-proportion (-> (.val ($ "#detention-proportion"))  js/parseFloat)}})
 
-(defn init-view
-      [state advance-turn-fn apply-event-choice-fn]
-      (log state)
-      (init-map)
-      (display state (comp advance-turn-fn apply-event-choice-fn)))
+($ init-map)
