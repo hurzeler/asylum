@@ -301,11 +301,13 @@ body * {
       margin: 0.2em 0;
       font-size: 1.4rem; }
   .popUp section {
-    padding: 0.5rem 1rem; }
+    padding: 0 1rem; }
     .popUp section p:first-of-type {
-      font-size: 1rem; }
+      font-size: 0.9rem;
+      line-height: 1.5;
+      font-weight: 600; }
   .popUp footer {
-    padding: 0.5rem 1rem; }
+    padding: 0 1rem; }
 
 .gaugesPanel {
   position: absolute;
@@ -424,7 +426,7 @@ h1, h2, h3, h4, h5, h6 {
 p {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1.4;
-  font-size: 1rem; }
+  font-size: 0.8rem; }
 
 ul {
   padding-left: 1.5rem; }

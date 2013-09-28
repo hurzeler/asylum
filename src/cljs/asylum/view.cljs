@@ -84,7 +84,7 @@
       [-10.228437 142.456053]
       [-5.528511 100.532225]])
 
-(def boat-marker-opts {:options {:icon "/img/boatPin.png"}})
+(def boat-marker-opts {:options {:icon "img/boatPin.png"}})
 
 (defn show-boats
       "Given a number of boats to display, randomly place them on a journey to australia"
@@ -125,7 +125,7 @@
       (let [option-buttons (to-array (map (partial option-button apply-event-choice-fn) options))
             content-div ($ "#event-panel")]           
            (-> content-div (.find "header h2") (.text title))
-           (-> content-div (.find "section p") (.html content))
+           (-> content-div (.find "section") (.html content))
            (-> content-div (.find "footer") (.empty) (.append option-buttons))))
 
 

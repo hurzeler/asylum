@@ -140,14 +140,16 @@ body * {
 		}
 	}
 	section {
-		padding:$defaultPadding/2 $defaultPadding;
+		padding: 0 $defaultPadding;
 		p:first-of-type {
-			font-size:1rem;
+			font-size:0.9rem;
+			line-height: 1.5;
+			font-weight: 600;
 		}
 	}
 	footer {
 
-		padding:$defaultPadding/2 $defaultPadding;
+		padding:0 $defaultPadding;
 	}
 }
 //GAUGES
@@ -291,7 +293,7 @@ h1, h2 , h3, h4, h5, h6 {
 p  {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	line-height:1.4;
-	font-size:1rem;
+	font-size:0.8rem;
 }
 
 
