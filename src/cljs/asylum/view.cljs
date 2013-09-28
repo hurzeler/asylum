@@ -3,10 +3,11 @@
       [jayq.util :only [log]]))
 
 
+(def map-selector "#map")
 
 (defn init-map 
       "Initialise the map background that forms the basis for the asylum UI"
-      [map-selector]
+      []
       (.gmap3 
         ($ map-selector)
         (clj->js {
@@ -57,6 +58,45 @@
                                                                :elementType "geometry"
                                                                :stylers [(clj->js { :visibility "simplified" })]})]})})})))
 
+(def possible-boat-coords
+     [[-11.178402 111.870115]
+      [-16.045813 114.506834]
+      [-18.562947 112.924803]
+      [-20.220966 113.540037]
+      [-22.187405 109.76074]
+      [-20.385825 105.893553]
+      [-30.524413 108.969725]
+      [-32.62087 108.706053]
+      [-11.953349 117.846678]
+      [-13.923404 122.153319]
+      [-16.804541 119.956053]
+      [-9.535749 129.272459]
+      [-11.264612 124.877928]
+      [-7.188101 118.989256]
+      [-9.882275 134.545897]
+      [-9.275622 138.852537]
+      [-11.436955 146.147459]
+      [-14.008696 149.926756]
+      [-17.392579 149.926756]
+      [-22.187405 153.442381]
+      [-24.20689 154.057615]
+      [-11.005904 155.727537]
+      [-10.228437 142.456053]
+      [-5.528511 100.532225]])
+
+
+(defn show-boats
+      "Given a number of boats to display, randomly place them on a journey to australia"
+      [num-boats]
+      (let [boats-coords (take num-boats (shuffle possible-boat-coords))
+            boats (map #(clj->js {:latLng %}) boats-coords)]
+           (.gmap3 
+             ($ map-selector)
+             
+             (clj->js {
+                       :clear (clj->js {:name ["marker"]})
+                       :marker (clj->js {:values boats})
+                       }))))
 
 
 (defn say
@@ -66,5 +106,7 @@
        (.text ($ (str "#" id)) something)))
 
 (defn display [state]
-      (say "turn" (str (-> state :turn))))
+      (do 
+        (say "turn" (str (-> state :turn)))
+        (show-boats 3)))
 

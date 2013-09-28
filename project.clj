@@ -10,7 +10,7 @@
                  [ring "1.2.0"]
                  [enlive "1.1.4"]
                  [domina "1.0.2-SNAPSHOT"]
-  				 [jayq "2.4.0"]]
+  				       [jayq "2.4.0"]]
 
   ; Resources
   :scss {:src "resources/scss"
