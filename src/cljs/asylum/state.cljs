@@ -11,5 +11,6 @@
                        :detention 0
                        :community 0}
          :policies []
+         :effects []
          :levers {:offshore-intake 1000
                   :detention-proportion 0.5}}))

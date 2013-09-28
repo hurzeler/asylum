@@ -1,10 +1,16 @@
 (ns asylum.events
-  (:require [asylum.event-content :as ec]))
+  (:require [asylum.event-content :as ec]
+            [asylum.event-engine :as ee]))
 
 (def s {:morrison 0.5 :turn 1 :population 100})
 
+(def dummy-event
+  {:constraints {:morrison [0 1]
+                 :turn [1 6]}
+   :effect (ee/dsr-factor :population -0.2)})
+
 (def event-store
-  [ec/dummy-event])
+  [dummy-event])
 
 (defn in-range [n [x y]]
   (<= x n y))
@@ -17,11 +23,25 @@
      (in-range turn (:turn constraints)))))
 
 (defn choose-event [state]
-  (let [{:keys [morrison turn]} state]
-    (rand-nth (filter (partial does-apply? state) event-store))))
+  (let [{:keys [morrison turn]} state
+        potentials (filter (partial does-apply? state) event-store)]
+    (when-not (empty? potentials)
+      (rand-nth potentials))))
 
 (defn apply-event [state]
   (let [evt (choose-event state)
         effect (:effect evt)]
-    (effect state)))
+    (if effect
+      (update-in state [:effects] conj [1 effect])
+      state)))
 
+(defn apply-single-effect [state [age effect]]
+  (effect state age))
+
+(defn age-effects [effects]
+  (map (fn [[age effect]] [(inc age) effect]) effects))
+
+(defn apply-effects [state]
+  (let [effects (:effects state)
+        state (reduce apply-single-effect state effects)]
+    (assoc state :effects (age-effects effects))))
