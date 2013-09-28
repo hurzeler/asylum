@@ -1,5 +1,6 @@
 (ns asylum.events
   (:require [asylum.event-content :as ec]
+            [asylum.event-content2 :as ec2]
             [asylum.event-engine :as ee]))
 
 (def s {:morrison 0.5 :turn 1 :population 100})
@@ -9,7 +10,7 @@
                  :turn [1 6]}
    :options
    {:good {:effect (ee/dsr-factor :morrison -0.2) :title "Good" :description "Very good stuff"}
-    :bad {:effect (ee/dsr-factor :morrison 0.2) :title "Bad" :description "Shit fuck crap"}}})
+    :bad {:effect (ee/dsr-factor :morrison 0.2) :title "Bad" :description "bad bad badness is herezzz"}}})
 
 (def end-event-0
   {:constraints {:morrison [0 0.2] :turn [1 100]}
@@ -24,7 +25,9 @@
    :options {}})
 
 (def event-store
-  (atom #{end-event-0 end-event-1 dummy-event}))
+  (atom #{dummy-event
+          end-event-0 end-event-1
+          ec2/operation-steel-fences}))
 
 (defn in-range [n [x y]]
   (<= x n y))
