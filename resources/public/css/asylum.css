@@ -249,7 +249,12 @@ body * {
       display: block;
       background: #6699ff;
       padding: 0.5rem;
-      margin-top: 5px; }
+      margin-top: 5px;
+      -webkit-transition: box-shadow 0.1s ease;
+      -moz-transition: box-shadow 0.1s ease;
+      -o-transition: box-shadow 0.1s ease;
+      -ms-transition: box-shadow 0.1s ease;
+      transition: box-shadow 0.1s ease; }
       #logoBox #navMenu a span {
         display: block;
         background: white;

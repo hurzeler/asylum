@@ -11,3 +11,4 @@ pom.xml.asc
 /out
 /resources/public/js/main.js
 /resources/public/main.js
+.DS_Store
