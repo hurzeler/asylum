@@ -2,7 +2,7 @@
 
 (def state
   (atom {:turn 1
-         :morrison 0.5
+         :morrison 0.35
          :current {:arrivals 250
                    :deaths 10
                    :transit 3}
