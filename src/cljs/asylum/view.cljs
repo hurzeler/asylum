@@ -118,7 +118,7 @@
        (let [popularity (str (int (* 100 popularity)) "%")
              deaths (str (int (* 100 deaths)) "%")]
             (-> ($ ".popularityValue") (.text popularity) (.css "width" popularity))
-            (-> ($ ".deathsValue") (.text deaths) (.css "width" popularity))))
+            (-> ($ ".deathsValue") (.text deaths) (.css "width" deaths))))
 
 
 (defn- option-colour 
