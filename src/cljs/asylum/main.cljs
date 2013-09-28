@@ -3,7 +3,8 @@
             [domina :as d]
             [domina.events :as evt]
             [domina.css :as css]
-            [jayq.core :as jq])
+            [jayq.core :as jq]
+            [asylum.view :as v])
   (:use [jayq.core :only [$ css html]]))
 
 (defn say
@@ -35,4 +36,5 @@
 ($ (fn []
      (register-next)
      (register-change)
+     (v/init-map "#map")
      (say "Welcome to Asylum")))
