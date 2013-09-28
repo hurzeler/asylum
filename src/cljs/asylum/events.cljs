@@ -32,6 +32,16 @@
   (let [evt (choose-event state)
         effect (:effect evt)]
     (if effect
-      (effect state)
+      (update-in state [:effects] conj [1 effect])
       state)))
 
+(defn apply-single-effect [state [age effect]]
+  (effect state age))
+
+(defn age-effects [effects]
+  (map (fn [[age effect]] [(inc age) effect]) effects))
+
+(defn apply-effects [state]
+  (let [effects (:effects state)
+        state (reduce apply-single-effect state effects)]
+    (assoc state :effects (age-effects effects))))
