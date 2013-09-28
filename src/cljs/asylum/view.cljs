@@ -121,7 +121,7 @@
 
 (defmulti on-event-choice-selection key)
 (defmethod on-event-choice-selection :continue [option]
-           (-> ($ ".guagesPanel") (.removeClass "inactive") (.addClass "active"))
+           (-> ($ ".gaugesPanel") (.removeClass "inactive") (.addClass "active"))
            :continue)
 (defmethod on-event-choice-selection :default [option] (key option))
 
