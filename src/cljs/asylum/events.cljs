@@ -8,6 +8,8 @@
 (def dummy-event
   {:constraints {:morrison [0 1]
                  :turn [1 6]}
+   :title "Dummuy Event"
+   :content "Dummy dumb dumb"
    :options
    {:good {:effect (ee/dsr-factor :morrison -0.2) :title "Good" :description "Very good stuff"}
     :bad {:effect (ee/dsr-factor :morrison 0.2) :title "Bad" :description "bad bad badness is herezzz"}}})
