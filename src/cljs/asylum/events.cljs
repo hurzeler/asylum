@@ -7,7 +7,9 @@
 (def dummy-event
   {:constraints {:morrison [0 1]
                  :turn [1 6]}
-   :effect (ee/dsr-factor :population -0.2)})
+   :options
+   {:good {:effect (ee/dsr-factor :morrison -0.2) :title "Good" :description "Very good stuff"}
+    :bad {:effect (ee/dsr-factor :morrison 0.2) :title "Bad" :description "Shit fuck crap"}}})
 
 (def event-store
   [dummy-event])
@@ -26,14 +28,11 @@
   (let [{:keys [morrison turn]} state
         potentials (filter (partial does-apply? state) event-store)]
     (when-not (empty? potentials)
-      (rand-nth potentials))))
+      {:next-event (rand-nth potentials)})))
 
-(defn apply-event [state]
-  (let [evt (choose-event state)
-        effect (:effect evt)]
-    (if effect
-      (update-in state [:effects] conj [1 effect])
-      state)))
+(defn apply-event-choice [state choice]
+  (let [effect (get-in state [:next-event :options choice :effect])]
+    (update-in state [:effects] conj [1 effect])))
 
 (defn apply-single-effect [state [age effect]]
   (effect state age))
@@ -45,3 +44,6 @@
   (let [effects (:effects state)
         state (reduce apply-single-effect state effects)]
     (assoc state :effects (age-effects effects))))
+
+(defn apply-levers [state]
+  state)
