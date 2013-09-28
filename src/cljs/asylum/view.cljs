@@ -130,7 +130,7 @@
                 :detention-proportion (-> (.val ($ "#detention-proportion"))  js/parseFloat)}})
 
 (defn init-view
-      [state advance-turn-fn]
+      [state advance-turn-fn apply-event-choice-fn]
       (log state)
       (init-map)
       (update-levers state))

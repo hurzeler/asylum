@@ -21,8 +21,7 @@
            (v/display @state)))
 
 (defn apply-event-choice [choice]
-  (swap! state e/apply-event-choice choice))
+      (swap! state e/apply-event-choice choice))
 
 ($ (fn []
-       (register-next)
-       (v/init-view @state advance-turn)))
+       (v/init-view @state advance-turn apply-event-choice)))
