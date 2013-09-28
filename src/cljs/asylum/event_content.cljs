@@ -207,3 +207,55 @@
    {:good {:effect (ee/dsr-factor :morrison -0.02) :title "Reject proposal" :description ""}
     :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Implement enhanced screening" :description "Implement and start enhanced screening for Sri Lankan asylum seekers"}}})
 
+(def implemenation-expert-panel
+  {:title "Implementation of the Expert Panel¡¯s recommendations on humanitarian family reunion"
+   :media {:name "family-reunion.jpg" :type :image}
+   :content "The Australian Government announces that it will consider the implemention of the Expert Panel¡¯s recommendations on humanitarian family reunion:
+Refugees who arrived by boat before today (except for unaccompanied minors) will have to meet additional criteria if they wish to sponsor family members for resettlement under the Special Humanitarian Program, and their applications will be given the lowest processing priority.
+Refugees who arrived by boat after today will no longer be eligible to sponsor their family members for resettlement under the Special Humanitarian Program.
+An additional 4,000 places are made available under the Family stream of the migration program for humanitarian entrants seeking to sponsor family members."
+   :event-date "22 September 2012"
+   :links ["http://www.immi.gov.au/visas/humanitarian/family-reunion.htm"] 
+   :constraints {:morrison [0 1]
+                 :turn [1 100]}
+    :options
+   {:good {:effect (ee/dsr-factor :morrison -0.02) :title "Adopt recommendations" :description "You are in favour of family reunion"}
+    :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Reject recommendations" :description ""}}})
+
+(def nauru-transfer
+  {:title "Offshore processing in Nauru"
+   :media {:name "nauru.jpg" :type :image}
+   :content "Australia considers transferring asylum seekers to the re-established offshore processing centre in Nauru."
+   :event-date "14 September 2012"
+   :links [] 
+   :constraints {:morrison [0 1]
+                 :turn [1 100]}
+    :options
+   {:good {:effect (ee/dsr-factor :morrison -0.02) :title "Reject" :description "You are not in favour of offshore processing"}
+    :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Implement" :description ""}}})
+
+(def increase-intake-20000
+  {:title "Offshore processing in Nauru"
+   :media {:name "asylum-seekers.jpg" :type :image}
+   :content "In line with the Expert Panel¡¯s recommendations, the Australian Government considers that the Refugee and Humanitarian Program will be increased to 20,000 places annually."
+   :event-date "23 August 2012"
+   :links [] 
+   :constraints {:morrison [0 1]
+                 :turn [1 100]}
+    :options
+   {:good {:effect (ee/dsr-factor :morrison -0.02) :title "Adopt" :description "You are willing to increase the refugee intake by 20000"}
+    :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Reject" :description ""}}})
+
+(def offshore-legislation
+  {:title "Legislation to allow offshore processing of asylum seekers in Nauru and Papua New Guinea"
+   :media {:name "australian-government.jpg" :type :image}
+   :content "The Australian Government considers introducing legislation to allow offshore processing of asylum seekers in Nauru and Papua New Guinea. It is passed by both houses of Parliament and becomes law. The legislation strips away legal safeguards for asylum seekers subject to offshore processing, including those which led the High Court to rule the Malaysia arrangement invalid. Any asylum seeker who arrived in Australia after today is now at risk of being processed offshore."
+   :event-date "14 August 2012"
+   :links [] 
+   :constraints {:morrison [0 1]
+                 :turn [1 3]}
+    :options
+   {:good {:effect (ee/dsr-factor :morrison -0.02) :title "Reject" :description ""}
+    :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Adopt" :description "You pass the legislation that make offshore processing legal"}}})
+
+

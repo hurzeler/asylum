@@ -1,7 +1,8 @@
 (ns asylum.events
   (:require [asylum.event-content :as ec]
             [asylum.event-content2 :as ec2]
-            [asylum.event-engine :as ee]))
+            [asylum.event-engine :as ee]
+            [asylum.morrison :as m]))
 
 (def s {:morrison 0.5 :turn 1 :population 100})
 
@@ -65,10 +66,17 @@
 (defn age-effects [effects]
   (map (fn [[age effect]] [(inc age) effect]) effects))
 
+(defn calculate-dependants [state]
+  (let [morrison (:morrison state)
+        popularity (m/popularity morrison)
+        deaths (m/deaths morrison)]
+    (merge state {:popularity popularity :deaths deaths})))
+
 (defn apply-effects [state]
   (let [effects (:effects state)
-        state (reduce apply-single-effect state effects)]
-    (assoc state :effects (age-effects effects))))
+        state (reduce apply-single-effect state effects)
+        state (assoc state :effects (age-effects effects))]
+    (calculate-dependants state)))
 
 (defn apply-levers [state]
   state)
