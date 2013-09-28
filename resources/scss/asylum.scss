@@ -144,7 +144,7 @@ body * {
 		p:first-of-type {
 			font-size:0.9rem;
 			line-height: 1.5;
-			font-weight: 600;
+			font-weight: 400;
 		}
 	}
 	footer {
@@ -238,11 +238,12 @@ body * {
 	font-size:1.2rem;
 	font-weight: 100;
 	padding: $defaultPadding*0.8 $defaultPadding*1.5;
-	margin-bottom: 0.5rem;
+	margin-bottom: 1rem;
+	margin-right: 1rem;
 	border-radius:3px;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	letter-spacing: 1px;
-
+	border:none;
 	box-shadow:  0 0px 0px rgba(0,0,0,0) inset;
 				-webkit-transition: all 0.2s ease;
 				-moz-transition: all 0.2s ease;
@@ -252,20 +253,20 @@ body * {
 
 	&.blue {
 		background: $blue;
-		border:1px solid darker($blue, 2%);
+		border:1px solid darken($blue, 2%);
 		color:#fff;
 		text-shadow: 0 0px 0px rgba(0,0,0,0.3);
 	}
 	&.darkBlue {
 		color:#fff;
 		background: $darkBlue;
-		border:1px solid darker($darkBlue, 2%);
+		border:1px solid darken($darkBlue, 2%);
 		text-shadow: 0 0px 0px rgba(0,0,0,0.3);
 	}
 	&.grey {
 		color:$black;
 		background: $grey;
-		border:1px solid darker($grey, 2%);
+		border:1px solid darken($grey, 2%);
 		text-shadow: 0 0 0 rgba(255,255,255,0.7);
 	}
 	&.orange {
@@ -294,6 +295,7 @@ p  {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	line-height:1.4;
 	font-size:0.8rem;
+	font-weight:200;
 }
 
 
