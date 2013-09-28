@@ -210,10 +210,10 @@
 (def implemenation-expert-panel
   {:title "Implementation of the Expert Panel's recommendations on humanitarian family reunion"
    :media {:name "family-reunion.jpg" :type :image}
-   :content "The Australian Government announces that it will consider the implemention of the Expert Panel¡¯s recommendations on humanitarian family reunion:
-Refugees who arrived by boat before today (except for unaccompanied minors) will have to meet additional criteria if they wish to sponsor family members for resettlement under the Special Humanitarian Program, and their applications will be given the lowest processing priority.
-Refugees who arrived by boat after today will no longer be eligible to sponsor their family members for resettlement under the Special Humanitarian Program.
-An additional 4,000 places are made available under the Family stream of the migration program for humanitarian entrants seeking to sponsor family members."
+   :content "<p>The Australian Government announces that it will consider the implemention of the Expert Panel¡¯s recommendations on humanitarian family reunion:</p>
+<ul><li>Refugees who arrived by boat before today (except for unaccompanied minors) will have to meet additional criteria if they wish to sponsor family members for resettlement under the Special Humanitarian Program, and their applications will be given the lowest processing priority.</li>
+<li>Refugees who arrived by boat after today will no longer be eligible to sponsor their family members for resettlement under the Special Humanitarian Program.</li></ul>
+<p>An additional 4,000 places are made available under the Family stream of the migration program for humanitarian entrants seeking to sponsor family members.</p>"
    :event-date "22 September 2012"
    :links ["http://www.immi.gov.au/visas/humanitarian/family-reunion.htm"] 
    :constraints {:morrison [0.05 0.95]
@@ -225,7 +225,7 @@ An additional 4,000 places are made available under the Family stream of the mig
 (def nauru-transfer
   {:title "Offshore processing in Nauru"
    :media {:name "nauru.jpg" :type :image}
-   :content "Australia considers transferring asylum seekers to the re-established offshore processing centre in Nauru."
+   :content "<p>Australia considers transferring asylum seekers to the re-established offshore processing centre in Nauru.</p>"
    :event-date "14 September 2012"
    :links [] 
    :constraints {:morrison [0.05 0.95]
@@ -237,7 +237,7 @@ An additional 4,000 places are made available under the Family stream of the mig
 (def increase-intake-20000
   {:title "Offshore processing in Nauru"
    :media {:name "asylum-seekers.jpg" :type :image}
-   :content "In line with the Expert Panel¡¯s recommendations, the Australian Government considers that the Refugee and Humanitarian Program will be increased to 20,000 places annually."
+   :content "<p>In line with the Expert Panel¡¯s recommendations, the Australian Government considers that the Refugee and Humanitarian Program will be increased to 20,000 places annually.</p>"
    :event-date "23 August 2012"
    :links [] 
    :constraints {:morrison [0.05 0.95]
@@ -249,7 +249,7 @@ An additional 4,000 places are made available under the Family stream of the mig
 (def offshore-legislation
   {:title "Legislation to allow offshore processing of asylum seekers in Nauru and Papua New Guinea"
    :media {:name "australian-government.jpg" :type :image}
-   :content "The Australian Government considers introducing legislation to allow offshore processing of asylum seekers in Nauru and Papua New Guinea. It is passed by both houses of Parliament and becomes law. The legislation strips away legal safeguards for asylum seekers subject to offshore processing, including those which led the High Court to rule the Malaysia arrangement invalid. Any asylum seeker who arrived in Australia after today is now at risk of being processed offshore."
+   :content "<p>The Australian Government considers introducing legislation to allow offshore processing of asylum seekers in Nauru and Papua New Guinea. It is passed by both houses of Parliament and becomes law. The legislation strips away legal safeguards for asylum seekers subject to offshore processing, including those which led the High Court to rule the Malaysia arrangement invalid. Any asylum seeker who arrived in Australia after today is now at risk of being processed offshore.</p>"
    :event-date "14 August 2012"
    :links [] 
    :constraints {:morrison [0.05 0.95]
@@ -261,13 +261,13 @@ An additional 4,000 places are made available under the Family stream of the mig
 (def expert-panel-recommendations
   {:title "Expert Panel recommendations"
    :media {:name "australian-government.jpg" :type :image}
-   :content "After six weeks of consultation and research, the Expert Panel releases a report containing 22 recommendations. These include:
-Working towards the development of a cooperative regional framework for improving protection and asylum systems;
-Increasing Australia¡¯s Refugee and Humanitarian Program to 20,000 places annually;
-Reintroducing offshore processing of asylum seekers in Nauru and Papua New Guinea¡¯s Manus Island; and
-Changing Australia¡¯s humanitarian family reunion policies to make it more difficult for refugees who arrive by boat to reunite with their family members.
-Central to the Expert Panel¡¯s recommendations is the \"no advantage\" test, which stipulates that refugees arriving by boat should not receive an \"advantage\" over refugees awaiting resettlement overseas. On this basis, the Panel proposes that asylum seekers who are processed offshore and found to be refugees should have to \"wait\" for resettlement for the same amount of time they would have waited if they had applied for resettlement from overseas. The Panel does not specify a \"waiting time\" or explain how a fair \"waiting time\" could be calculated.
-On the same day, the Australian Government endorses in principle all 22 of the Expert Panel¡¯s recommendations. From this point, the processing of asylum claims made by people who arrived by boat after today is effectively suspended."
+   :content "<p>After six weeks of consultation and research, the Expert Panel releases a report containing 22 recommendations. These include:</p>
+   <ul><li>Working towards the development of a cooperative regional framework for improving protection and asylum systems;</li>
+<li>Increasing Australia¡¯s Refugee and Humanitarian Program to 20,000 places annually;
+Reintroducing offshore processing of asylum seekers in Nauru and Papua New Guinea¡¯s Manus Island; and</li>
+<li>Changing Australia¡¯s humanitarian family reunion policies to make it more difficult for refugees who arrive by boat to reunite with their family members.</li>
+<li>Central to the Expert Panel¡¯s recommendations is the \"no advantage\" test, which stipulates that refugees arriving by boat should not receive an \"advantage\" over refugees awaiting resettlement overseas. On this basis, the Panel proposes that asylum seekers who are processed offshore and found to be refugees should have to \"wait\" for resettlement for the same amount of time they would have waited if they had applied for resettlement from overseas. The Panel does not specify a \"waiting time\" or explain how a fair \"waiting time\" could be calculated.</li></ul>
+<p>On the same day, the Australian Government endorses in principle all 22 of the Expert Panel¡¯s recommendations. From this point, the processing of asylum claims made by people who arrived by boat after today is effectively suspended.</p>"
    :event-date "14 August 2012"
    :links ["http://expertpanelonasylumseekers.dpmc.gov.au/report"] 
    :constraints {:morrison [0 1]
@@ -279,7 +279,7 @@ On the same day, the Australian Government endorses in principle all 22 of the E
 (def expert-panel-angus-houston
   {:title ""
    :media {:name "angus-houston.jpg" :type :image}
-   :content "Following the sinking of several boats en route to Australia and the resulting deaths of dozens of asylum seekers, Prime Minister considers appointing an Expert Panel to \"provide a report on the best way forward for Australia to prevent asylum seekers risking their lives on dangerous boat journeys to Australia\". The Panel is led by Air Chief Marshal Angus Houston, the former chief of Australia¡¯s defence force, and includes Paris Aristotle, Director of Foundation House, and Professor Michael L¡¯Estrange, the Director of the National Security College at the Australian National University."
+   :content "<p>Following the sinking of several boats en route to Australia and the resulting deaths of dozens of asylum seekers, Prime Minister considers appointing an Expert Panel to \"provide a report on the best way forward for Australia to prevent asylum seekers risking their lives on dangerous boat journeys to Australia\". The Panel is led by Air Chief Marshal Angus Houston, the former chief of Australia¡¯s defence force, and includes Paris Aristotle, Director of Foundation House, and Professor Michael L¡¯Estrange, the Director of the National Security College at the Australian National University.</p>"
    :event-date "28 June 2012"
    :links [] 
    :constraints {:morrison [0 1]
@@ -291,7 +291,7 @@ On the same day, the Australian Government endorses in principle all 22 of the E
 (def joint-select-committee
   {:title "Joint Select Committee's findings"
    :media {:name "senate-entrance.jpg" :type :image}
-   :content "The Joint Select Committee on Australia's Immigration Detention Network releases its findings. Key recommendations include a 90-day time limit on detention for asylum seekers who pass inital identity, health, character and security checks; the publication of reasons for continued detention beyond 90 days; the replacement of the Minister for Immigration as the legal guardian of unaccompanied minors; using detention as a last resort for the shortest practicable time; and allowing the Administrative Appeals Tribunal to review negative ASIO assessments of refugees and asylum seekers. The report can be read here."
+   :content "<p>The Joint Select Committee on Australia's Immigration Detention Network releases its findings. Key recommendations include a 90-day time limit on detention for asylum seekers who pass inital identity, health, character and security checks; the publication of reasons for continued detention beyond 90 days; the replacement of the Minister for Immigration as the legal guardian of unaccompanied minors; using detention as a last resort for the shortest practicable time; and allowing the Administrative Appeals Tribunal to review negative ASIO assessments of refugees and asylum seekers. The report can be read here.</p>"
    :event-date "30 March 2012"
    :links ["http://www.aph.gov.au/Parliamentary_Business/Committees/Senate_Committees?url=immigration_detention_ctte/immigration_detention/report/index.htm"] 
    :constraints {:morrison [0 1]
@@ -303,7 +303,7 @@ On the same day, the Australian Government endorses in principle all 22 of the E
 (def single-processing-system
   {:title "Single processing system for asylum seekers"
    :media {:name "processing.jpg" :type :image}
-   :content "The single processing system for asylum seekers, regardless of their mode of arrival, comes info effect."
+   :content "<p>The single processing system for asylum seekers, regardless of their mode of arrival, comes info effect.</p>"
    :event-date "24 March 2012"
    :links [] 
    :constraints {:morrison [0 1]
