@@ -19,7 +19,8 @@
   (enlive/deftemplate page
     "public/index.html"
     []
-    []))
+    [:body] (enlive/append
+             (enlive/html [:div]))))
 
 (defroutes main
   (resources "/")

@@ -11,7 +11,7 @@
         ($ map-selector)
         (clj->js {
                   :map (clj->js {
-                                 :address "NT, australia"
+                                 :address "Ghan, NT, Australia"
                                  :options (clj->js {
                                                     :color "#476DD5"
                                                     :zoom 4
