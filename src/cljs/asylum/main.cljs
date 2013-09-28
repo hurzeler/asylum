@@ -1,12 +1,13 @@
 (ns asylum.main
   (:require [clojure.browser.repl]
             [jayq.core :as jq]
-            [asylum.view :as v])
+            [asylum.view :as v]
+            [asylum.events :as e])
   (:use [jayq.core :only [$ css html]]))
 
 (def state
   (atom {:turn 0
-         :morisson 0.5
+         :morrison 0.5
          :current {:arrivals 250
                    :deaths 10
                    :transit 3}
@@ -17,6 +18,7 @@
 
 (defn advance-turn []
   (swap! state update-in [:turn] inc)
+  (swap! state e/apply-event)
   (v/display @state))
 
 (defn hello []
