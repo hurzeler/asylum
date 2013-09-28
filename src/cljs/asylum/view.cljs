@@ -111,3 +111,6 @@
         (say "turn" (str (-> state :turn)))
         (show-boats (-> state :current :transit))))
 
+(defn init-view
+      []
+      (init-map))
