@@ -3,7 +3,9 @@
             [compojure.route :refer (resources not-found)]
             [cemerick.austin.repls :refer (browser-connected-repl-js)]
             [net.cgrand.enlive-html :as enlive]
-            [clojure.java.io :as io]))
+            [clojure.java.io :as io]
+
+            ring.adapter.jetty))
 
 (defn main-file [_]
   "Hello")
@@ -16,5 +18,19 @@
 
 (defroutes main
   (resources "/")
-  (GET "/*" [] (main-file true))
+  (GET "/*" reg (page))
   (not-found "I still haven't found what you're looking for."))
+
+(defn run
+  []
+  (defonce ^:private server
+    (ring.adapter.jetty/run-jetty #'main {:port 3000 :join? false}))
+  server)
+
+
+(defn start-server-and-repl
+  []
+  (run)
+  (cemerick.austin.repls/cljs-repl
+   (reset! cemerick.austin.repls/browser-repl-env
+           (cemerick.austin/repl-env))))
