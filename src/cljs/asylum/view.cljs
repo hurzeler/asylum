@@ -319,8 +319,16 @@
 
 (defmethod apply-turn-modifications 0 [state]
            (-> ($ ".endTurn") (.removeClass "active") (.removeClass "inactive")))
-
-
+(defmethod apply-turn-modifications 1 [state]           
+           (let [random-boat (rand-nth (:boats state))
+                 marker (.gmap3 ($ map-selector) (clj->js {:get (clj->js {:id (:name random-boat)})}))]
+           		(.gmap3 
+	              ($ map-selector)
+	              (clj->js {:clear (clj->js {:name ["infowindow"]})
+	                        :infowindow (clj->js 
+	                        	{:anchor marker 
+	                             :options (clj->js 
+                                         {:content "<strong>\"Help\" us!</strong> Click on one of us during a turn and act as you see fit."})})}))))
 
 
 (defn display [state apply-event-choice-fn advance-turn-fn reset-fn boat-action-fn]
