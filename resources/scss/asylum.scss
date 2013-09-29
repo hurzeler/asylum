@@ -1,6 +1,6 @@
 /* Normalize CSS*/
 @import  "_normalize";
-@import  "animate-custom";
+@import  "animate";
 @import "fonts";
 
 // DEFAULTS
@@ -28,6 +28,7 @@ $black: #212121;
 
 body {
 	font-size: $defaultFontSize;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 body * {
@@ -233,11 +234,14 @@ body * {
 		position:relative;
 		// overflow: hidden;
 		p {
-			margin: 0rem 11.5% 0.2rem;
-			color: #333;
+			color: #414141;
 			font-size: 0.7rem;
 			font-weight: 600;
-			text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
+			text-shadow: 0 1px 0px rgba(255,255,255, 0.3);
+			background: darken($bgColour, 5%);
+			border-radius: 9px;
+			margin: 0;
+			line-height: 1;
 		}
 
 	}
@@ -261,24 +265,34 @@ body * {
 	.popularity {
 		float: left;
 		p {
+			float:right;
 			text-align: right;
+			padding: 0.25rem 12.5% 0.8rem 0.8rem ;
 		}
 		.popularityValue {
 			float:right;
 			background:$blue;
 			text-align: left;
+			position: relative;
+			z-index: 1;
+			margin-top: -10px;
 			
 		}
 	}
 	.deaths {
 		float: right;
 		p {
+			padding: 0.25rem 0.8rem 0.8rem 12.5%;
 			text-align: left;
+			float: left;
 		}
 		.deathsValue {
 			float:left;
 			background:$orange;
 			text-align: right;
+			position: relative;
+			z-index: 1;
+			margin-top: -10px;
 			
 		}
 	}
@@ -342,7 +356,6 @@ h1, h2 , h3, h4, h5, h6 {
 }
 
 p  {
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	line-height:1.4;
 	font-size:0.8rem;
 	font-weight:200;

@@ -342,7 +342,8 @@ you can use the generic selector below, but it's slower:
   clear: both; }
 
 body {
-  font-size: 12px; }
+  font-size: 12px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 body * {
   -webkit-box-sizing: border-box;
@@ -511,11 +512,14 @@ body * {
     height: 50px;
     position: relative; }
     .gaugesPanel .popularity p, .gaugesPanel .deaths p {
-      margin: 0rem 11.5% 0.2rem;
-      color: #333;
+      color: #414141;
       font-size: 0.7rem;
       font-weight: 600;
-      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7); }
+      text-shadow: 0 1px 0px rgba(255, 255, 255, 0.3);
+      background: #eee1d0;
+      border-radius: 9px;
+      margin: 0;
+      line-height: 1; }
   .gaugesPanel .popularity .popularityValue, .gaugesPanel .deaths .deathsValue {
     height: 50px;
     border-radius: 50px;
@@ -534,19 +538,29 @@ body * {
   .gaugesPanel .popularity {
     float: left; }
     .gaugesPanel .popularity p {
-      text-align: right; }
+      float: right;
+      text-align: right;
+      padding: 0.25rem 12.5% 0.8rem 0.8rem; }
     .gaugesPanel .popularity .popularityValue {
       float: right;
       background: #2881e2;
-      text-align: left; }
+      text-align: left;
+      position: relative;
+      z-index: 1;
+      margin-top: -10px; }
   .gaugesPanel .deaths {
     float: right; }
     .gaugesPanel .deaths p {
-      text-align: left; }
+      padding: 0.25rem 0.8rem 0.8rem 12.5%;
+      text-align: left;
+      float: left; }
     .gaugesPanel .deaths .deathsValue {
       float: left;
       background: #e94506;
-      text-align: right; }
+      text-align: right;
+      position: relative;
+      z-index: 1;
+      margin-top: -10px; }
 
 .button {
   font-size: 1.2rem;
@@ -600,7 +614,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto Slab',  'Times', serif; }
 
 p {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1.4;
   font-size: 0.8rem;
   font-weight: 200; }
