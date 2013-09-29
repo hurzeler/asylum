@@ -145,6 +145,7 @@
 	                      (this-as this
 	                        (let [button ($ this)]
 	                        	(when (not (= option (.data button "option"))) (.addClass button "notSelected")))))))
+                (-> ($ "#event-panel") (.addClass "selected"))
                 (key option)))
 
 
@@ -165,6 +166,7 @@
        [{:keys [title content options]} apply-event-choice-fn advance-turn-fn]
        (let [option-buttons (to-array (map (partial option-button apply-event-choice-fn advance-turn-fn (= 1 (count options))) options))
              content-div ($ "#event-panel")]           
+            (-> content-div (.removeClass "selected"))
             (-> content-div (.find "header h2") (.text title))
             (-> content-div (.find "section") (.html content))
             (-> content-div (.find "footer") (.empty) (.append option-buttons))))
@@ -177,17 +179,26 @@
                 (.hide end-turn-button)
                 (-> end-turn-button .show (.on "click" advance-turn-fn)))))
  		
- 
+(defn- apply-reset-handler
+  [reset-fn]
+  (let [reset-link ($ ".reset a")]
+    (.off reset-link "click")
+    (.on reset-link "click"
+         (fn []
+           (-> ($ ".gaugesPanel") (.removeClass "active") (.addClass "inactive"))
+           (-> ($ "#event-panel") (.addClass "welcome"))
+           (reset-fn))))) 
 
 
-(defn display [state apply-event-choice-fn advance-turn-fn]
+(defn display [state apply-event-choice-fn advance-turn-fn reset-fn]
       (do 
         (say "turn" (str (-> state :turn)))
         (show-boats (-> state :current :transit))
         (update-levers state)
         (update-gauges state)
         (show-event (:next-event state) apply-event-choice-fn advance-turn-fn)
-        (apply-end-turn-handler (:next-event state) advance-turn-fn)))
+        (apply-end-turn-handler (:next-event state) advance-turn-fn)
+        (apply-reset-handler reset-fn)))
 
 
 (defn- lever-values 
