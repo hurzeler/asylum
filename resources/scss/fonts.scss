@@ -20,6 +20,7 @@
 	line-height: 1;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
 }
 
 /* Use the following CSS code if you want to have a class per icon */
@@ -43,8 +44,12 @@ you can use the generic selector below, but it's slower:
 .icon-justin-burns-skull:after {
 	content: "\21";
 	margin-left:0.1em;
+	position: relative;
+	top:2px;
 }
 .icon-heart:before {
 	content: "\22";
 	margin-right:0.1em;
+	position: relative;
+	top:2px;
 }
