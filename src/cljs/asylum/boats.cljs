@@ -25,7 +25,7 @@
      :men (- adults women)}))
 
 (defn rand-boat-id []
-  (str "SIV-" (apply str (rest (str (+ 10000 (rand-int 10000)))))))
+  (str "SIEV-" (apply str (rest (str (+ 10000 (rand-int 10000)))))))
 
 (defn rand-boat []
   {:name (rand-boat-id)

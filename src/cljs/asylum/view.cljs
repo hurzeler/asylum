@@ -1,6 +1,6 @@
 (ns asylum.view
     (:use [jayq.core :only [$]]
-      [jayq.util :only [log]]))
+          [jayq.util :only [log]]))
 
 
 (def map-selector "#map")
@@ -164,13 +164,14 @@
               (.data "option" option))))
 
 (defn- show-event 
-       [{:keys [title content options]} apply-event-choice-fn advance-turn-fn]
+       [{:keys [title content options media]} apply-event-choice-fn advance-turn-fn]
        (let [option-buttons (to-array (map (partial option-button apply-event-choice-fn advance-turn-fn (= 1 (count options))) options))
              content-div ($ "#event-panel")
-             end-turn-button ($ ".endTurn")]           
+             end-turn-button ($ ".endTurn")
+             image (if (empty? (:name media)) "" (str "img/" (:name media)) )]           
             (-> content-div (.removeClass "selected"))
             (-> content-div (.find "header h2") (.text title))
-            (-> content-div (.find "section") (.html content))
+            (-> content-div (.find "section") (.html content))             (-> content-div (.find "aside") (.find "img") (.attr "src" image))
             (-> content-div (.find "footer") (.empty) (.append option-buttons))
             (-> end-turn-button (.addClass "inactive") (.removeClass "active"))))
 
