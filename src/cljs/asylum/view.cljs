@@ -144,7 +144,7 @@
                   (.each (fn [elem] 
 	                      (this-as this
 	                        (let [button ($ this)]
-	                        	(when (not (= option (.data button "option"))) (.addClass button "fadeOut")))))))
+	                        	(when (not (= option (.data button "option"))) (.addClass button "notSelected")))))))
                 (key option)))
 
 
