@@ -33,8 +33,8 @@
    :content "<p>Well, it looks like you managed to muddle through your term, vacillating between policies and not really making a stand.  Your popularity remains flat as it seems the people prefer a strong leader with simple solutions.  Good luck in the next election.  That is, if you want to come back to this thankless job.</p>"
    :options {}})
 
-(def event-store
-  (atom #{end-event-0 end-event-1
+(defn initial-events []
+  #{end-event-0 end-event-1
           ec2/operation-steel-fences
           ec/mou-naru
           ec/int-covenant-breach
@@ -56,7 +56,10 @@
           ec/implemenation-expert-panel
           ec/nauru-transfer
           ec/increase-intake-20000
-          ec/offshore-legislation}))
+          ec/offshore-legislation})
+
+(def event-store
+  (atom (initial-events)))
 
 (defn in-range [n [x y]]
   (<= x n y))

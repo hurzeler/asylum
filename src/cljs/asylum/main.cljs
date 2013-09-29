@@ -6,7 +6,7 @@
       [asylum.boats :as b])
     (:use [jayq.core :only [$ css html]]
       [jayq.util :only [log]]
-      [asylum.state :only [state]]))
+      [asylum.state :only [state initial-state]]))
 
 (defn apply-event-choice [choice]
       (log (str "Player chose " (name choice)))
@@ -32,3 +32,6 @@
 (defn action-boat [boat action]
   (swap! state update-in [:morrison] + ({:sink 0.3 :turn-back 0.1 :rescue -0.1} action))
   (swap! state update-in [:boats] disj boat))
+
+(defn restart []
+  (reset! state (initial-state)))
