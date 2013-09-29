@@ -29,6 +29,10 @@ $black: #212121;
 body {
 	font-size: $defaultFontSize;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	position: absolute;
+	height: 100%;
+	width:100%;
+	overflow: hidden;
 }
 
 body * {
@@ -75,8 +79,9 @@ body * {
 	#navMenu {
 		float:right;
 		position: relative;
-		z-index: 1;
-		a {
+		z-index: 3;
+		a.menu {
+			z-index:2;
 			text-decoration: none;
 			border-radius: 0 5px 0 0;
 			display:block;
@@ -109,6 +114,62 @@ body * {
 				span {
 					box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 				}
+			}
+		}
+		.dropdownMenu {
+			z-index:-1;
+			position: absolute;
+			bottom:55px;
+			left:-25px;
+			width:100px;
+			background: $bgColour;
+			padding:3px 3px 0;
+			margin:0;
+			border-radius: 2px;
+			opacity:0;
+			box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+			li {
+				
+				list-style: none;
+				text-align: center;
+				position: relative;
+				z-index: 1;
+				font-size:0.8rem;	
+				.reset {
+					a {
+						color:darken($grey, 30%);
+						background: $bgColour;
+						font-weight: 600;
+						line-height: 1;
+						padding: $defaultPadding/3 $defaultPadding/4;
+						text-decoration: none;
+						display:block;
+					}
+				}
+			}
+			&:after {
+				content: ".";
+				position: absolute;
+				width:20px;
+				height:20px;
+				color:$bgColour;
+				background: $bgColour;
+				bottom:-5px;
+				left: 50%;
+				margin-left:-10px;
+				display: inline-block;
+				-webkit-transform: rotate(45deg);
+				-moz-transform: rotate(45deg);
+				-o-transform: rotate(45deg);
+				-ms-transform: rotate(45deg);
+				transform: rotate(45deg);
+				box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+			}
+		}
+		&:target {
+			.dropdownMenu {
+				@extend .animated;
+				@extend .fadeInUp;
 			}
 		}
 	}
@@ -467,15 +528,7 @@ body * {
 	// 	@extend .fadeIn;
 	// }
 }
-.reset {
-	position:absolute;
-	top:40%;
-	left:50%;
-	margin:-25px 0 0 -50px;
-	height:50px;
-	width:100px;
-	font-size:1.5em;	
-}
+
 
 // TYPOGRAPHY
 h1, h2 , h3, h4, h5, h6 {

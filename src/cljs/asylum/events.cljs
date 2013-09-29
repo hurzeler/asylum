@@ -11,24 +11,31 @@
                  :turn [1 6]}
    :title "Dummy Event"
    :content "<p>Dummy dumb dumb!!!</p>"
+   :links []
    :options
    {:good {:effect (ee/dsr-factor :morrison -0.2) :title "Good" :description "Very good stuff"}
     :bad {:effect (ee/dsr-factor :morrison 0.2) :title "Bad" :description "bad bad badness is herezzz"}}})
 
 (def end-event-0
   {:constraints {:morrison [0 0.2] :turn [1 100]}
+   :media {:name "end-0.jpg" :type :image}
+   :links [""]
    :title "The game has ended"
    :content "<p>I'm sorry Prime Minister, but you have just been removed from office.  With your popularity in free fall over the last months, your caucus colleagues have finally lost confidence in your ability to deliver them to office in the next election.  You will be remembered fondly by Muesli eating, sandal wearing greenies, but the rest of us think you're a spineless traitor who prefers foreign queue-jumping asylum seekers to your own true blue Australian people.  Good riddance.</p>"
    :options {}})
 
 (def end-event-1
   {:constraints {:morrison [0.8 1] :turn [1 100]}
+   :media {:name "end-1.jpg" :type :image}
+   :links [""]
    :title "The game has ended"
    :content "<p>Congratulations, your popularity with the Australian people is sky high, especially with the Southern-Cross-Tattoo contingent.  Your heavy handed policies have resulted in international condemnation, cruelty that was unimaginable only a few years ago, and thousands of deaths.  But hey, you'll probably win the next election, so good on ya mate.</p>"
    :options {}})
 
 (def end-event-mid
   {:constraints {:morrison [0.2 0.8] :turn [20 100]}
+   :media {:name "end-mid.jpg" :type :image}
+   :links [""]
    :title "The game has ended"
    :content "<p>Well, it looks like you managed to muddle through your term, vacillating between policies and not really making a stand.  Your popularity remains flat as it seems the people prefer a strong leader with simple solutions.  Good luck in the next election.  That is, if you want to come back to this thankless job.</p>"
    :options {}})
