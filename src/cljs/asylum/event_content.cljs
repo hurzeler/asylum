@@ -337,5 +337,29 @@ Reintroducing offshore processing of asylum seekers in Nauru and Papua New Guine
    {:good {:effect (ee/dsr-factor :morrison 0.03) :title "Support" :description "You are ready to implement the High Courts decision"}
     :bad {:effect (ee/dsr-factor :morrison -0.03) :title "Appeal Decision" :description "You do not accept the court decision"}}})
 
+(def unhcr-meeting-geneva
+  {:title "UNHCR meeting in Geneva"
+   :media {:name "un.jpg" :type :image}
+   :content "UNHCR hosts a ministerial-level meeting in Geneva to commemorate the 60th anniversary of the 1951 Refugee Convention and the 50th anniversary of the 1961 Statelessness Convention. The meeting results in a number of significant breakthroughs on statelessness, with 20 countries pledging to ratify one or both of the two key Conventions on statelessness and 25 countries pledging to improve protections for stateless people."
+   :event-date "7-8 December 2011"
+   :links [] 
+   :constraints {:morrison [0 1]
+                 :turn [1 10]}
+    :options
+   {:good {:effect (ee/dsr-factor :morrison -0.03) :title "Implement Findings" :description "You are acknowledge the findings and recommendations of the UNHCR meeting"}
+    :bad {:effect (ee/dsr-factor :morrison 0.03) :title "Ignore Findings" :description "You ignore the findings and implement your own policies"}}})
+
+(def minister-announcement
+  {:title "Announcment on Bridging Visas"
+   :media {:name "un.jpg" :type :image}
+   :content "Minister for Immigration and Citizenship considers announcing that the first group of asylum seekers in detention could soon be released on bridging visas. He also considers to announce that asylum claims will be processed under a single system regardless of whether asylum seekers arrive by boat or plane."
+   :event-date "25 November 2011"
+   :links [] 
+   :constraints {:morrison [0 1]
+                 :turn [1 10]}
+    :options
+   {:good {:effect (ee/dsr-factor :morrison -0.03) :title "No press release" :description "You will not proceed with the announcement"}
+    :bad {:effect (ee/dsr-factor :morrison 0.03) :title "Announce" :description "You are instructing the minister to go ahead with the announcement"}}})
+
 
 
