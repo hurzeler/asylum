@@ -3421,13 +3421,13 @@ you can use the generic selector below, but it's slower:
   content: "\21";
   margin-left: 0.1em;
   position: relative;
-  top: 2px; }
+  top: 0px; }
 
 .icon-heart:before {
   content: "\22";
   margin-right: 0.1em;
   position: relative;
-  top: 2px; }
+  top: 0px; }
 
 .cf:before, #logoBox:before,
 .cf:after,
@@ -3644,12 +3644,16 @@ body * {
       position: relative;
       z-index: 1;
       margin-top: -5px; }
-      .gaugesPanel .popularity .popularityValue p {
+      .gaugesPanel .popularity .popularityValue p, .gaugesPanel .popularity .popularityValue span {
+        float: left;
         margin: 0;
         padding: 0;
         color: #fff;
         font-weight: 100;
-        font-size: 1.5rem; }
+        font-size: 1.5rem;
+        text-align: left;
+        background: none;
+        min-width: 20px; }
   .gaugesPanel .deaths {
     float: right; }
     .gaugesPanel .deaths p {
@@ -3660,16 +3664,19 @@ body * {
     .gaugesPanel .deaths .deathsValue {
       float: left;
       background: #e94506;
-      text-align: right;
       position: relative;
       z-index: 1;
       margin-top: -10px; }
-      .gaugesPanel .deaths .deathsValue p {
+      .gaugesPanel .deaths .deathsValue p, .gaugesPanel .deaths .deathsValue span {
+        float: right;
         margin: 0;
         padding: 0;
         color: #fff;
         font-weight: 100;
-        font-size: 1.5rem; }
+        font-size: 1.5rem;
+        text-align: right;
+        background: none;
+        min-width: 20px; }
 
 .button {
   font-size: 1.2rem;

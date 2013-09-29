@@ -45,11 +45,11 @@ you can use the generic selector below, but it's slower:
 	content: "\21";
 	margin-left:0.1em;
 	position: relative;
-	top:2px;
-}
+	top:0px;
+}		
 .icon-heart:before {
 	content: "\22";
 	margin-right:0.1em;
 	position: relative;
-	top:2px;
+	top:0px;
 }

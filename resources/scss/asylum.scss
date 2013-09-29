@@ -273,12 +273,16 @@ body * {
 			position: relative;
 			z-index: 1;
 			margin-top: -5px;
-			p {
+			p, span {
+				float:left;
 				margin:0;
 				padding:0;
 				color:#fff;
 				font-weight: 100;
 				font-size: 1.5rem;
+				text-align: left;
+				background:none;
+				min-width:20px;
 			}
 		}
 	}
@@ -293,16 +297,19 @@ body * {
 		.deathsValue {
 			float:left;
 			background:$orange;
-			text-align: right;
 			position: relative;
 			z-index: 1;
 			margin-top: -10px;
-			p {
+			p, span {
+				float:right;
 				margin:0;
 				padding:0;
 				color:#fff;
 				font-weight: 100;
 				font-size: 1.5rem;
+				text-align: right;
+				background:none;
+				min-width:20px;
 			}
 		}
 	}
