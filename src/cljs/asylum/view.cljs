@@ -12,10 +12,10 @@
          ($ map-selector)
          (clj->js {
                    :map (clj->js {
-                                  :address "Ghan, NT, Australia"
+                                  :address "Darwin, NT, Australia"
                                   :options (clj->js {
                                                      :color "#476DD5"
-                                                     :zoom 4
+                                                     :zoom 5
                                                      :mapTypeId js/google.maps.MapTypeId.ROADMAP,
                                                      :scrollwheel false
                                                      :center "-25.085875,104.284057"
@@ -93,19 +93,82 @@
       [-10.228437 142.456053]
       [-5.528511 100.532225]])
 
+(def boats-actioned-during-turn
+  (atom []))
 
-(def boat-marker-opts {:options {:icon "img/boatPin.png"}})
+(defn- kw-to-boat-action-label
+       [kw]
+       (kw {:sink "Sink"
+            :turn-back "Turn back"
+            :rescue "Rescue"
+            :grant-citizenship "Grant citizenship"}))
+
+(defn- boat-action-handler
+       [boat action action-fn]
+       (fn []
+           (do 
+             (log "Player chose to " action " " (:name boat))
+           	 (.gmap3 
+              	($ map-selector)
+              	(clj->js {:clear (clj->js {:name ["infowindow"] :id (:name boat)})}))
+           	(swap! boats-actioned-during-turn conj boat)
+            (action-fn boat action))))
+
+(defn- build-allowable-boat-actions 
+       [boat boat-action-fn]
+       (log "Number of boats saved this turn:" (count @boats-actioned-during-turn))
+       (if (= 0 (count @boats-actioned-during-turn))
+	       (to-array (map #(-> ($ "<button>") 
+	            	(.click (boat-action-handler boat % boat-action-fn))
+	            	(.text (kw-to-boat-action-label %))) 
+	      		(:actions boat)))
+        	(-> ($ "<p>") (.text "You can only action 1 boat per turn"))))
+
+(defn- boat-info-window-content 
+       [{:keys [name actions breakdown] :as boat} boat-action-fn]
+       (let [total-passengers (apply + (map val breakdown))
+             info-window-container ($ "<div>")
+             header (-> ($ "<header>") 
+                      	(.append (-> ($ "<h3>") (.text name)))
+                       	(.append (-> ($ "<span>") (.text (str total-passengers "ppl")))))
+             section (-> ($ "<section>")
+                       	(.append (-> ($ "<span>") (.addClass "men") (.text (breakdown :men))))
+                       	(.append (-> ($ "<span>") (.addClass "women") (.text (breakdown :women))))
+                       	(.append (-> ($ "<span>") (.addClass "children") (.text (breakdown :children)))))
+             footer (-> ($ "<footer>") 
+                      	(.append (build-allowable-boat-actions boat boat-action-fn)))]
+			(-> info-window-container (.addClass "boatInfo") (.append header) (.append section) (.append footer) (aget 0))))
+
+
+(defn- boat-click-handler
+      [boat boat-action-fn]
+      (fn [marker event context]
+           	(.gmap3 
+              ($ map-selector)
+              (clj->js {:clear (clj->js {:name ["infowindow"]})
+                        :infowindow (clj->js 
+                        	{:anchor marker 
+                             :options (clj->js {:content (boat-info-window-content boat boat-action-fn)})})}))))
+
+(defn- boat-marker 
+      [boat-action-fn boat]
+      (let [base-marker {:options {:icon "img/boatPin.png"} :id (:name boat)}
+           	 action-handler {:events {:click (boat-click-handler boat boat-action-fn)}}]
+           (merge base-marker action-handler)))
 
 (defn- show-boats
        "Given a number of boats to display, randomly place them on a journey to australia"
-       [num-boats]
-       (let [boats-coords (take num-boats (shuffle possible-boat-coords))
-             boats (map #(clj->js (merge {:latLng %} boat-marker-opts)) boats-coords)]
-            (.gmap3 
-              ($ map-selector)
-              (clj->js {
-                        :clear (clj->js {:name ["marker"]})
-                        :marker (clj->js {:values boats})}))))
+       [{boats :boats} boat-action-fn]
+       (let [boats-coords (take (count boats) (shuffle possible-boat-coords))
+             boats-with-coords (zipmap boats-coords (map (partial boat-marker boat-action-fn) boats))
+             boats (map #(clj->js (merge {:latLng (key %)} (val %))) boats-with-coords)]
+            (do 
+              (swap! boats-actioned-during-turn empty)
+              (.gmap3 
+	              ($ map-selector)
+	              (clj->js {
+	                        :clear (clj->js {:name ["marker"]})
+	                        :marker (clj->js {:values (to-array boats)})})))))
 
 
 (defn- say
@@ -208,18 +271,6 @@
            (-> ($ "#event-panel") (.addClass "welcome"))
            (reset-fn))))) 
 
-
-(defn display [state apply-event-choice-fn advance-turn-fn reset-fn]
-      (do 
-        (say "turn" (str (-> state :turn)))
-        (show-boats (-> state :current :transit))
-        (update-levers state)
-        (update-gauges state)
-        (show-event (:next-event state) apply-event-choice-fn advance-turn-fn)
-        (apply-end-turn-handler (:next-event state) advance-turn-fn)
-        (apply-reset-handler reset-fn)))
-
-
 (defn- lever-values 
        "Collect the lever values"
        []
@@ -262,5 +313,15 @@
                         (.empty)
                         (.append image)))))))
 
+
+(defn display [state apply-event-choice-fn advance-turn-fn reset-fn boat-action-fn]
+      (do 
+        (say "turn" (str (-> state :turn)))
+        (show-boats state boat-action-fn)
+        (update-levers state)
+        (update-gauges state)
+        (show-event (:next-event state) apply-event-choice-fn advance-turn-fn)
+        (apply-end-turn-handler (:next-event state) advance-turn-fn)
+        (apply-reset-handler reset-fn)))
 
 ($ (comp init-map init-player-avatar))
