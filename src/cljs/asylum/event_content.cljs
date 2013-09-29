@@ -3,7 +3,7 @@
 
 (def mou-naru
   {:title "Australian Government - MOU with Nauru"
-   :media {:name "mou-naru.jpg" :type :image}
+   :media {:name "mou-nauru.jpg" :type :image}
    :content "<p>The Australian Government could sign a new memorandum of understanding with Nauru similar to its Regional Resettlement Arrangement with Papua New Guinea. Asylum seekers who are transferred to Nauru for processing and found to be refugees could be settled in Nauru permanently.</p>"
    :event-date "3 Aug 2013"
    :links ["http://www.sbs.com.au/news/article/2013/08/04/australia-signs-asylum-deal-nauru"] 
