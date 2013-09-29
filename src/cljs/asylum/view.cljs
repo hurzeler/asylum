@@ -63,8 +63,16 @@
      [[-11.178402 111.870115]
       [-16.045813 114.506834]
       [-18.562947 112.924803]
+      [-13.752725 90.351563]
+      [-16.972741 100.195313]
       [-20.220966 113.540037]
       [-22.187405 109.76074]
+      [-28.767659 85.429688]
+      [-24.20689 111.708984]
+      [-23.160563 160.839844]
+      [-29.840644 160.913084]
+      [-10.746969 84.814453]
+      [-6.926427 152.841797]
       [-20.385825 105.893553]
       [-30.524413 108.969725]
       [-32.62087 108.706053]
@@ -84,6 +92,7 @@
       [-11.005904 155.727537]
       [-10.228437 142.456053]
       [-5.528511 100.532225]])
+
 
 (def boat-marker-opts {:options {:icon "img/boatPin.png"}})
 
@@ -121,16 +130,14 @@
 
 
 (defn- option-colour 
-       [{morrison-index :morrison}]
-       (log morrison-index)
+       [{morrison-index :morrison}]       
        (if (> morrison-index 1) "orange" "blue")) 
 
 (defmulti on-event-choice-selection key)
-
 (defmethod on-event-choice-selection :continue [option]
            (-> ($ ".gaugesPanel") (.removeClass "inactive") (.addClass "active"))
+           (-> ($ "#event-panel") (.removeClass "welcome"))
            :continue)
-
 (defmethod on-event-choice-selection :default [option] (key option))
 
 

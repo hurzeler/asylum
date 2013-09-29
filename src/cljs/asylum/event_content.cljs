@@ -2,7 +2,7 @@
   (:require [asylum.event-engine :as ee]))
 
 (def mou-naru
-  {:title "Australian Government could sign a new memorandum of understanding with Nauru"
+  {:title "Australian Government - MOU with Nauru"
    :media {:name "mou-naru.jpg" :type :image}
    :content "<p>The Australian Government could sign a new memorandum of understanding with Nauru similar to its Regional Resettlement Arrangement with Papua New Guinea. Asylum seekers who are transferred to Nauru for processing and found to be refugees could be settled in Nauru permanently.</p>"
    :event-date "3 Aug 2013"
@@ -11,7 +11,7 @@
                  :turn [1 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.02) :title "No action" :description ""}
-    :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Review" :description "Review being a signatory to UN convention"}}})
+    :bad {:effect (ee/dsr-factor :morrison 0.01) :title "Review" :description "Review being a signatory to UN convention"}}})
 
 (def int-covenant-breach
   {:title "Australia has breached the International Covenant on Civil and Political Rights by indefinitely detaining refugees who have failed security assessments"
@@ -28,7 +28,7 @@
 (def naru-riot
   {:title "Nauru Riot"
    :media {:name "nauru-riot.jpg" :type :image}
-   :content "<p>A peaceful protest at the offshore processing facility in Nauru degenerates into a riot. Several buildings are destroyed and over 100 detainees are arrested. On 23 July, a group of present and former Salvation Army staff members who had worked in the Nauru facility release a public statement asserting that this riot although shocking, was an inevitable outcome from a cruel and degrading policy . They describe the constant degradation and suffering  experienced by detainees in the Nauru facility and claim that the riot was not borne out of malice was not borne out of malice. It was a build up of pressure and anxiety over ten months of degrading treatment, and a planned peaceful protest that degenerated. It was a reaction to a refugee processing system that is devoid of logic and fairness .</p>"
+   :content "<p>A peaceful protest at the offshore processing facility in Nauru degenerates into a riot. Several buildings are destroyed and over 100 detainees are arrested. A group of present and former Salvation Army staff members who had worked in the Nauru facility release a public statement asserting that this riot although shocking, was an inevitable outcome from a cruel and degrading policy. They describe the constant degradation and suffering  experienced by detainees in the Nauru facility and claim that the riot was not borne out of malice was not borne out of malice. It was a build up of pressure and anxiety over ten months of degrading treatment, and a planned peaceful protest that degenerated. It was a reaction to a refugee processing system that is devoid of logic and fairness .</p>"
    :event-date "19 July 2013"
    :links ["http://www.refugeecouncil.org.au/n/mr/130723-Salvos-Nauru.pdf"] 
    :constraints {:morrison [0.5 1]
@@ -50,9 +50,9 @@
     :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Sign agreement" :description "All asylum seekers will be settled in PNG"}}})
 
 (def unchr-report-manus-island
-  {:title "UNCHR report on conditions in the offshore processing facility on Manus Island"
+  {:title "UNHCR report on Manus Island"
    :media {:name "manus-island.jpg" :type :image}
-   :content "<p>A second UNCHR report on conditions in the offshore processing facility on Manus Island acknowledges that, while there have been some positive developments, conditions remain below international standards for the reception and treatment of asylum-seekers . In particular, UNHCR expresses ongoing concern about the harsh physical living conditions, the mandatory and indefinite detention of asylum seekers, the lack of adequate safeguards in transfer arrangements and shortcomings in the legal framework for refugee status determination.</p>"
+   :content "<p>A second UNHCR report on conditions in the offshore processing facility on Manus Island acknowledges that, while there have been some positive developments, conditions remain below international standards for the reception and treatment of asylum-seekers . In particular, UNHCR expresses ongoing concern about the harsh physical living conditions, the mandatory and indefinite detention of asylum seekers, the lack of adequate safeguards in transfer arrangements and shortcomings in the legal framework for refugee status determination.</p>"
    :event-date "12 July 2013"
    :links ["http://unhcr.org.au/unhcr/files/2013-07-12_Manus_Island_Report_Final%281%29.pdf"] 
    :constraints {:morrison [0.4 1]
@@ -62,7 +62,7 @@
     :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Ignore Report" :description "You consider the Australian government not being a signatury of the UNHCR convention"}}})
 
 (def resumption-processing-asylum-claims
-  {:title "Australian Government could resume processing of asylum claims"
+  {:title "Australian Government to resume processing of asylum claims"
    :media {:name "asylum-seekers.jpg" :type :image}
    :content "<p>The Government could resume processing of asylum claims for people who arrived by boat. By this point, the backlog stands at over 20,000.</p>"
    :event-date "3 July 2013"
@@ -87,7 +87,7 @@
 (def community-proposal-pilot
   {:title "Community Proposal Pilot"
    :media {:name "community-proposal-pilot.jpg" :type :image}
-   :content "<p>Community Proposal Pilot. The program could allow approved community organisations in Australia to propose humanitarian entrants for resettlement in Australia and help them to settle once they arrive. Organisations are expected to pay a substantial visa fee and meet a range of costs related to the person's resettlement in Australia (such as airfares, medical checks and on-arrival support).</p>"
+   :content "<p>The program could allow approved community organisations in Australia to propose humanitarian entrants for resettlement in Australia and help them to settle once they arrive. Organisations are expected to pay a substantial visa fee and meet a range of costs related to the person's resettlement in Australia (such as airfares, medical checks and on-arrival support).</p>"
    :event-date "3 June 2013"
    :links ["http://www.immi.gov.au/visas/humanitarian/offshore/community-proposal-pilot.htm"] 
    :constraints {:morrison [0 1]
@@ -99,14 +99,14 @@
 (def redcross-inaugural-vulnerability-report
   {:title "Red Cross Inaugural Vulnerability Report"
    :media {:name "redcross.png" :type :image}
-   :content "<p>The Red Cross releases its inaugural Vulnerability Report, focusing on asylum seekers living in the Australian community under the no advantage  test. The Report reveals that many people seeking asylum live in the Australian community in a state of poverty, with many struggling to access adequate and sustainable housing and afford basics such as food, furniture and bedding. In launching the report, Red Cross CEO Robert Tickner says We are not talking about destitution here by normal standards. We're talking about what is by any measure among the most destitute people in the country, who are absolutely marginalised by every reasonable measure. </p>"
+   :content "<p>The Red Cross releases its inaugural Vulnerability Report, focusing on asylum seekers living in the Australian community under the no advantage  test. The Report reveals that many people seeking asylum live in the Australian community in a state of poverty, with many struggling to access adequate and sustainable housing and afford basics such as food, furniture and bedding. In launching the report, Red Cross CEO Robert Tickner says \"We are not talking about destitution here by normal standards. We're talking about what is by any measure among the most destitute people in the country, who are absolutely marginalised by every reasonable measure.\"</p>"
    :event-date "June 2013"
    :links ["http://www.redcross.org.au/files/20130614_Inaugural_Vulnerability_Report_LR.pdf"] 
    :constraints {:morrison [0.3 1]
                  :turn [3 100]}
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.03) :title "Accept report" :description "Address regugee's vulnerabilities"}
-    :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Try to refute findings" :description "There is nothing wrong with the no advantage test"}}})
+    :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Refute findings" :description "There is nothing wrong with the no advantage test"}}})
 
 (def excision-policy 
   {:title "Extend excision policy to the Australian mainland"
@@ -121,9 +121,9 @@
     :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Pass" :description "Pass excission policy legislation"}}})
 
 (def full-federal-court-challange
-  {:title "Full Federal Court finds that the International Treaty Obligations Assessment process unlawful"
+  {:title "Full Federal Court finds that the International Treaty Obligations Assessment process is unlawful"
    :media {:name "federal-court.jpg" :type :image}
-   :content "<p>In Minister for Immigration and Citizenship v SZQRB, the Full Federal Court finds that the International Treaty Obligations Assessment process (used by the Government to assess complementary protection needs) is not being carried out in accordance with the law. It also finds that the Minister's decision not to exercise his non-compellable public interest powers to grant the plaintiff a visa, irrespective of the merits of the case, denied the plaintiff procedural fairness in the most fundamental way . The Court issues an injunction preventing the deportation of the plaintiff until his claims have been assessed according to law. As a result, deportations of other asylum seekers in a similar position to the plaintiff are temporarily suspended.</p>"
+   :content "<p>In Minister for Immigration and Citizenship v SZQRB, the Full Federal Court finds that the International Treaty Obligations Assessment process (used by the Government to assess complementary protection needs) is not being carried out in accordance with the law. It also finds that the Minister's decision not to exercise his non-compellable public interest powers to grant the plaintiff a visa, irrespective of the merits of the case, denied the plaintiff procedural fairness in the most fundamental way. The Court issues an injunction preventing the deportation of the plaintiff until his claims have been assessed according to law. As a result, deportations of other asylum seekers in a similar position to the plaintiff are temporarily suspended.</p>"
    :event-date "20 March 2013"
    :links ["http://www.austlii.edu.au/au/cases/cth/FCAFC/2013/33.html"] 
    :constraints {:morrison [0 1]
@@ -196,7 +196,7 @@
     :bad {:effect (ee/dsr-factor :morrison 0.05) :title "Implement" :description "Start prossesing refugees in PNG"}}})
 
 (def enhanced-screening
-  {:title "enhanced screening process for Sri Lankan asylum seekers who arrive by boat"
+  {:title "Enhanced screening process for Sri Lankan asylum seekers"
    :media {:name "sri-lankan.jpg" :type :image}
    :content "<p>The Australian Government proposes to introduce an enhanced screening  process for Sri Lankan asylum seekers who arrive by boat. Under this process, an asylum seeker is interviewed by two officers from the Department of Immigration and Citizenship, about their reasons for travelling to Australia. If the asylum seeker raises concerns which suggest that they may have a valid protection claim, they are screened in  so that their claim can be formally processed. If they do not raise any protection concerns, they are screened out  and returned to Sri Lanka without having the opportunity to formally lodge a protection claim."
       :event-date "October 2012.</p>"
@@ -212,8 +212,9 @@
    :media {:name "family-reunion.jpg" :type :image}
    :content "<p>The Australian Government announces that it will consider the implemention of the Expert Panel's recommendations on humanitarian family reunion:
 Refugees who arrived by boat before today (except for unaccompanied minors) will have to meet additional criteria if they wish to sponsor family members for resettlement under the Special Humanitarian Program, and their applications will be given the lowest processing priority.</p>
-<p>Refugees who arrived by boat after today will no longer be eligible to sponsor their family members for resettlement under the Special Humanitarian Program.</p>
-<p>An additional 4,000 places are made available under the Family stream of the migration program for humanitarian entrants seeking to sponsor family members.</p>"
+<ul>
+<li>Refugees who arrived by boat after today will no longer be eligible to sponsor their family members for resettlement under the Special Humanitarian Program.</li>
+<li>An additional 4,000 places are made available under the Family stream of the migration program for humanitarian entrants seeking to sponsor family members.</li></ul>"
    :event-date "22 September 2012"
    :links ["http://www.immi.gov.au/visas/humanitarian/family-reunion.htm"] 
    :constraints {:morrison [0 1]
@@ -335,6 +336,30 @@ Reintroducing offshore processing of asylum seekers in Nauru and Papua New Guine
     :options
    {:good {:effect (ee/dsr-factor :morrison 0.03) :title "Support" :description "You are ready to implement the High Courts decision"}
     :bad {:effect (ee/dsr-factor :morrison -0.03) :title "Appeal Decision" :description "You do not accept the court decision"}}})
+
+(def unhcr-meeting-geneva
+  {:title "UNHCR meeting in Geneva"
+   :media {:name "un.jpg" :type :image}
+   :content "UNHCR hosts a ministerial-level meeting in Geneva to commemorate the 60th anniversary of the 1951 Refugee Convention and the 50th anniversary of the 1961 Statelessness Convention. The meeting results in a number of significant breakthroughs on statelessness, with 20 countries pledging to ratify one or both of the two key Conventions on statelessness and 25 countries pledging to improve protections for stateless people."
+   :event-date "7-8 December 2011"
+   :links [] 
+   :constraints {:morrison [0 1]
+                 :turn [1 10]}
+    :options
+   {:good {:effect (ee/dsr-factor :morrison -0.03) :title "Implement Findings" :description "You are acknowledge the findings and recommendations of the UNHCR meeting"}
+    :bad {:effect (ee/dsr-factor :morrison 0.03) :title "Ignore Findings" :description "You ignore the findings and implement your own policies"}}})
+
+(def minister-announcement
+  {:title "Announcment on Bridging Visas"
+   :media {:name "un.jpg" :type :image}
+   :content "Minister for Immigration and Citizenship considers announcing that the first group of asylum seekers in detention could soon be released on bridging visas. He also considers to announce that asylum claims will be processed under a single system regardless of whether asylum seekers arrive by boat or plane."
+   :event-date "25 November 2011"
+   :links [] 
+   :constraints {:morrison [0 1]
+                 :turn [1 10]}
+    :options
+   {:good {:effect (ee/dsr-factor :morrison -0.03) :title "No press release" :description "You will not proceed with the announcement"}
+    :bad {:effect (ee/dsr-factor :morrison 0.03) :title "Announce" :description "You are instructing the minister to go ahead with the announcement"}}})
 
 
 
