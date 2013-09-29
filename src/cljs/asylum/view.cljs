@@ -121,8 +121,7 @@
 
 
 (defn- option-colour 
-       [{morrison-index :morrison}]
-       (log morrison-index)
+       [{morrison-index :morrison}]       
        (if (> morrison-index 1) "orange" "blue")) 
 
 (defmulti on-event-choice-selection key)
