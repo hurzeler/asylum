@@ -210,7 +210,7 @@ body {
   /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
   -webkit-backface-visibility: hidden; }
 
-.animated, .popUp, .popUp.selected, .popUp footer .notSelected, .gaugesPanel.active, .endTurn {
+.animated, #logoBox #navMenu:target .dropdownMenu, .popUp, .popUp.selected, .popUp footer .notSelected, .gaugesPanel.active, .endTurn {
   -webkit-animation-duration: 1s;
   -moz-animation-duration: 1s;
   -o-animation-duration: 1s;
@@ -220,7 +220,7 @@ body {
   -o-animation-fill-mode: both;
   animation-fill-mode: both; }
 
-.animated.flip, .flip.popUp, .popUp footer .flip.notSelected, .flip.gaugesPanel.active, .flip.endTurn {
+.animated.flip, #logoBox #navMenu:target .flip.dropdownMenu, .flip.popUp, .popUp footer .flip.notSelected, .flip.gaugesPanel.active, .flip.endTurn {
   -webkit-animation-duration: 0.6s;
   -moz-animation-duration: 0.6s;
   -o-animation-duration: 0.6s;
@@ -230,7 +230,7 @@ body {
   -o-animation-fill-mode: both;
   animation-fill-mode: both; }
 
-.animated.hinge, .hinge.popUp, .popUp footer .hinge.notSelected, .hinge.gaugesPanel.active, .hinge.endTurn {
+.animated.hinge, #logoBox #navMenu:target .hinge.dropdownMenu, .hinge.popUp, .popUp footer .hinge.notSelected, .hinge.gaugesPanel.active, .hinge.endTurn {
   -webkit-animation-duration: 2s;
   -moz-animation-duration: 2s;
   -o-animation-duration: 2s;
@@ -264,7 +264,7 @@ body {
   25%, 75% {
     opacity: 0; } }
 
-.animated.flash, .flash.popUp, .popUp footer .flash.notSelected, .flash.gaugesPanel.active, .flash.endTurn {
+.animated.flash, #logoBox #navMenu:target .flash.dropdownMenu, .flash.popUp, .popUp footer .flash.notSelected, .flash.gaugesPanel.active, .flash.endTurn {
   -webkit-animation-name: flash;
   -moz-animation-name: flash;
   -o-animation-name: flash;
@@ -310,7 +310,7 @@ body {
   20%, 40%, 60%, 80% {
     transform: translateX(10px); } }
 
-.animated.shake, .shake.popUp, .popUp footer .shake.notSelected, .shake.gaugesPanel.active, .shake.endTurn {
+.animated.shake, #logoBox #navMenu:target .shake.dropdownMenu, .shake.popUp, .popUp footer .shake.notSelected, .shake.gaugesPanel.active, .shake.endTurn {
   -webkit-animation-name: shake;
   -moz-animation-name: shake;
   -o-animation-name: shake;
@@ -356,7 +356,7 @@ body {
   60% {
     transform: translateY(-15px); } }
 
-.animated.bounce, .bounce.popUp, .popUp footer .bounce.notSelected, .bounce.gaugesPanel.active, .bounce.endTurn {
+.animated.bounce, #logoBox #navMenu:target .bounce.dropdownMenu, .bounce.popUp, .popUp footer .bounce.notSelected, .bounce.gaugesPanel.active, .bounce.endTurn {
   -webkit-animation-name: bounce;
   -moz-animation-name: bounce;
   -o-animation-name: bounce;
@@ -426,7 +426,7 @@ body {
   100% {
     transform: scale(1) rotate(0); } }
 
-.animated.tada, .tada.popUp, .popUp footer .tada.notSelected, .tada.gaugesPanel.active, .tada.endTurn {
+.animated.tada, #logoBox #navMenu:target .tada.dropdownMenu, .tada.popUp, .popUp footer .tada.notSelected, .tada.gaugesPanel.active, .tada.endTurn {
   -webkit-animation-name: tada;
   -moz-animation-name: tada;
   -o-animation-name: tada;
@@ -499,7 +499,7 @@ body {
   100% {
     transform: rotate(0deg); } }
 
-.animated.swing, .swing.popUp, .popUp footer .swing.notSelected, .swing.gaugesPanel.active, .swing.endTurn {
+.animated.swing, #logoBox #navMenu:target .swing.dropdownMenu, .swing.popUp, .popUp footer .swing.notSelected, .swing.gaugesPanel.active, .swing.endTurn {
   -webkit-transform-origin: top center;
   -moz-transform-origin: top center;
   -o-transform-origin: top center;
@@ -598,7 +598,7 @@ body {
   100% {
     transform: translateX(0%); } }
 
-.animated.wobble, .wobble.popUp, .popUp footer .wobble.notSelected, .wobble.gaugesPanel.active, .wobble.endTurn {
+.animated.wobble, #logoBox #navMenu:target .wobble.dropdownMenu, .wobble.popUp, .popUp footer .wobble.notSelected, .wobble.gaugesPanel.active, .wobble.endTurn {
   -webkit-animation-name: wobble;
   -moz-animation-name: wobble;
   -o-animation-name: wobble;
@@ -645,7 +645,7 @@ body {
   100% {
     transform: scale(1); } }
 
-.animated.pulse, .pulse.popUp, .popUp footer .pulse.notSelected, .pulse.gaugesPanel.active, .pulse.endTurn {
+.animated.pulse, #logoBox #navMenu:target .pulse.dropdownMenu, .pulse.popUp, .popUp footer .pulse.notSelected, .pulse.gaugesPanel.active, .pulse.endTurn {
   -webkit-animation-name: pulse;
   -moz-animation-name: pulse;
   -o-animation-name: pulse;
@@ -747,7 +747,7 @@ body {
     animation-timing-function: ease-in;
     opacity: 0; } }
 
-.animated.flip, .flip.popUp, .popUp footer .flip.notSelected, .flip.gaugesPanel.active, .flip.endTurn {
+.animated.flip, #logoBox #navMenu:target .flip.dropdownMenu, .flip.popUp, .popUp footer .flip.notSelected, .flip.gaugesPanel.active, .flip.endTurn {
   -webkit-backface-visibility: visible !important;
   -webkit-animation-name: flip;
   -moz-backface-visibility: visible !important;
@@ -817,7 +817,7 @@ body {
     transform: perspective(400px) rotateX(0deg);
     opacity: 1; } }
 
-.animated.flipInX, .flipInX.popUp, .popUp footer .flipInX.notSelected, .gaugesPanel.active, .flipInX.endTurn {
+.animated.flipInX, #logoBox #navMenu:target .flipInX.dropdownMenu, .flipInX.popUp, .popUp footer .flipInX.notSelected, .gaugesPanel.active, .flipInX.endTurn {
   -webkit-backface-visibility: visible !important;
   -webkit-animation-name: flipInX;
   -moz-backface-visibility: visible !important;
@@ -863,7 +863,7 @@ body {
     transform: perspective(400px) rotateX(90deg);
     opacity: 0; } }
 
-.animated.flipOutX, .flipOutX.popUp, .popUp footer .flipOutX.notSelected, .flipOutX.gaugesPanel.active, .flipOutX.endTurn {
+.animated.flipOutX, #logoBox #navMenu:target .flipOutX.dropdownMenu, .flipOutX.popUp, .popUp footer .flipOutX.notSelected, .flipOutX.gaugesPanel.active, .flipOutX.endTurn {
   -webkit-animation-name: flipOutX;
   -webkit-backface-visibility: visible !important;
   -moz-animation-name: flipOutX;
@@ -933,7 +933,7 @@ body {
     transform: perspective(400px) rotateY(0deg);
     opacity: 1; } }
 
-.animated.flipInY, .flipInY.popUp, .popUp footer .flipInY.notSelected, .flipInY.gaugesPanel.active, .flipInY.endTurn {
+.animated.flipInY, #logoBox #navMenu:target .flipInY.dropdownMenu, .flipInY.popUp, .popUp footer .flipInY.notSelected, .flipInY.gaugesPanel.active, .flipInY.endTurn {
   -webkit-backface-visibility: visible !important;
   -webkit-animation-name: flipInY;
   -moz-backface-visibility: visible !important;
@@ -979,7 +979,7 @@ body {
     transform: perspective(400px) rotateY(90deg);
     opacity: 0; } }
 
-.animated.flipOutY, .flipOutY.popUp, .popUp footer .flipOutY.notSelected, .flipOutY.gaugesPanel.active, .flipOutY.endTurn {
+.animated.flipOutY, #logoBox #navMenu:target .flipOutY.dropdownMenu, .flipOutY.popUp, .popUp footer .flipOutY.notSelected, .flipOutY.gaugesPanel.active, .flipOutY.endTurn {
   -webkit-backface-visibility: visible !important;
   -webkit-animation-name: flipOutY;
   -moz-backface-visibility: visible !important;
@@ -1017,7 +1017,7 @@ body {
   100% {
     opacity: 1; } }
 
-.animated.fadeIn, .fadeIn.popUp, .popUp footer .fadeIn.notSelected, .fadeIn.gaugesPanel.active, .endTurn {
+.animated.fadeIn, #logoBox #navMenu:target .fadeIn.dropdownMenu, .fadeIn.popUp, .popUp footer .fadeIn.notSelected, .fadeIn.gaugesPanel.active, .endTurn {
   -webkit-animation-name: fadeIn;
   -moz-animation-name: fadeIn;
   -o-animation-name: fadeIn;
@@ -1059,7 +1059,7 @@ body {
     opacity: 1;
     transform: translateY(0); } }
 
-.animated.fadeInUp, .fadeInUp.popUp, .popUp footer .fadeInUp.notSelected, .fadeInUp.gaugesPanel.active, .fadeInUp.endTurn {
+.animated.fadeInUp, #logoBox #navMenu:target .dropdownMenu, .fadeInUp.popUp, .popUp footer .fadeInUp.notSelected, .fadeInUp.gaugesPanel.active, .fadeInUp.endTurn {
   -webkit-animation-name: fadeInUp;
   -moz-animation-name: fadeInUp;
   -o-animation-name: fadeInUp;
@@ -1101,7 +1101,7 @@ body {
     opacity: 1;
     transform: translateY(0); } }
 
-.animated.fadeInDown, .popUp, .popUp footer .fadeInDown.notSelected, .fadeInDown.gaugesPanel.active, .fadeInDown.endTurn {
+.animated.fadeInDown, #logoBox #navMenu:target .fadeInDown.dropdownMenu, .popUp, .popUp footer .fadeInDown.notSelected, .fadeInDown.gaugesPanel.active, .fadeInDown.endTurn {
   -webkit-animation-name: fadeInDown;
   -moz-animation-name: fadeInDown;
   -o-animation-name: fadeInDown;
@@ -1143,7 +1143,7 @@ body {
     opacity: 1;
     transform: translateX(0); } }
 
-.animated.fadeInLeft, .fadeInLeft.popUp, .popUp footer .fadeInLeft.notSelected, .fadeInLeft.gaugesPanel.active, .fadeInLeft.endTurn {
+.animated.fadeInLeft, #logoBox #navMenu:target .fadeInLeft.dropdownMenu, .fadeInLeft.popUp, .popUp footer .fadeInLeft.notSelected, .fadeInLeft.gaugesPanel.active, .fadeInLeft.endTurn {
   -webkit-animation-name: fadeInLeft;
   -moz-animation-name: fadeInLeft;
   -o-animation-name: fadeInLeft;
@@ -1185,7 +1185,7 @@ body {
     opacity: 1;
     transform: translateX(0); } }
 
-.animated.fadeInRight, .fadeInRight.popUp, .popUp footer .fadeInRight.notSelected, .fadeInRight.gaugesPanel.active, .fadeInRight.endTurn {
+.animated.fadeInRight, #logoBox #navMenu:target .fadeInRight.dropdownMenu, .fadeInRight.popUp, .popUp footer .fadeInRight.notSelected, .fadeInRight.gaugesPanel.active, .fadeInRight.endTurn {
   -webkit-animation-name: fadeInRight;
   -moz-animation-name: fadeInRight;
   -o-animation-name: fadeInRight;
@@ -1227,7 +1227,7 @@ body {
     opacity: 1;
     transform: translateY(0); } }
 
-.animated.fadeInUpBig, .fadeInUpBig.popUp, .popUp footer .fadeInUpBig.notSelected, .fadeInUpBig.gaugesPanel.active, .fadeInUpBig.endTurn {
+.animated.fadeInUpBig, #logoBox #navMenu:target .fadeInUpBig.dropdownMenu, .fadeInUpBig.popUp, .popUp footer .fadeInUpBig.notSelected, .fadeInUpBig.gaugesPanel.active, .fadeInUpBig.endTurn {
   -webkit-animation-name: fadeInUpBig;
   -moz-animation-name: fadeInUpBig;
   -o-animation-name: fadeInUpBig;
@@ -1269,7 +1269,7 @@ body {
     opacity: 1;
     transform: translateY(0); } }
 
-.animated.fadeInDownBig, .fadeInDownBig.popUp, .popUp footer .fadeInDownBig.notSelected, .fadeInDownBig.gaugesPanel.active, .fadeInDownBig.endTurn {
+.animated.fadeInDownBig, #logoBox #navMenu:target .fadeInDownBig.dropdownMenu, .fadeInDownBig.popUp, .popUp footer .fadeInDownBig.notSelected, .fadeInDownBig.gaugesPanel.active, .fadeInDownBig.endTurn {
   -webkit-animation-name: fadeInDownBig;
   -moz-animation-name: fadeInDownBig;
   -o-animation-name: fadeInDownBig;
@@ -1311,7 +1311,7 @@ body {
     opacity: 1;
     transform: translateX(0); } }
 
-.animated.fadeInLeftBig, .fadeInLeftBig.popUp, .popUp footer .fadeInLeftBig.notSelected, .fadeInLeftBig.gaugesPanel.active, .fadeInLeftBig.endTurn {
+.animated.fadeInLeftBig, #logoBox #navMenu:target .fadeInLeftBig.dropdownMenu, .fadeInLeftBig.popUp, .popUp footer .fadeInLeftBig.notSelected, .fadeInLeftBig.gaugesPanel.active, .fadeInLeftBig.endTurn {
   -webkit-animation-name: fadeInLeftBig;
   -moz-animation-name: fadeInLeftBig;
   -o-animation-name: fadeInLeftBig;
@@ -1353,7 +1353,7 @@ body {
     opacity: 1;
     transform: translateX(0); } }
 
-.animated.fadeInRightBig, .fadeInRightBig.popUp, .popUp footer .fadeInRightBig.notSelected, .fadeInRightBig.gaugesPanel.active, .fadeInRightBig.endTurn {
+.animated.fadeInRightBig, #logoBox #navMenu:target .fadeInRightBig.dropdownMenu, .fadeInRightBig.popUp, .popUp footer .fadeInRightBig.notSelected, .fadeInRightBig.gaugesPanel.active, .fadeInRightBig.endTurn {
   -webkit-animation-name: fadeInRightBig;
   -moz-animation-name: fadeInRightBig;
   -o-animation-name: fadeInRightBig;
@@ -1387,7 +1387,7 @@ body {
   100% {
     opacity: 0; } }
 
-.animated.fadeOut, .fadeOut.popUp, .popUp footer .fadeOut.notSelected, .fadeOut.gaugesPanel.active, .fadeOut.endTurn {
+.animated.fadeOut, #logoBox #navMenu:target .fadeOut.dropdownMenu, .fadeOut.popUp, .popUp footer .fadeOut.notSelected, .fadeOut.gaugesPanel.active, .fadeOut.endTurn {
   -webkit-animation-name: fadeOut;
   -moz-animation-name: fadeOut;
   -o-animation-name: fadeOut;
@@ -1429,7 +1429,7 @@ body {
     opacity: 0;
     transform: translateY(-20px); } }
 
-.animated.fadeOutUp, .fadeOutUp.popUp, .popUp footer .fadeOutUp.notSelected, .fadeOutUp.gaugesPanel.active, .fadeOutUp.endTurn {
+.animated.fadeOutUp, #logoBox #navMenu:target .fadeOutUp.dropdownMenu, .fadeOutUp.popUp, .popUp footer .fadeOutUp.notSelected, .fadeOutUp.gaugesPanel.active, .fadeOutUp.endTurn {
   -webkit-animation-name: fadeOutUp;
   -moz-animation-name: fadeOutUp;
   -o-animation-name: fadeOutUp;
@@ -1479,7 +1479,7 @@ body {
     opacity: 0;
     transform: translateY(20px); } }
 
-.animated.fadeOutDown, .fadeOutDown.popUp, .popUp.selected, .popUp footer .fadeOutDown.notSelected, .fadeOutDown.gaugesPanel.active, .fadeOutDown.endTurn {
+.animated.fadeOutDown, #logoBox #navMenu:target .fadeOutDown.dropdownMenu, .fadeOutDown.popUp, .popUp.selected, .popUp footer .fadeOutDown.notSelected, .fadeOutDown.gaugesPanel.active, .fadeOutDown.endTurn {
   -webkit-animation-name: fadeOutDown;
   -moz-animation-name: fadeOutDown;
   -o-animation-name: fadeOutDown;
@@ -1521,7 +1521,7 @@ body {
     opacity: 0;
     transform: translateX(-20px); } }
 
-.animated.fadeOutLeft, .fadeOutLeft.popUp, .popUp footer .fadeOutLeft.notSelected, .fadeOutLeft.gaugesPanel.active, .fadeOutLeft.endTurn {
+.animated.fadeOutLeft, #logoBox #navMenu:target .fadeOutLeft.dropdownMenu, .fadeOutLeft.popUp, .popUp footer .fadeOutLeft.notSelected, .fadeOutLeft.gaugesPanel.active, .fadeOutLeft.endTurn {
   -webkit-animation-name: fadeOutLeft;
   -moz-animation-name: fadeOutLeft;
   -o-animation-name: fadeOutLeft;
@@ -1563,7 +1563,7 @@ body {
     opacity: 0;
     transform: translateX(20px); } }
 
-.animated.fadeOutRight, .fadeOutRight.popUp, .popUp footer .fadeOutRight.notSelected, .fadeOutRight.gaugesPanel.active, .fadeOutRight.endTurn {
+.animated.fadeOutRight, #logoBox #navMenu:target .fadeOutRight.dropdownMenu, .fadeOutRight.popUp, .popUp footer .fadeOutRight.notSelected, .fadeOutRight.gaugesPanel.active, .fadeOutRight.endTurn {
   -webkit-animation-name: fadeOutRight;
   -moz-animation-name: fadeOutRight;
   -o-animation-name: fadeOutRight;
@@ -1605,7 +1605,7 @@ body {
     opacity: 0;
     transform: translateY(-2000px); } }
 
-.animated.fadeOutUpBig, .fadeOutUpBig.popUp, .popUp footer .fadeOutUpBig.notSelected, .fadeOutUpBig.gaugesPanel.active, .fadeOutUpBig.endTurn {
+.animated.fadeOutUpBig, #logoBox #navMenu:target .fadeOutUpBig.dropdownMenu, .fadeOutUpBig.popUp, .popUp footer .fadeOutUpBig.notSelected, .fadeOutUpBig.gaugesPanel.active, .fadeOutUpBig.endTurn {
   -webkit-animation-name: fadeOutUpBig;
   -moz-animation-name: fadeOutUpBig;
   -o-animation-name: fadeOutUpBig;
@@ -1647,7 +1647,7 @@ body {
     opacity: 0;
     transform: translateY(2000px); } }
 
-.animated.fadeOutDownBig, .fadeOutDownBig.popUp, .popUp footer .fadeOutDownBig.notSelected, .fadeOutDownBig.gaugesPanel.active, .fadeOutDownBig.endTurn {
+.animated.fadeOutDownBig, #logoBox #navMenu:target .fadeOutDownBig.dropdownMenu, .fadeOutDownBig.popUp, .popUp footer .fadeOutDownBig.notSelected, .fadeOutDownBig.gaugesPanel.active, .fadeOutDownBig.endTurn {
   -webkit-animation-name: fadeOutDownBig;
   -moz-animation-name: fadeOutDownBig;
   -o-animation-name: fadeOutDownBig;
@@ -1689,7 +1689,7 @@ body {
     opacity: 0;
     transform: translateX(-2000px); } }
 
-.animated.fadeOutLeftBig, .fadeOutLeftBig.popUp, .popUp footer .fadeOutLeftBig.notSelected, .fadeOutLeftBig.gaugesPanel.active, .fadeOutLeftBig.endTurn {
+.animated.fadeOutLeftBig, #logoBox #navMenu:target .fadeOutLeftBig.dropdownMenu, .fadeOutLeftBig.popUp, .popUp footer .fadeOutLeftBig.notSelected, .fadeOutLeftBig.gaugesPanel.active, .fadeOutLeftBig.endTurn {
   -webkit-animation-name: fadeOutLeftBig;
   -moz-animation-name: fadeOutLeftBig;
   -o-animation-name: fadeOutLeftBig;
@@ -1731,7 +1731,7 @@ body {
     opacity: 0;
     transform: translateX(2000px); } }
 
-.animated.fadeOutRightBig, .fadeOutRightBig.popUp, .popUp footer .fadeOutRightBig.notSelected, .fadeOutRightBig.gaugesPanel.active, .fadeOutRightBig.endTurn {
+.animated.fadeOutRightBig, #logoBox #navMenu:target .fadeOutRightBig.dropdownMenu, .fadeOutRightBig.popUp, .popUp footer .fadeOutRightBig.notSelected, .fadeOutRightBig.gaugesPanel.active, .fadeOutRightBig.endTurn {
   -webkit-animation-name: fadeOutRightBig;
   -moz-animation-name: fadeOutRightBig;
   -o-animation-name: fadeOutRightBig;
@@ -2025,7 +2025,7 @@ body {
   -o-animation-name: slideOutUp;
   animation-name: slideOutUp; }
 
-.animated.bounceIn, .bounceIn.popUp, .popUp footer .bounceIn.notSelected, .bounceIn.gaugesPanel.active, .bounceIn.endTurn {
+.animated.bounceIn, #logoBox #navMenu:target .bounceIn.dropdownMenu, .bounceIn.popUp, .popUp footer .bounceIn.notSelected, .bounceIn.gaugesPanel.active, .bounceIn.endTurn {
   -webkit-animation-name: bounceIn;
   -moz-animation-name: bounceIn;
   -o-animation-name: bounceIn;
@@ -2091,7 +2091,7 @@ body {
   100% {
     transform: translateY(0); } }
 
-.animated.bounceInUp, .bounceInUp.popUp, .popUp footer .bounceInUp.notSelected, .bounceInUp.gaugesPanel.active, .bounceInUp.endTurn {
+.animated.bounceInUp, #logoBox #navMenu:target .bounceInUp.dropdownMenu, .bounceInUp.popUp, .popUp footer .bounceInUp.notSelected, .bounceInUp.gaugesPanel.active, .bounceInUp.endTurn {
   -webkit-animation-name: bounceInUp;
   -moz-animation-name: bounceInUp;
   -o-animation-name: bounceInUp;
@@ -2157,7 +2157,7 @@ body {
   100% {
     transform: translateY(0); } }
 
-.animated.bounceInDown, .bounceInDown.popUp, .popUp footer .bounceInDown.notSelected, .bounceInDown.gaugesPanel.active, .bounceInDown.endTurn {
+.animated.bounceInDown, #logoBox #navMenu:target .bounceInDown.dropdownMenu, .bounceInDown.popUp, .popUp footer .bounceInDown.notSelected, .bounceInDown.gaugesPanel.active, .bounceInDown.endTurn {
   -webkit-animation-name: bounceInDown;
   -moz-animation-name: bounceInDown;
   -o-animation-name: bounceInDown;
@@ -2223,7 +2223,7 @@ body {
   100% {
     transform: translateX(0); } }
 
-.animated.bounceInLeft, .bounceInLeft.popUp, .popUp footer .bounceInLeft.notSelected, .bounceInLeft.gaugesPanel.active, .bounceInLeft.endTurn {
+.animated.bounceInLeft, #logoBox #navMenu:target .bounceInLeft.dropdownMenu, .bounceInLeft.popUp, .popUp footer .bounceInLeft.notSelected, .bounceInLeft.gaugesPanel.active, .bounceInLeft.endTurn {
   -webkit-animation-name: bounceInLeft;
   -moz-animation-name: bounceInLeft;
   -o-animation-name: bounceInLeft;
@@ -2289,7 +2289,7 @@ body {
   100% {
     transform: translateX(0); } }
 
-.animated.bounceInRight, .bounceInRight.popUp, .popUp footer .bounceInRight.notSelected, .bounceInRight.gaugesPanel.active, .bounceInRight.endTurn {
+.animated.bounceInRight, #logoBox #navMenu:target .bounceInRight.dropdownMenu, .bounceInRight.popUp, .popUp footer .bounceInRight.notSelected, .bounceInRight.gaugesPanel.active, .bounceInRight.endTurn {
   -webkit-animation-name: bounceInRight;
   -moz-animation-name: bounceInRight;
   -o-animation-name: bounceInRight;
@@ -2355,7 +2355,7 @@ body {
     opacity: 0;
     transform: scale(0.3); } }
 
-.animated.bounceOut, .bounceOut.popUp, .popUp footer .notSelected, .bounceOut.gaugesPanel.active, .bounceOut.endTurn {
+.animated.bounceOut, #logoBox #navMenu:target .bounceOut.dropdownMenu, .bounceOut.popUp, .popUp footer .notSelected, .bounceOut.gaugesPanel.active, .bounceOut.endTurn {
   -webkit-animation-name: bounceOut;
   -moz-animation-name: bounceOut;
   -o-animation-name: bounceOut;
@@ -2409,7 +2409,7 @@ body {
     opacity: 0;
     transform: translateY(-2000px); } }
 
-.animated.bounceOutUp, .bounceOutUp.popUp, .popUp footer .bounceOutUp.notSelected, .bounceOutUp.gaugesPanel.active, .bounceOutUp.endTurn {
+.animated.bounceOutUp, #logoBox #navMenu:target .bounceOutUp.dropdownMenu, .bounceOutUp.popUp, .popUp footer .bounceOutUp.notSelected, .bounceOutUp.gaugesPanel.active, .bounceOutUp.endTurn {
   -webkit-animation-name: bounceOutUp;
   -moz-animation-name: bounceOutUp;
   -o-animation-name: bounceOutUp;
@@ -2463,7 +2463,7 @@ body {
     opacity: 0;
     transform: translateY(2000px); } }
 
-.animated.bounceOutDown, .bounceOutDown.popUp, .popUp footer .bounceOutDown.notSelected, .bounceOutDown.gaugesPanel.active, .bounceOutDown.endTurn {
+.animated.bounceOutDown, #logoBox #navMenu:target .bounceOutDown.dropdownMenu, .bounceOutDown.popUp, .popUp footer .bounceOutDown.notSelected, .bounceOutDown.gaugesPanel.active, .bounceOutDown.endTurn {
   -webkit-animation-name: bounceOutDown;
   -moz-animation-name: bounceOutDown;
   -o-animation-name: bounceOutDown;
@@ -2517,7 +2517,7 @@ body {
     opacity: 0;
     transform: translateX(-2000px); } }
 
-.animated.bounceOutLeft, .bounceOutLeft.popUp, .popUp footer .bounceOutLeft.notSelected, .bounceOutLeft.gaugesPanel.active, .bounceOutLeft.endTurn {
+.animated.bounceOutLeft, #logoBox #navMenu:target .bounceOutLeft.dropdownMenu, .bounceOutLeft.popUp, .popUp footer .bounceOutLeft.notSelected, .bounceOutLeft.gaugesPanel.active, .bounceOutLeft.endTurn {
   -webkit-animation-name: bounceOutLeft;
   -moz-animation-name: bounceOutLeft;
   -o-animation-name: bounceOutLeft;
@@ -2571,7 +2571,7 @@ body {
     opacity: 0;
     transform: translateX(2000px); } }
 
-.animated.bounceOutRight, .bounceOutRight.popUp, .popUp footer .bounceOutRight.notSelected, .bounceOutRight.gaugesPanel.active, .bounceOutRight.endTurn {
+.animated.bounceOutRight, #logoBox #navMenu:target .bounceOutRight.dropdownMenu, .bounceOutRight.popUp, .popUp footer .bounceOutRight.notSelected, .bounceOutRight.gaugesPanel.active, .bounceOutRight.endTurn {
   -webkit-animation-name: bounceOutRight;
   -moz-animation-name: bounceOutRight;
   -o-animation-name: bounceOutRight;
@@ -2621,7 +2621,7 @@ body {
     transform: rotate(0);
     opacity: 1; } }
 
-.animated.rotateIn, .rotateIn.popUp, .popUp footer .rotateIn.notSelected, .rotateIn.gaugesPanel.active, .rotateIn.endTurn {
+.animated.rotateIn, #logoBox #navMenu:target .rotateIn.dropdownMenu, .rotateIn.popUp, .popUp footer .rotateIn.notSelected, .rotateIn.gaugesPanel.active, .rotateIn.endTurn {
   -webkit-animation-name: rotateIn;
   -moz-animation-name: rotateIn;
   -o-animation-name: rotateIn;
@@ -2671,7 +2671,7 @@ body {
     transform: rotate(0);
     opacity: 1; } }
 
-.animated.rotateInUpLeft, .rotateInUpLeft.popUp, .popUp footer .rotateInUpLeft.notSelected, .rotateInUpLeft.gaugesPanel.active, .rotateInUpLeft.endTurn {
+.animated.rotateInUpLeft, #logoBox #navMenu:target .rotateInUpLeft.dropdownMenu, .rotateInUpLeft.popUp, .popUp footer .rotateInUpLeft.notSelected, .rotateInUpLeft.gaugesPanel.active, .rotateInUpLeft.endTurn {
   -webkit-animation-name: rotateInUpLeft;
   -moz-animation-name: rotateInUpLeft;
   -o-animation-name: rotateInUpLeft;
@@ -2721,7 +2721,7 @@ body {
     transform: rotate(0);
     opacity: 1; } }
 
-.animated.rotateInDownLeft, .rotateInDownLeft.popUp, .popUp footer .rotateInDownLeft.notSelected, .rotateInDownLeft.gaugesPanel.active, .rotateInDownLeft.endTurn {
+.animated.rotateInDownLeft, #logoBox #navMenu:target .rotateInDownLeft.dropdownMenu, .rotateInDownLeft.popUp, .popUp footer .rotateInDownLeft.notSelected, .rotateInDownLeft.gaugesPanel.active, .rotateInDownLeft.endTurn {
   -webkit-animation-name: rotateInDownLeft;
   -moz-animation-name: rotateInDownLeft;
   -o-animation-name: rotateInDownLeft;
@@ -2771,7 +2771,7 @@ body {
     transform: rotate(0);
     opacity: 1; } }
 
-.animated.rotateInUpRight, .rotateInUpRight.popUp, .popUp footer .rotateInUpRight.notSelected, .rotateInUpRight.gaugesPanel.active, .rotateInUpRight.endTurn {
+.animated.rotateInUpRight, #logoBox #navMenu:target .rotateInUpRight.dropdownMenu, .rotateInUpRight.popUp, .popUp footer .rotateInUpRight.notSelected, .rotateInUpRight.gaugesPanel.active, .rotateInUpRight.endTurn {
   -webkit-animation-name: rotateInUpRight;
   -moz-animation-name: rotateInUpRight;
   -o-animation-name: rotateInUpRight;
@@ -2821,7 +2821,7 @@ body {
     transform: rotate(0);
     opacity: 1; } }
 
-.animated.rotateInDownRight, .rotateInDownRight.popUp, .popUp footer .rotateInDownRight.notSelected, .rotateInDownRight.gaugesPanel.active, .rotateInDownRight.endTurn {
+.animated.rotateInDownRight, #logoBox #navMenu:target .rotateInDownRight.dropdownMenu, .rotateInDownRight.popUp, .popUp footer .rotateInDownRight.notSelected, .rotateInDownRight.gaugesPanel.active, .rotateInDownRight.endTurn {
   -webkit-animation-name: rotateInDownRight;
   -moz-animation-name: rotateInDownRight;
   -o-animation-name: rotateInDownRight;
@@ -2871,7 +2871,7 @@ body {
     transform: rotate(200deg);
     opacity: 0; } }
 
-.animated.rotateOut, .rotateOut.popUp, .popUp footer .rotateOut.notSelected, .rotateOut.gaugesPanel.active, .rotateOut.endTurn {
+.animated.rotateOut, #logoBox #navMenu:target .rotateOut.dropdownMenu, .rotateOut.popUp, .popUp footer .rotateOut.notSelected, .rotateOut.gaugesPanel.active, .rotateOut.endTurn {
   -webkit-animation-name: rotateOut;
   -moz-animation-name: rotateOut;
   -o-animation-name: rotateOut;
@@ -2921,7 +2921,7 @@ body {
     transform: rotate(-90deg);
     opacity: 0; } }
 
-.animated.rotateOutUpLeft, .rotateOutUpLeft.popUp, .popUp footer .rotateOutUpLeft.notSelected, .rotateOutUpLeft.gaugesPanel.active, .rotateOutUpLeft.endTurn {
+.animated.rotateOutUpLeft, #logoBox #navMenu:target .rotateOutUpLeft.dropdownMenu, .rotateOutUpLeft.popUp, .popUp footer .rotateOutUpLeft.notSelected, .rotateOutUpLeft.gaugesPanel.active, .rotateOutUpLeft.endTurn {
   -webkit-animation-name: rotateOutUpLeft;
   -moz-animation-name: rotateOutUpLeft;
   -o-animation-name: rotateOutUpLeft;
@@ -2971,7 +2971,7 @@ body {
     transform: rotate(90deg);
     opacity: 0; } }
 
-.animated.rotateOutDownLeft, .rotateOutDownLeft.popUp, .popUp footer .rotateOutDownLeft.notSelected, .rotateOutDownLeft.gaugesPanel.active, .rotateOutDownLeft.endTurn {
+.animated.rotateOutDownLeft, #logoBox #navMenu:target .rotateOutDownLeft.dropdownMenu, .rotateOutDownLeft.popUp, .popUp footer .rotateOutDownLeft.notSelected, .rotateOutDownLeft.gaugesPanel.active, .rotateOutDownLeft.endTurn {
   -webkit-animation-name: rotateOutDownLeft;
   -moz-animation-name: rotateOutDownLeft;
   -o-animation-name: rotateOutDownLeft;
@@ -3021,7 +3021,7 @@ body {
     transform: rotate(90deg);
     opacity: 0; } }
 
-.animated.rotateOutUpRight, .rotateOutUpRight.popUp, .popUp footer .rotateOutUpRight.notSelected, .rotateOutUpRight.gaugesPanel.active, .rotateOutUpRight.endTurn {
+.animated.rotateOutUpRight, #logoBox #navMenu:target .rotateOutUpRight.dropdownMenu, .rotateOutUpRight.popUp, .popUp footer .rotateOutUpRight.notSelected, .rotateOutUpRight.gaugesPanel.active, .rotateOutUpRight.endTurn {
   -webkit-animation-name: rotateOutUpRight;
   -moz-animation-name: rotateOutUpRight;
   -o-animation-name: rotateOutUpRight;
@@ -3071,7 +3071,7 @@ body {
     transform: rotate(-90deg);
     opacity: 0; } }
 
-.animated.rotateOutDownRight, .rotateOutDownRight.popUp, .popUp footer .rotateOutDownRight.notSelected, .rotateOutDownRight.gaugesPanel.active, .rotateOutDownRight.endTurn {
+.animated.rotateOutDownRight, #logoBox #navMenu:target .rotateOutDownRight.dropdownMenu, .rotateOutDownRight.popUp, .popUp footer .rotateOutDownRight.notSelected, .rotateOutDownRight.gaugesPanel.active, .rotateOutDownRight.endTurn {
   -webkit-animation-name: rotateOutDownRight;
   -moz-animation-name: rotateOutDownRight;
   -o-animation-name: rotateOutDownRight;
@@ -3181,7 +3181,7 @@ body {
     transform: translateY(700px);
     opacity: 0; } }
 
-.animated.hinge, .hinge.popUp, .popUp footer .hinge.notSelected, .hinge.gaugesPanel.active, .hinge.endTurn {
+.animated.hinge, #logoBox #navMenu:target .hinge.dropdownMenu, .hinge.popUp, .popUp footer .hinge.notSelected, .hinge.gaugesPanel.active, .hinge.endTurn {
   -webkit-animation-name: hinge;
   -moz-animation-name: hinge;
   -o-animation-name: hinge;
@@ -3224,7 +3224,7 @@ body {
     opacity: 1;
     transform: translateX(0px) rotate(0deg); } }
 
-.animated.rollIn, .rollIn.popUp, .popUp footer .rollIn.notSelected, .rollIn.gaugesPanel.active, .rollIn.endTurn {
+.animated.rollIn, #logoBox #navMenu:target .rollIn.dropdownMenu, .rollIn.popUp, .popUp footer .rollIn.notSelected, .rollIn.gaugesPanel.active, .rollIn.endTurn {
   -webkit-animation-name: rollIn;
   -moz-animation-name: rollIn;
   -o-animation-name: rollIn;
@@ -3267,7 +3267,7 @@ body {
     opacity: 0;
     transform: translateX(100%) rotate(120deg); } }
 
-.animated.rollOut, .rollOut.popUp, .popUp footer .rollOut.notSelected, .rollOut.gaugesPanel.active, .rollOut.endTurn {
+.animated.rollOut, #logoBox #navMenu:target .rollOut.dropdownMenu, .rollOut.popUp, .popUp footer .rollOut.notSelected, .rollOut.gaugesPanel.active, .rollOut.endTurn {
   -webkit-animation-name: rollOut;
   -moz-animation-name: rollOut;
   -o-animation-name: rollOut;
@@ -3342,7 +3342,7 @@ body {
     transform: translateX(0%) skewX(0deg);
     opacity: 1; } }
 
-.animated.lightSpeedIn, .lightSpeedIn.popUp, .popUp footer .lightSpeedIn.notSelected, .lightSpeedIn.gaugesPanel.active, .lightSpeedIn.endTurn {
+.animated.lightSpeedIn, #logoBox #navMenu:target .lightSpeedIn.dropdownMenu, .lightSpeedIn.popUp, .popUp footer .lightSpeedIn.notSelected, .lightSpeedIn.gaugesPanel.active, .lightSpeedIn.endTurn {
   -webkit-animation-name: lightSpeedIn;
   -moz-animation-name: lightSpeedIn;
   -o-animation-name: lightSpeedIn;
@@ -3352,7 +3352,7 @@ body {
   -o-animation-timing-function: ease-out;
   animation-timing-function: ease-out; }
 
-.animated.lightSpeedIn, .lightSpeedIn.popUp, .popUp footer .lightSpeedIn.notSelected, .lightSpeedIn.gaugesPanel.active, .lightSpeedIn.endTurn {
+.animated.lightSpeedIn, #logoBox #navMenu:target .lightSpeedIn.dropdownMenu, .lightSpeedIn.popUp, .popUp footer .lightSpeedIn.notSelected, .lightSpeedIn.gaugesPanel.active, .lightSpeedIn.endTurn {
   -webkit-animation-duration: 0.5s;
   -moz-animation-duration: 0.5s;
   -o-animation-duration: 0.5s;
@@ -3395,7 +3395,7 @@ body {
     transform: translateX(100%) skewX(-30deg);
     opacity: 0; } }
 
-.animated.lightSpeedOut, .lightSpeedOut.popUp, .popUp footer .lightSpeedOut.notSelected, .lightSpeedOut.gaugesPanel.active, .lightSpeedOut.endTurn {
+.animated.lightSpeedOut, #logoBox #navMenu:target .lightSpeedOut.dropdownMenu, .lightSpeedOut.popUp, .popUp footer .lightSpeedOut.notSelected, .lightSpeedOut.gaugesPanel.active, .lightSpeedOut.endTurn {
   -webkit-animation-name: lightSpeedOut;
   -moz-animation-name: lightSpeedOut;
   -o-animation-name: lightSpeedOut;
@@ -3405,7 +3405,7 @@ body {
   -o-animation-timing-function: ease-in;
   animation-timing-function: ease-in; }
 
-.animated.lightSpeedOut, .lightSpeedOut.popUp, .popUp footer .lightSpeedOut.notSelected, .lightSpeedOut.gaugesPanel.active, .lightSpeedOut.endTurn {
+.animated.lightSpeedOut, #logoBox #navMenu:target .lightSpeedOut.dropdownMenu, .lightSpeedOut.popUp, .popUp footer .lightSpeedOut.notSelected, .lightSpeedOut.gaugesPanel.active, .lightSpeedOut.endTurn {
   -webkit-animation-duration: 0.25s;
   -moz-animation-duration: 0.25s;
   -o-animation-duration: 0.25s;
@@ -3472,7 +3472,11 @@ you can use the generic selector below, but it's slower:
 
 body {
   font-size: 12px;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; }
 
 body * {
   -webkit-box-sizing: border-box;
@@ -3511,8 +3515,9 @@ body * {
   #logoBox #navMenu {
     float: right;
     position: relative;
-    z-index: 1; }
-    #logoBox #navMenu a {
+    z-index: 3; }
+    #logoBox #navMenu a.menu {
+      z-index: 2;
       text-decoration: none;
       border-radius: 0 5px 0 0;
       display: block;
@@ -3525,7 +3530,7 @@ body * {
       -o-transition: all 0.2s ease;
       -ms-transition: all 0.2s ease;
       transition: all 0.2s ease; }
-      #logoBox #navMenu a span {
+      #logoBox #navMenu a.menu span {
         display: block;
         background: white;
         margin: 4px;
@@ -3539,10 +3544,53 @@ body * {
         -o-transition: all 0.2s ease;
         -ms-transition: all 0.2s ease;
         transition: all 0.2s ease; }
-      #logoBox #navMenu a:hover {
+      #logoBox #navMenu a.menu:hover {
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3) inset; }
-        #logoBox #navMenu a:hover span {
+        #logoBox #navMenu a.menu:hover span {
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }
+    #logoBox #navMenu .dropdownMenu {
+      z-index: -1;
+      position: absolute;
+      bottom: 55px;
+      left: -25px;
+      width: 100px;
+      background: #f5ede3;
+      padding: 3px 3px 0;
+      margin: 0;
+      border-radius: 2px;
+      opacity: 0;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }
+      #logoBox #navMenu .dropdownMenu li {
+        list-style: none;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        font-size: 0.8rem; }
+        #logoBox #navMenu .dropdownMenu li .reset a {
+          color: #545454;
+          background: #f5ede3;
+          font-weight: 600;
+          line-height: 1;
+          padding: 0.33333rem 0.25rem;
+          text-decoration: none;
+          display: block; }
+      #logoBox #navMenu .dropdownMenu:after {
+        content: ".";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        color: #f5ede3;
+        background: #f5ede3;
+        bottom: -5px;
+        left: 50%;
+        margin-left: -10px;
+        display: inline-block;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }
 
 .popUp {
   background: #f5ede3;
@@ -3816,15 +3864,6 @@ body * {
     background: #104386;
     box-shadow: 0 5px 2px #082142, 0 -1px 0 rgba(255, 255, 255, 0.4) inset, 0 6px 4px rgba(0, 0, 0, 0.6);
     text-shadow: 0 2px 2px rgba(0, 0, 0, 0.8); }
-
-.reset {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  margin: -25px 0 0 -50px;
-  height: 50px;
-  width: 100px;
-  font-size: 1.5em; }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0.5em 0 1em;
