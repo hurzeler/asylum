@@ -125,8 +125,8 @@
        [{popularity :popularity deaths :deaths}]
        (let [popularity (str (int (* 100 popularity)) "%")
              deaths-width (str (* 100 (/ (.log js/Math deaths) (.log js/Math 5200))) "%")]
-            (-> ($ ".popularityValue") (.text popularity) (.css "width" popularity))
-            (-> ($ ".deathsValue") (.text deaths) (.css "width" deaths-width))))
+            (-> ($ ".popularityValue p") (.text popularity) (.css "width" popularity))
+            (-> ($ ".deathsValue p") (.text deaths) (.css "width" deaths-width))))
 
 
 (defn- option-colour 
@@ -146,6 +146,7 @@
 	                        (let [button ($ this)]
 	                        	(when (not (= option (.data button "option"))) (.addClass button "notSelected")))))))
                 (-> ($ "#event-panel") (.addClass "selected"))
+                (-> ($ ".endTurn") (.addClass "active") (.removeClass "inactive"))
                 (key option)))
 
 
@@ -165,18 +166,20 @@
 (defn- show-event 
        [{:keys [title content options]} apply-event-choice-fn advance-turn-fn]
        (let [option-buttons (to-array (map (partial option-button apply-event-choice-fn advance-turn-fn (= 1 (count options))) options))
-             content-div ($ "#event-panel")]           
+             content-div ($ "#event-panel")
+             end-turn-button ($ ".endTurn")]           
             (-> content-div (.removeClass "selected"))
             (-> content-div (.find "header h2") (.text title))
             (-> content-div (.find "section") (.html content))
-            (-> content-div (.find "footer") (.empty) (.append option-buttons))))
+            (-> content-div (.find "footer") (.empty) (.append option-buttons))
+            (-> end-turn-button (.addClass "inactive") (.removeClass "active"))))
 
 (defn- apply-end-turn-handler 
        [{options :options} advance-turn-fn]
        (let [end-turn-button ($ ".endTurn button")]
             (.off end-turn-button "click")
             (if (>= 1 (count options)) 
-                (.hide end-turn-button)
+                (-> end-turn-button (.closest ".endTurn") (.addClass "inactive") (.removeClass "active"))
                 (-> end-turn-button .show (.on "click" advance-turn-fn)))))
  		
 (defn- apply-reset-handler
