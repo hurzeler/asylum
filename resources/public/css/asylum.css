@@ -210,7 +210,7 @@ body {
   /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
   -webkit-backface-visibility: hidden; }
 
-.animated, #logoBox #navMenu:target .dropdownMenu, .popUp, .popUp.selected, .popUp footer .notSelected, .gaugesPanel.active, .endTurn {
+.animated, #logoBox #navMenu:target .dropdownMenu, .popUp, .popUp.selected, .popUp footer .notSelected, .gaugesPanel.active, .endTurn, .endTurn.inactive {
   -webkit-animation-duration: 1s;
   -moz-animation-duration: 1s;
   -o-animation-duration: 1s;
@@ -1387,7 +1387,7 @@ body {
   100% {
     opacity: 0; } }
 
-.animated.fadeOut, #logoBox #navMenu:target .fadeOut.dropdownMenu, .fadeOut.popUp, .popUp footer .fadeOut.notSelected, .fadeOut.gaugesPanel.active, .fadeOut.endTurn {
+.animated.fadeOut, #logoBox #navMenu:target .fadeOut.dropdownMenu, .fadeOut.popUp, .popUp footer .fadeOut.notSelected, .fadeOut.gaugesPanel.active, .fadeOut.endTurn, .endTurn.inactive {
   -webkit-animation-name: fadeOut;
   -moz-animation-name: fadeOut;
   -o-animation-name: fadeOut;
@@ -3848,22 +3848,36 @@ body * {
   -webkit-animation-delay: 1s;
   animation-delay: 1s;
   position: absolute;
-  top: 50%;
+  bottom: 30%;
   left: 50%;
-  margin: -25px 0 0 -80px; }
+  margin: -25px 0 0 -100px; }
   .endTurn button {
+    -webkit-outline: none;
+    outline: none;
     border-radius: 3px;
     color: #fff;
     padding: 1rem 1rem 1.2rem;
-    height: 50px;
-    width: 160px;
-    font-size: 1.5em;
+    height: 60px;
+    width: 200px;
+    font-size: 2em;
+    font-weight: 200;
+    letter-spacing: 2px;
     line-height: 1;
     border: 1px solid rgba(255, 255, 255, 0.4);
     border-bottom: 1px solid #0d386f;
     background: #104386;
+    position: relative;
+    top: 0;
     box-shadow: 0 5px 2px #082142, 0 -1px 0 rgba(255, 255, 255, 0.4) inset, 0 6px 4px rgba(0, 0, 0, 0.6);
-    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.8); }
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.8);
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    transition: all 0.2s ease; }
+    .endTurn button:hover {
+      box-shadow: 0 1px 2px #082142, 0 -1px 0 rgba(255, 255, 255, 0.4) inset, 0 6px 4px rgba(0, 0, 0, 0.6);
+      top: 4px; }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0.5em 0 1em;
