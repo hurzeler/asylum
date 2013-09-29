@@ -210,7 +210,7 @@ body {
   /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
   -webkit-backface-visibility: hidden; }
 
-.animated, .gaugesPanel.active {
+.animated, .popUp, .popUp.selected, .popUp footer .notSelected, .gaugesPanel.active {
   -webkit-animation-duration: 1s;
   -moz-animation-duration: 1s;
   -o-animation-duration: 1s;
@@ -220,7 +220,7 @@ body {
   -o-animation-fill-mode: both;
   animation-fill-mode: both; }
 
-.animated.hinge, .hinge.gaugesPanel.active {
+.animated.hinge, .hinge.popUp, .popUp footer .hinge.notSelected, .hinge.gaugesPanel.active {
   -webkit-animation-duration: 2s;
   -moz-animation-duration: 2s;
   -o-animation-duration: 2s;
@@ -254,7 +254,7 @@ body {
   25%, 75% {
     opacity: 0; } }
 
-.animated.flash, .flash.gaugesPanel.active {
+.animated.flash, .flash.popUp, .popUp footer .flash.notSelected, .flash.gaugesPanel.active {
   -webkit-animation-name: flash;
   -moz-animation-name: flash;
   -o-animation-name: flash;
@@ -300,7 +300,7 @@ body {
   20%, 40%, 60%, 80% {
     transform: translateX(10px); } }
 
-.animated.shake, .shake.gaugesPanel.active {
+.animated.shake, .shake.popUp, .popUp footer .shake.notSelected, .shake.gaugesPanel.active {
   -webkit-animation-name: shake;
   -moz-animation-name: shake;
   -o-animation-name: shake;
@@ -346,7 +346,7 @@ body {
   60% {
     transform: translateY(-15px); } }
 
-.animated.bounce, .bounce.gaugesPanel.active {
+.animated.bounce, .bounce.popUp, .popUp footer .bounce.notSelected, .bounce.gaugesPanel.active {
   -webkit-animation-name: bounce;
   -moz-animation-name: bounce;
   -o-animation-name: bounce;
@@ -416,7 +416,7 @@ body {
   100% {
     transform: scale(1) rotate(0); } }
 
-.animated.tada, .tada.gaugesPanel.active {
+.animated.tada, .tada.popUp, .popUp footer .tada.notSelected, .tada.gaugesPanel.active {
   -webkit-animation-name: tada;
   -moz-animation-name: tada;
   -o-animation-name: tada;
@@ -489,7 +489,7 @@ body {
   100% {
     transform: rotate(0deg); } }
 
-.animated.swing, .swing.gaugesPanel.active {
+.animated.swing, .swing.popUp, .popUp footer .swing.notSelected, .swing.gaugesPanel.active {
   -webkit-transform-origin: top center;
   -moz-transform-origin: top center;
   -o-transform-origin: top center;
@@ -588,7 +588,7 @@ body {
   100% {
     transform: translateX(0%); } }
 
-.animated.wobble, .wobble.gaugesPanel.active {
+.animated.wobble, .wobble.popUp, .popUp footer .wobble.notSelected, .wobble.gaugesPanel.active {
   -webkit-animation-name: wobble;
   -moz-animation-name: wobble;
   -o-animation-name: wobble;
@@ -635,7 +635,7 @@ body {
   100% {
     transform: scale(1); } }
 
-.animated.pulse, .pulse.gaugesPanel.active {
+.animated.pulse, .pulse.popUp, .popUp footer .pulse.notSelected, .pulse.gaugesPanel.active {
   -webkit-animation-name: pulse;
   -moz-animation-name: pulse;
   -o-animation-name: pulse;
@@ -725,7 +725,7 @@ body {
     transform: perspective(400px) translateZ(0) rotateY(360deg) scale(1);
     animation-timing-function: ease-in; } }
 
-.animated.flip, .flip.gaugesPanel.active {
+.animated.flip, .flip.popUp, .popUp footer .flip.notSelected, .flip.gaugesPanel.active {
   -webkit-backface-visibility: visible !important;
   -webkit-animation-name: flip;
   -moz-backface-visibility: visible !important;
@@ -795,7 +795,7 @@ body {
     transform: perspective(400px) rotateX(0deg);
     opacity: 1; } }
 
-.animated.flipInX, .gaugesPanel.active {
+.animated.flipInX, .flipInX.popUp, .popUp footer .flipInX.notSelected, .gaugesPanel.active {
   -webkit-backface-visibility: visible !important;
   -webkit-animation-name: flipInX;
   -moz-backface-visibility: visible !important;
@@ -841,7 +841,7 @@ body {
     transform: perspective(400px) rotateX(90deg);
     opacity: 0; } }
 
-.animated.flipOutX, .flipOutX.gaugesPanel.active {
+.animated.flipOutX, .flipOutX.popUp, .popUp footer .flipOutX.notSelected, .flipOutX.gaugesPanel.active {
   -webkit-animation-name: flipOutX;
   -webkit-backface-visibility: visible !important;
   -moz-animation-name: flipOutX;
@@ -911,7 +911,7 @@ body {
     transform: perspective(400px) rotateY(0deg);
     opacity: 1; } }
 
-.animated.flipInY, .flipInY.gaugesPanel.active {
+.animated.flipInY, .flipInY.popUp, .popUp footer .flipInY.notSelected, .flipInY.gaugesPanel.active {
   -webkit-backface-visibility: visible !important;
   -webkit-animation-name: flipInY;
   -moz-backface-visibility: visible !important;
@@ -957,7 +957,7 @@ body {
     transform: perspective(400px) rotateY(90deg);
     opacity: 0; } }
 
-.animated.flipOutY, .flipOutY.gaugesPanel.active {
+.animated.flipOutY, .flipOutY.popUp, .popUp footer .flipOutY.notSelected, .flipOutY.gaugesPanel.active {
   -webkit-backface-visibility: visible !important;
   -webkit-animation-name: flipOutY;
   -moz-backface-visibility: visible !important;
@@ -995,7 +995,7 @@ body {
   100% {
     opacity: 1; } }
 
-.animated.fadeIn, .fadeIn.gaugesPanel.active {
+.animated.fadeIn, .fadeIn.popUp, .popUp footer .fadeIn.notSelected, .fadeIn.gaugesPanel.active {
   -webkit-animation-name: fadeIn;
   -moz-animation-name: fadeIn;
   -o-animation-name: fadeIn;
@@ -1037,7 +1037,7 @@ body {
     opacity: 1;
     transform: translateY(0); } }
 
-.animated.fadeInUp, .fadeInUp.gaugesPanel.active {
+.animated.fadeInUp, .fadeInUp.popUp, .popUp footer .fadeInUp.notSelected, .fadeInUp.gaugesPanel.active {
   -webkit-animation-name: fadeInUp;
   -moz-animation-name: fadeInUp;
   -o-animation-name: fadeInUp;
@@ -1079,7 +1079,7 @@ body {
     opacity: 1;
     transform: translateY(0); } }
 
-.animated.fadeInDown, .fadeInDown.gaugesPanel.active {
+.animated.fadeInDown, .popUp, .popUp footer .fadeInDown.notSelected, .fadeInDown.gaugesPanel.active {
   -webkit-animation-name: fadeInDown;
   -moz-animation-name: fadeInDown;
   -o-animation-name: fadeInDown;
@@ -1121,7 +1121,7 @@ body {
     opacity: 1;
     transform: translateX(0); } }
 
-.animated.fadeInLeft, .fadeInLeft.gaugesPanel.active {
+.animated.fadeInLeft, .fadeInLeft.popUp, .popUp footer .fadeInLeft.notSelected, .fadeInLeft.gaugesPanel.active {
   -webkit-animation-name: fadeInLeft;
   -moz-animation-name: fadeInLeft;
   -o-animation-name: fadeInLeft;
@@ -1163,7 +1163,7 @@ body {
     opacity: 1;
     transform: translateX(0); } }
 
-.animated.fadeInRight, .fadeInRight.gaugesPanel.active {
+.animated.fadeInRight, .fadeInRight.popUp, .popUp footer .fadeInRight.notSelected, .fadeInRight.gaugesPanel.active {
   -webkit-animation-name: fadeInRight;
   -moz-animation-name: fadeInRight;
   -o-animation-name: fadeInRight;
@@ -1205,7 +1205,7 @@ body {
     opacity: 1;
     transform: translateY(0); } }
 
-.animated.fadeInUpBig, .fadeInUpBig.gaugesPanel.active {
+.animated.fadeInUpBig, .fadeInUpBig.popUp, .popUp footer .fadeInUpBig.notSelected, .fadeInUpBig.gaugesPanel.active {
   -webkit-animation-name: fadeInUpBig;
   -moz-animation-name: fadeInUpBig;
   -o-animation-name: fadeInUpBig;
@@ -1247,7 +1247,7 @@ body {
     opacity: 1;
     transform: translateY(0); } }
 
-.animated.fadeInDownBig, .fadeInDownBig.gaugesPanel.active {
+.animated.fadeInDownBig, .fadeInDownBig.popUp, .popUp footer .fadeInDownBig.notSelected, .fadeInDownBig.gaugesPanel.active {
   -webkit-animation-name: fadeInDownBig;
   -moz-animation-name: fadeInDownBig;
   -o-animation-name: fadeInDownBig;
@@ -1289,7 +1289,7 @@ body {
     opacity: 1;
     transform: translateX(0); } }
 
-.animated.fadeInLeftBig, .fadeInLeftBig.gaugesPanel.active {
+.animated.fadeInLeftBig, .fadeInLeftBig.popUp, .popUp footer .fadeInLeftBig.notSelected, .fadeInLeftBig.gaugesPanel.active {
   -webkit-animation-name: fadeInLeftBig;
   -moz-animation-name: fadeInLeftBig;
   -o-animation-name: fadeInLeftBig;
@@ -1331,7 +1331,7 @@ body {
     opacity: 1;
     transform: translateX(0); } }
 
-.animated.fadeInRightBig, .fadeInRightBig.gaugesPanel.active {
+.animated.fadeInRightBig, .fadeInRightBig.popUp, .popUp footer .fadeInRightBig.notSelected, .fadeInRightBig.gaugesPanel.active {
   -webkit-animation-name: fadeInRightBig;
   -moz-animation-name: fadeInRightBig;
   -o-animation-name: fadeInRightBig;
@@ -1365,7 +1365,7 @@ body {
   100% {
     opacity: 0; } }
 
-.animated.fadeOut, .fadeOut.gaugesPanel.active {
+.animated.fadeOut, .fadeOut.popUp, .popUp footer .fadeOut.notSelected, .fadeOut.gaugesPanel.active {
   -webkit-animation-name: fadeOut;
   -moz-animation-name: fadeOut;
   -o-animation-name: fadeOut;
@@ -1407,7 +1407,7 @@ body {
     opacity: 0;
     transform: translateY(-20px); } }
 
-.animated.fadeOutUp, .fadeOutUp.gaugesPanel.active {
+.animated.fadeOutUp, .fadeOutUp.popUp, .popUp footer .fadeOutUp.notSelected, .fadeOutUp.gaugesPanel.active {
   -webkit-animation-name: fadeOutUp;
   -moz-animation-name: fadeOutUp;
   -o-animation-name: fadeOutUp;
@@ -1449,7 +1449,7 @@ body {
     opacity: 0;
     transform: translateY(20px); } }
 
-.animated.fadeOutDown, .fadeOutDown.gaugesPanel.active {
+.animated.fadeOutDown, .fadeOutDown.popUp, .popUp.selected, .popUp footer .fadeOutDown.notSelected, .fadeOutDown.gaugesPanel.active {
   -webkit-animation-name: fadeOutDown;
   -moz-animation-name: fadeOutDown;
   -o-animation-name: fadeOutDown;
@@ -1491,7 +1491,7 @@ body {
     opacity: 0;
     transform: translateX(-20px); } }
 
-.animated.fadeOutLeft, .fadeOutLeft.gaugesPanel.active {
+.animated.fadeOutLeft, .fadeOutLeft.popUp, .popUp footer .fadeOutLeft.notSelected, .fadeOutLeft.gaugesPanel.active {
   -webkit-animation-name: fadeOutLeft;
   -moz-animation-name: fadeOutLeft;
   -o-animation-name: fadeOutLeft;
@@ -1533,7 +1533,7 @@ body {
     opacity: 0;
     transform: translateX(20px); } }
 
-.animated.fadeOutRight, .fadeOutRight.gaugesPanel.active {
+.animated.fadeOutRight, .fadeOutRight.popUp, .popUp footer .fadeOutRight.notSelected, .fadeOutRight.gaugesPanel.active {
   -webkit-animation-name: fadeOutRight;
   -moz-animation-name: fadeOutRight;
   -o-animation-name: fadeOutRight;
@@ -1575,7 +1575,7 @@ body {
     opacity: 0;
     transform: translateY(-2000px); } }
 
-.animated.fadeOutUpBig, .fadeOutUpBig.gaugesPanel.active {
+.animated.fadeOutUpBig, .fadeOutUpBig.popUp, .popUp footer .fadeOutUpBig.notSelected, .fadeOutUpBig.gaugesPanel.active {
   -webkit-animation-name: fadeOutUpBig;
   -moz-animation-name: fadeOutUpBig;
   -o-animation-name: fadeOutUpBig;
@@ -1617,7 +1617,7 @@ body {
     opacity: 0;
     transform: translateY(2000px); } }
 
-.animated.fadeOutDownBig, .fadeOutDownBig.gaugesPanel.active {
+.animated.fadeOutDownBig, .fadeOutDownBig.popUp, .popUp footer .fadeOutDownBig.notSelected, .fadeOutDownBig.gaugesPanel.active {
   -webkit-animation-name: fadeOutDownBig;
   -moz-animation-name: fadeOutDownBig;
   -o-animation-name: fadeOutDownBig;
@@ -1659,7 +1659,7 @@ body {
     opacity: 0;
     transform: translateX(-2000px); } }
 
-.animated.fadeOutLeftBig, .fadeOutLeftBig.gaugesPanel.active {
+.animated.fadeOutLeftBig, .fadeOutLeftBig.popUp, .popUp footer .fadeOutLeftBig.notSelected, .fadeOutLeftBig.gaugesPanel.active {
   -webkit-animation-name: fadeOutLeftBig;
   -moz-animation-name: fadeOutLeftBig;
   -o-animation-name: fadeOutLeftBig;
@@ -1701,7 +1701,7 @@ body {
     opacity: 0;
     transform: translateX(2000px); } }
 
-.animated.fadeOutRightBig, .fadeOutRightBig.gaugesPanel.active {
+.animated.fadeOutRightBig, .fadeOutRightBig.popUp, .popUp footer .fadeOutRightBig.notSelected, .fadeOutRightBig.gaugesPanel.active {
   -webkit-animation-name: fadeOutRightBig;
   -moz-animation-name: fadeOutRightBig;
   -o-animation-name: fadeOutRightBig;
@@ -1995,7 +1995,7 @@ body {
   -o-animation-name: slideOutUp;
   animation-name: slideOutUp; }
 
-.animated.bounceIn, .bounceIn.gaugesPanel.active {
+.animated.bounceIn, .bounceIn.popUp, .popUp footer .bounceIn.notSelected, .bounceIn.gaugesPanel.active {
   -webkit-animation-name: bounceIn;
   -moz-animation-name: bounceIn;
   -o-animation-name: bounceIn;
@@ -2061,7 +2061,7 @@ body {
   100% {
     transform: translateY(0); } }
 
-.animated.bounceInUp, .bounceInUp.gaugesPanel.active {
+.animated.bounceInUp, .bounceInUp.popUp, .popUp footer .bounceInUp.notSelected, .bounceInUp.gaugesPanel.active {
   -webkit-animation-name: bounceInUp;
   -moz-animation-name: bounceInUp;
   -o-animation-name: bounceInUp;
@@ -2127,7 +2127,7 @@ body {
   100% {
     transform: translateY(0); } }
 
-.animated.bounceInDown, .bounceInDown.gaugesPanel.active {
+.animated.bounceInDown, .bounceInDown.popUp, .popUp footer .bounceInDown.notSelected, .bounceInDown.gaugesPanel.active {
   -webkit-animation-name: bounceInDown;
   -moz-animation-name: bounceInDown;
   -o-animation-name: bounceInDown;
@@ -2193,7 +2193,7 @@ body {
   100% {
     transform: translateX(0); } }
 
-.animated.bounceInLeft, .bounceInLeft.gaugesPanel.active {
+.animated.bounceInLeft, .bounceInLeft.popUp, .popUp footer .bounceInLeft.notSelected, .bounceInLeft.gaugesPanel.active {
   -webkit-animation-name: bounceInLeft;
   -moz-animation-name: bounceInLeft;
   -o-animation-name: bounceInLeft;
@@ -2259,7 +2259,7 @@ body {
   100% {
     transform: translateX(0); } }
 
-.animated.bounceInRight, .bounceInRight.gaugesPanel.active {
+.animated.bounceInRight, .bounceInRight.popUp, .popUp footer .bounceInRight.notSelected, .bounceInRight.gaugesPanel.active {
   -webkit-animation-name: bounceInRight;
   -moz-animation-name: bounceInRight;
   -o-animation-name: bounceInRight;
@@ -2325,7 +2325,7 @@ body {
     opacity: 0;
     transform: scale(0.3); } }
 
-.animated.bounceOut, .bounceOut.gaugesPanel.active {
+.animated.bounceOut, .bounceOut.popUp, .popUp footer .notSelected, .bounceOut.gaugesPanel.active {
   -webkit-animation-name: bounceOut;
   -moz-animation-name: bounceOut;
   -o-animation-name: bounceOut;
@@ -2379,7 +2379,7 @@ body {
     opacity: 0;
     transform: translateY(-2000px); } }
 
-.animated.bounceOutUp, .bounceOutUp.gaugesPanel.active {
+.animated.bounceOutUp, .bounceOutUp.popUp, .popUp footer .bounceOutUp.notSelected, .bounceOutUp.gaugesPanel.active {
   -webkit-animation-name: bounceOutUp;
   -moz-animation-name: bounceOutUp;
   -o-animation-name: bounceOutUp;
@@ -2433,7 +2433,7 @@ body {
     opacity: 0;
     transform: translateY(2000px); } }
 
-.animated.bounceOutDown, .bounceOutDown.gaugesPanel.active {
+.animated.bounceOutDown, .bounceOutDown.popUp, .popUp footer .bounceOutDown.notSelected, .bounceOutDown.gaugesPanel.active {
   -webkit-animation-name: bounceOutDown;
   -moz-animation-name: bounceOutDown;
   -o-animation-name: bounceOutDown;
@@ -2487,7 +2487,7 @@ body {
     opacity: 0;
     transform: translateX(-2000px); } }
 
-.animated.bounceOutLeft, .bounceOutLeft.gaugesPanel.active {
+.animated.bounceOutLeft, .bounceOutLeft.popUp, .popUp footer .bounceOutLeft.notSelected, .bounceOutLeft.gaugesPanel.active {
   -webkit-animation-name: bounceOutLeft;
   -moz-animation-name: bounceOutLeft;
   -o-animation-name: bounceOutLeft;
@@ -2541,7 +2541,7 @@ body {
     opacity: 0;
     transform: translateX(2000px); } }
 
-.animated.bounceOutRight, .bounceOutRight.gaugesPanel.active {
+.animated.bounceOutRight, .bounceOutRight.popUp, .popUp footer .bounceOutRight.notSelected, .bounceOutRight.gaugesPanel.active {
   -webkit-animation-name: bounceOutRight;
   -moz-animation-name: bounceOutRight;
   -o-animation-name: bounceOutRight;
@@ -2591,7 +2591,7 @@ body {
     transform: rotate(0);
     opacity: 1; } }
 
-.animated.rotateIn, .rotateIn.gaugesPanel.active {
+.animated.rotateIn, .rotateIn.popUp, .popUp footer .rotateIn.notSelected, .rotateIn.gaugesPanel.active {
   -webkit-animation-name: rotateIn;
   -moz-animation-name: rotateIn;
   -o-animation-name: rotateIn;
@@ -2641,7 +2641,7 @@ body {
     transform: rotate(0);
     opacity: 1; } }
 
-.animated.rotateInUpLeft, .rotateInUpLeft.gaugesPanel.active {
+.animated.rotateInUpLeft, .rotateInUpLeft.popUp, .popUp footer .rotateInUpLeft.notSelected, .rotateInUpLeft.gaugesPanel.active {
   -webkit-animation-name: rotateInUpLeft;
   -moz-animation-name: rotateInUpLeft;
   -o-animation-name: rotateInUpLeft;
@@ -2691,7 +2691,7 @@ body {
     transform: rotate(0);
     opacity: 1; } }
 
-.animated.rotateInDownLeft, .rotateInDownLeft.gaugesPanel.active {
+.animated.rotateInDownLeft, .rotateInDownLeft.popUp, .popUp footer .rotateInDownLeft.notSelected, .rotateInDownLeft.gaugesPanel.active {
   -webkit-animation-name: rotateInDownLeft;
   -moz-animation-name: rotateInDownLeft;
   -o-animation-name: rotateInDownLeft;
@@ -2741,7 +2741,7 @@ body {
     transform: rotate(0);
     opacity: 1; } }
 
-.animated.rotateInUpRight, .rotateInUpRight.gaugesPanel.active {
+.animated.rotateInUpRight, .rotateInUpRight.popUp, .popUp footer .rotateInUpRight.notSelected, .rotateInUpRight.gaugesPanel.active {
   -webkit-animation-name: rotateInUpRight;
   -moz-animation-name: rotateInUpRight;
   -o-animation-name: rotateInUpRight;
@@ -2791,7 +2791,7 @@ body {
     transform: rotate(0);
     opacity: 1; } }
 
-.animated.rotateInDownRight, .rotateInDownRight.gaugesPanel.active {
+.animated.rotateInDownRight, .rotateInDownRight.popUp, .popUp footer .rotateInDownRight.notSelected, .rotateInDownRight.gaugesPanel.active {
   -webkit-animation-name: rotateInDownRight;
   -moz-animation-name: rotateInDownRight;
   -o-animation-name: rotateInDownRight;
@@ -2841,7 +2841,7 @@ body {
     transform: rotate(200deg);
     opacity: 0; } }
 
-.animated.rotateOut, .rotateOut.gaugesPanel.active {
+.animated.rotateOut, .rotateOut.popUp, .popUp footer .rotateOut.notSelected, .rotateOut.gaugesPanel.active {
   -webkit-animation-name: rotateOut;
   -moz-animation-name: rotateOut;
   -o-animation-name: rotateOut;
@@ -2891,7 +2891,7 @@ body {
     transform: rotate(-90deg);
     opacity: 0; } }
 
-.animated.rotateOutUpLeft, .rotateOutUpLeft.gaugesPanel.active {
+.animated.rotateOutUpLeft, .rotateOutUpLeft.popUp, .popUp footer .rotateOutUpLeft.notSelected, .rotateOutUpLeft.gaugesPanel.active {
   -webkit-animation-name: rotateOutUpLeft;
   -moz-animation-name: rotateOutUpLeft;
   -o-animation-name: rotateOutUpLeft;
@@ -2941,7 +2941,7 @@ body {
     transform: rotate(90deg);
     opacity: 0; } }
 
-.animated.rotateOutDownLeft, .rotateOutDownLeft.gaugesPanel.active {
+.animated.rotateOutDownLeft, .rotateOutDownLeft.popUp, .popUp footer .rotateOutDownLeft.notSelected, .rotateOutDownLeft.gaugesPanel.active {
   -webkit-animation-name: rotateOutDownLeft;
   -moz-animation-name: rotateOutDownLeft;
   -o-animation-name: rotateOutDownLeft;
@@ -2991,7 +2991,7 @@ body {
     transform: rotate(90deg);
     opacity: 0; } }
 
-.animated.rotateOutUpRight, .rotateOutUpRight.gaugesPanel.active {
+.animated.rotateOutUpRight, .rotateOutUpRight.popUp, .popUp footer .rotateOutUpRight.notSelected, .rotateOutUpRight.gaugesPanel.active {
   -webkit-animation-name: rotateOutUpRight;
   -moz-animation-name: rotateOutUpRight;
   -o-animation-name: rotateOutUpRight;
@@ -3041,7 +3041,7 @@ body {
     transform: rotate(-90deg);
     opacity: 0; } }
 
-.animated.rotateOutDownRight, .rotateOutDownRight.gaugesPanel.active {
+.animated.rotateOutDownRight, .rotateOutDownRight.popUp, .popUp footer .rotateOutDownRight.notSelected, .rotateOutDownRight.gaugesPanel.active {
   -webkit-animation-name: rotateOutDownRight;
   -moz-animation-name: rotateOutDownRight;
   -o-animation-name: rotateOutDownRight;
@@ -3151,7 +3151,7 @@ body {
     transform: translateY(700px);
     opacity: 0; } }
 
-.animated.hinge, .hinge.gaugesPanel.active {
+.animated.hinge, .hinge.popUp, .popUp footer .hinge.notSelected, .hinge.gaugesPanel.active {
   -webkit-animation-name: hinge;
   -moz-animation-name: hinge;
   -o-animation-name: hinge;
@@ -3194,7 +3194,7 @@ body {
     opacity: 1;
     transform: translateX(0px) rotate(0deg); } }
 
-.animated.rollIn, .rollIn.gaugesPanel.active {
+.animated.rollIn, .rollIn.popUp, .popUp footer .rollIn.notSelected, .rollIn.gaugesPanel.active {
   -webkit-animation-name: rollIn;
   -moz-animation-name: rollIn;
   -o-animation-name: rollIn;
@@ -3237,7 +3237,7 @@ body {
     opacity: 0;
     transform: translateX(100%) rotate(120deg); } }
 
-.animated.rollOut, .rollOut.gaugesPanel.active {
+.animated.rollOut, .rollOut.popUp, .popUp footer .rollOut.notSelected, .rollOut.gaugesPanel.active {
   -webkit-animation-name: rollOut;
   -moz-animation-name: rollOut;
   -o-animation-name: rollOut;
@@ -3312,7 +3312,7 @@ body {
     transform: translateX(0%) skewX(0deg);
     opacity: 1; } }
 
-.animated.lightSpeedIn, .lightSpeedIn.gaugesPanel.active {
+.animated.lightSpeedIn, .lightSpeedIn.popUp, .popUp footer .lightSpeedIn.notSelected, .lightSpeedIn.gaugesPanel.active {
   -webkit-animation-name: lightSpeedIn;
   -moz-animation-name: lightSpeedIn;
   -o-animation-name: lightSpeedIn;
@@ -3322,7 +3322,7 @@ body {
   -o-animation-timing-function: ease-out;
   animation-timing-function: ease-out; }
 
-.animated.lightSpeedIn, .lightSpeedIn.gaugesPanel.active {
+.animated.lightSpeedIn, .lightSpeedIn.popUp, .popUp footer .lightSpeedIn.notSelected, .lightSpeedIn.gaugesPanel.active {
   -webkit-animation-duration: 0.5s;
   -moz-animation-duration: 0.5s;
   -o-animation-duration: 0.5s;
@@ -3365,7 +3365,7 @@ body {
     transform: translateX(100%) skewX(-30deg);
     opacity: 0; } }
 
-.animated.lightSpeedOut, .lightSpeedOut.gaugesPanel.active {
+.animated.lightSpeedOut, .lightSpeedOut.popUp, .popUp footer .lightSpeedOut.notSelected, .lightSpeedOut.gaugesPanel.active {
   -webkit-animation-name: lightSpeedOut;
   -moz-animation-name: lightSpeedOut;
   -o-animation-name: lightSpeedOut;
@@ -3375,7 +3375,7 @@ body {
   -o-animation-timing-function: ease-in;
   animation-timing-function: ease-in; }
 
-.animated.lightSpeedOut, .lightSpeedOut.gaugesPanel.active {
+.animated.lightSpeedOut, .lightSpeedOut.popUp, .popUp footer .lightSpeedOut.notSelected, .lightSpeedOut.gaugesPanel.active {
   -webkit-animation-duration: 0.25s;
   -moz-animation-duration: 0.25s;
   -o-animation-duration: 0.25s;
@@ -3521,7 +3521,10 @@ body * {
   -moz-transition: top 0.5s ease;
   -o-transition: top 0.5s ease;
   -ms-transition: top 0.5s ease;
-  transition: top 0.5s ease; }
+  transition: top 0.5s ease;
+  -moz-animation-delay: 0.5s;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s; }
   @media screen and (min-width: 500px) {
     .popUp {
       top: 20%;
