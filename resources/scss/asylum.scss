@@ -123,6 +123,19 @@ body * {
 	-o-transition: top 0.5s ease;
 	-ms-transition: top 0.5s ease;
 	transition: top 0.5s ease;
+	
+	@extend .animated;
+	@extend .fadeInDown;
+
+	-moz-animation-delay: 0.5s ;
+	-webkit-animation-delay: 0.5s ;
+	animation-delay: 0.5s ;
+
+	&.selected {
+			@extend .animated;
+			@extend .fadeOutDown;
+		}
+
 	@media screen and (min-width:500px) {
 		 // MOVE IT BACK TO 10% WHEN THE PANEL SWITCH IS DONE
 		top:20%;
@@ -138,6 +151,7 @@ body * {
 		&.welcome {
 			top:10%;	
 		}
+		
 	}
 	header {
 		background: $darkBlue;
@@ -158,8 +172,11 @@ body * {
 		}
 	}
 	footer {
-
 		padding:0 $defaultPadding;
+		.notSelected {
+			@extend .animated;
+			@extend .bounceOut;
+		}
 	}
 }
 //GAUGES
@@ -273,12 +290,16 @@ body * {
 			position: relative;
 			z-index: 1;
 			margin-top: -5px;
-			p {
+			p, span {
+				float:left;
 				margin:0;
 				padding:0;
 				color:#fff;
 				font-weight: 100;
 				font-size: 1.5rem;
+				text-align: left;
+				background:none;
+				min-width:20px;
 			}
 		}
 	}
@@ -293,16 +314,19 @@ body * {
 		.deathsValue {
 			float:left;
 			background:$orange;
-			text-align: right;
 			position: relative;
 			z-index: 1;
 			margin-top: -10px;
-			p {
+			p, span {
+				float:right;
 				margin:0;
 				padding:0;
 				color:#fff;
 				font-weight: 100;
 				font-size: 1.5rem;
+				text-align: right;
+				background:none;
+				min-width:20px;
 			}
 		}
 	}
