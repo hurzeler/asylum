@@ -95,8 +95,21 @@
 
 (defn- boat-info-window-content 
        [boat]
-       (:name boat)       
-       )
+       (let [total-passengers (apply + (map val (:breakdown boat)))
+             info-window-container ($ "<div>")
+             header (-> ($ "<header>") 
+                      	(.append (-> ($ "<h3>") (.text (:name boat))))
+                       	(.append (-> ($ "<span>") (.text (str total-passengers "ppl")))))
+             section (-> ($ "<section>")
+                       	(.append (-> ($ "<span>") (.addClass "men") (.text (-> boat :breakdown :men))))
+                       	(.append (-> ($ "<span>") (.addClass "women") (.text (-> boat :breakdown :women))))
+                       	(.append (-> ($ "<span>") (.addClass "children") (.text (-> boat :breakdown :children)))))
+             
+             footer (-> ($ "<footer>") 
+                      	(.append (-> ($ "<button>") (.text "Sink")))
+                      	(.append (-> ($ "<button>") (.text "Turn back")))
+                      	(.append (-> ($ "<button>") (.text "Rescue"))))]
+			(-> info-window-container (.append header) (.append section) (.append footer) .html)))
 
 (defn- boat-click-handler
       [boat]
@@ -105,7 +118,8 @@
           (this-as this
            	(.gmap3 
               ($ map-selector)
-              (clj->js {:infowindow (clj->js 
+              (clj->js {:clear (clj->js {:name ["infowindow"]})
+                        :infowindow (clj->js 
                         	{:anchor marker 
                              :options (clj->js {:content (boat-info-window-content boat)})})})))))
 
