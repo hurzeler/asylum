@@ -1,6 +1,7 @@
 (ns asylum.view
     (:use [jayq.core :only [$]]
-          [jayq.util :only [log]]))
+          [jayq.util :only [log]])
+    (:require [asylum.about-us-content :as about]))
 
 
 (def map-selector "#map")
@@ -95,6 +96,7 @@
 
 (def boats-actioned-during-turn
   (atom []))
+
 
 (defn- kw-to-boat-action-label
        [kw]
@@ -196,11 +198,18 @@
        [{morrison-index :morrison}]       
        (if (> morrison-index 1) "orange" "blue")) 
 
+
+(def event-options-selected-during-turn
+   (atom []))
+
 (defmulti on-event-choice-selection key)
 (defmethod on-event-choice-selection :continue [option]
            (-> ($ ".gaugesPanel") (.removeClass "inactive") (.addClass "active"))
            (-> ($ "#event-panel") (.removeClass "welcome"))
            :continue)
+(defmethod on-event-choice-selection :dismiss [option]
+	        (-> ($ "#event-panel") (.addClass "selected"))
+	        (-> ($ ".endTurn") (.addClass "active") (.removeClass "inactive")))
 (defmethod on-event-choice-selection :default [option]                
            (let [buttons ($ "#event-panel footer button")]
                 (-> buttons  
@@ -210,6 +219,7 @@
 	                        	(when (not (= option (.data button "option"))) (.addClass button "notSelected")))))))
                 (-> ($ "#event-panel") (.addClass "selected"))
                 (-> ($ ".endTurn") (.addClass "active") (.removeClass "inactive"))
+                (swap! event-options-selected-during-turn conj option)
                 (key option)))
 
 
@@ -236,19 +246,38 @@
       (.attr "href" url)
       (.html (trim-str url 30))))
 
+(defn- img
+  [name]
+  (-> ($ "<img>")
+      (.attr "src" (str "img/" name))))
+
+(defn- li
+  [html]
+  (-> ($ "<li>")
+      (.html html)))
+
+(defn- ul
+  [html]
+  (-> ($ "<ul>")
+      (.html html)))
+
+(defn- make-links
+  [urls]
+  (to-array (ul (to-array (map (fn [url] (li (to-array (link url)))) urls)))))
+
 (defn- show-event 
        [{:keys [title content options media event-date links]} apply-event-choice-fn advance-turn-fn]
        (let [option-buttons (to-array (map (partial option-button apply-event-choice-fn advance-turn-fn (= 1 (count options))) options))
              content-div ($ "#event-panel")
              end-turn-button ($ ".endTurn")
-             image (if (empty? (:name media)) "" (str "img/" (:name media)))
-             event-links (to-array (map link links))
+             image-name (if (empty? (:name media)) "" (:name media))
+             event-links (make-links links)
              header (if-not (empty? event-date) "Notes on actual events" "")]           
             (-> content-div (.removeClass "selected"))
             (-> content-div (.find "header h2") (.text title))
             (-> content-div (.find "section") (.html content))
-            (-> content-div (.find "aside") (.find "img") (.attr "src" image))
-            (-> content-div (.find "aside .date") (.html event-date))            (-> content-div (.find "aside .links") (.append event-links))
+            (-> content-div (.find "aside .image") (.empty) (.append (img image-name)))
+            (-> content-div (.find "aside .date") (.html event-date))            (-> content-div (.find "aside .links") (.empty) (.append event-links))
             (-> content-div (.find "aside h3") (.html header))
             (-> content-div (.find "footer") (.empty) (.append option-buttons))
             (-> end-turn-button (.addClass "inactive") (.removeClass "active"))))
@@ -263,13 +292,26 @@
  		
 (defn- apply-reset-handler
   [reset-fn]
-  (let [reset-link ($ ".reset a")]
+  (let [reset-link ($ "#reset a")]
     (.off reset-link "click")
     (.on reset-link "click"
          (fn []
            (-> ($ ".gaugesPanel") (.removeClass "active") (.addClass "inactive"))
            (-> ($ "#event-panel") (.addClass "welcome"))
            (reset-fn))))) 
+
+
+(defn- apply-about-us-handler
+	[{current-event :next-event} orig-apply-option-fn orig-advance-fn]
+  	(let [about-us-link ($ "#about-us a")]
+        (swap! event-options-selected-during-turn empty)
+	    (.off about-us-link "click")
+	    (.on about-us-link "click"
+	         (fn []
+	           (show-event about/about-us
+              			(fn [option] option)
+                 		(fn [_] (when (not (seq @event-options-selected-during-turn)) (show-event current-event orig-apply-option-fn orig-advance-fn))))))))
+
 
 (defn- lever-values 
        "Collect the lever values"
@@ -319,8 +361,16 @@
 
 (defmethod apply-turn-modifications 0 [state]
            (-> ($ ".endTurn") (.removeClass "active") (.removeClass "inactive")))
-
-
+(defmethod apply-turn-modifications 1 [state]           
+           (let [random-boat (rand-nth (:boats state))
+                 marker (.gmap3 ($ map-selector) (clj->js {:get (clj->js {:id (:name random-boat)})}))]
+           		(.gmap3 
+	              ($ map-selector)
+	              (clj->js {:clear (clj->js {:name ["infowindow"]})
+	                        :infowindow (clj->js 
+	                        	{:anchor marker 
+	                             :options (clj->js 
+                                         {:content "<p><strong>\"Help\" us!</strong><br/>Click on one of us during a turn and act as you see fit.</p>"})})}))))
 
 
 (defn display [state apply-event-choice-fn advance-turn-fn reset-fn boat-action-fn]
@@ -332,6 +382,7 @@
         (show-event (:next-event state) apply-event-choice-fn advance-turn-fn)
         (apply-end-turn-handler (:next-event state) advance-turn-fn)
         (apply-reset-handler reset-fn)
+        (apply-about-us-handler state apply-event-choice-fn advance-turn-fn)
         (apply-turn-modifications state)))
 
 ;TODO: re-enable the player avatar once it works consistently on most browsers
