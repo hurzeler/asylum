@@ -29,7 +29,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
-.icon-justin-burns-skull, .icon-heart {
+.icon-justin-burns-skull, .icon-heart, .icon-cog {
 	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
@@ -43,13 +43,18 @@ you can use the generic selector below, but it's slower:
 }
 .icon-justin-burns-skull:after {
 	content: "\21";
-	margin-left:0.1em;
 	position: relative;
 	top:0px;
+	margin-left:3px;
 }		
 .icon-heart:before {
 	content: "\22";
-	margin-right:0.1em;
+	position: relative;
+	top:0px;
+	margin-right:3px;
+}
+.icon-cog:before {
+	content: "\23";
 	position: relative;
 	top:0px;
 }

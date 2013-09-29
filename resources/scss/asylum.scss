@@ -60,14 +60,15 @@ body * {
 	position: absolute;
 	bottom:0;
 	left:50%;
-	margin-left:-360px;
+	margin-left:-300px;
+	width:720px;
 	z-index: 1;
 	h1 { 
-		float:right;
+		float:left;
 		margin:0;
 		background: white;
 		padding:0.3em; 
-		border-radius: 5px  5px 0 0;
+		border-radius: 5px  0 0 0;
 		box-shadow: 0 2px 6px rgba(0,0,0,0.3); 
 		position: relative;
 		z-index: 2;
@@ -77,17 +78,17 @@ body * {
 		display:block;
 	}
 	#navMenu {
-		float:right;
+		float:left;
 		position: relative;
 		z-index: 3;
 		a.menu {
 			z-index:2;
 			text-decoration: none;
-			border-radius: 0 5px 0 0;
+			border-radius: 5px 0 0 0;
 			display:block;
 			background: $blue;
-			padding: $defaultPadding/2;
-			margin-top:5px;
+			padding: $defaultPadding/2 $defaultPadding - 0.3;
+			margin-top:9px;
 			box-shadow:  0 0px 0px rgba(0,0,0,0) inset;
 				-webkit-transition: all 0.2s ease;
 				-moz-transition: all 0.2s ease;
@@ -96,13 +97,10 @@ body * {
 				transition: all 0.2s ease;
 			span {
 				display: block;
-				background: white;
-				margin: 4px;
-				height: 4px;
-				width: 25px; 
-				font-size:0.5rem;
+				color:#fff;
+				font-size:1.5rem;
 				line-height: 1;
-				box-shadow: 0 0px 0px rgba(0,0,0,0.3);
+				text-shadow: 0 0px 0px rgba(0,0,0,0.3);
 				-webkit-transition: all 0.2s ease;
 				-moz-transition: all 0.2s ease;
 				-o-transition: all 0.2s ease;
@@ -112,10 +110,12 @@ body * {
 			&:hover {
 				box-shadow:   0 2px 5px rgba(0,0,0,0.3) inset;
 				span {
-					box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+					text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 				}
 			}
+			
 		}
+
 		.dropdownMenu {
 			z-index:-1;
 			position: absolute;
@@ -173,6 +173,48 @@ body * {
 			}
 		}
 	}
+	.vote {
+		float:left;
+		background: #f5f5f5;
+		font-size:18px;
+		border-radius: 0 5px 0 0;
+		box-shadow: 0 2px 6px rgba(0,0,0,0.3); 
+		h3{
+			margin: 0;
+			font-weight:300;
+			a {
+				padding: $defaultPadding $defaultPadding $defaultPadding - 0.35;
+				line-height: 1.1;
+				color:darken($grey, 30%);
+				display:block;
+				text-decoration: none;
+				text-shadow: 0 1px 0 rgba(255,255,255,1);
+				width: 161px;
+				text-align: center;
+				&:hover {
+					font-weight:500;
+				}
+			}
+		}
+	}
+	.clojureCup {
+		float:left;
+		border-radius: 0 5px 0 0;
+			display:block;
+			background: $blue;
+			padding: $defaultPadding/2 $defaultPadding - 0.3;
+			margin-top:9px;
+			box-shadow:  0 0px 0px rgba(0,0,0,0) inset;
+				-webkit-transition: all 0.2s ease;
+				-moz-transition: all 0.2s ease;
+				-o-transition: all 0.2s ease;
+				-ms-transition: all 0.2s ease;
+				transition: all 0.2s ease;
+		img {
+				height:24px;
+				display:block;
+			}
+	}	
 }
 
 // POPUP CONTAINER
@@ -489,61 +531,79 @@ body * {
 
 // END TURN BUTTON
 .endTurn {
-	@extend .animated;
-	@extend .fadeIn;
+	-moz-animation-delay: 0.5s ;
+	-webkit-animation-delay: 0.5s ;
+	animation-delay: 0.5s ;
+	float:left;
+	position: relative;
+	margin-top: -20px;
+	z-index: 4;
 
-	-moz-animation-delay: 1s ;
-	-webkit-animation-delay: 1s ;
-	animation-delay: 1s ;
-
-	position:absolute;
-	bottom:30%;
-	left:50%;
-	margin:-25px 0 0 -100px;
-	
 	button{
+		font-family: 'Roboto Slab',  'Times', serif;
 		-webkit-outline: none;
 		outline: none;
-		border-radius: 3px;
+		border-radius: 3px 3px  0 0;
 		color:#fff;
-		padding:$defaultPadding $defaultPadding ($defaultPadding+0.2);
-		height:60px;
+		padding:($defaultPadding+0.2) $defaultPadding ;
+		height:69px;
 		width:200px;
-		font-size:2em;
-		font-weight: 200;
-		letter-spacing: 2px;
+		font-size:2.2em;
+		font-weight: 500;
+		letter-spacing: 1px;
 		line-height: 1;
-		border:1px solid rgba(255,255,255,0.4);
-		border-bottom: 1px solid darken($darkBlue, 5%);
-		background: $darkBlue;
+		border: 1px solid darken($grey, 15%);
+		background: darken($grey, 5%);
+		opacity:0.8;
 		position: relative;
-		top:0;
+		top:4px;
 		box-shadow: 
-				0 5px 2px darken($darkBlue, 15%), 
-				0 -1px 0 rgba(255,255,255,0.4) inset, 
-				0 6px 4px rgba(0,0,0,0.6);
+			0 -1px 0 rgba(255,255,255,0.4) inset, 
+			0 -1px 1px rgba(0,0,0,0.6);
 		text-shadow: 0 2px 2px rgba(0,0,0,0.8); 
 		-webkit-transition: all 0.2s ease;
 		-moz-transition: all 0.2s ease;
 		-o-transition: all 0.2s ease;
 		-ms-transition: all 0.2s ease;
 		transition: all 0.2s ease;
-		&:hover {
-			box-shadow: 
-				0 1px 2px darken($darkBlue, 15%), 
+	}
+	&.inactive button{
+		border: 1px solid darken($grey, 15%);
+		background: darken($grey, 5%);
+		opacity:1;
+		box-shadow: 
 				0 -1px 0 rgba(255,255,255,0.4) inset, 
-				0 6px 4px rgba(0,0,0,0.6);
+				0 -1px 1px rgba(0,0,0,0.6);
 			top:4px;
+	}
+	&.active button{
+		border: 1px solid darken($darkBlue, 5%);
+		background: $darkBlue;
+		opacity:1;
+		top:0;
+		box-shadow: 
+				0 1px 0 rgba(255,255,255,0.4) inset, 
+				0 -1px 2px rgba(0,0,0,0.6);
+		-webkit-transition: all 0.2s ease 0.2s;
+		-moz-transition: all 0.2s ease 0.2s;
+		-o-transition: all 0.2s ease 0.2s;
+		-ms-transition: all 0.2s ease 0.2s;
+		transition: all 0.2s ease 0.2s;
+		&:hover {
+			-webkit-box-shadow: 
+			0 -1px 0 rgba(255,255,255,0.4) inset, 
+			0 -1px 1px rgba(0,0,0,0.6);
+			box-shadow: 
+			0 -1px 0 rgba(255,255,255,0.4) inset, 
+			0 -1px 1px rgba(0,0,0,0.6);
+			top:4px;
+			-webkit-transition-delay: 0;
+			-moz-transition-delay: 0;
+			-o-transition-delay: 0;
+			-ms-transition-delay: 0;
+			transition-delay: 0;
 		}
 	}
-	&.inactive {
-		@extend .animated;
-		@extend .fadeOut;
-	}
-	// &.active {
-	// 	@extend .animated;
-	// 	@extend .fadeIn;
-	// }
 }
 
 
