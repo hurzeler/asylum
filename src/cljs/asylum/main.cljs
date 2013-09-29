@@ -2,7 +2,8 @@
     (:require [clojure.browser.repl]
       [jayq.core :as jq]
       [asylum.view :as v]
-      [asylum.events :as e])
+      [asylum.events :as e]
+      [asylum.boats :as b])
     (:use [jayq.core :only [$ css html]]
       [jayq.util :only [log]]
       [asylum.state :only [state]]))
@@ -19,6 +20,7 @@
            (log @state)
            (swap! state e/apply-effects)
            (swap! state e/apply-levers)
+           (swap! state b/add-boats)
            (log "<<<STATE POST EVENT PROCESSING>>>")
            (log @state)
            (swap! state merge (e/choose-event @state))
