@@ -1,5 +1,7 @@
 /* Normalize CSS*/
 @import  "_normalize";
+@import  "animate-custom";
+@import "fonts";
 
 // DEFAULTS
 $defaultFontSize: 12px;
@@ -155,8 +157,14 @@ body * {
 //GAUGES
 .gaugesPanel {
 	position: absolute;
+	display:none;
 	top:5%;
 	left:50%;
+	&.active {
+		@extend .animated;
+		@extend .flipInX;
+		display:block;
+	}
 	@media screen and (min-width:500px){
 		width: 500px;
 		margin-left:-250px;
