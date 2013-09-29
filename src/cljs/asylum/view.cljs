@@ -120,11 +120,12 @@
        [boat boat-action-fn]
        (log "Number of boats saved this turn:" (count @boats-actioned-during-turn))
        (if (= 0 (count @boats-actioned-during-turn))
-	       (to-array (map #(-> ($ "<button>") 
-	            	(.click (boat-action-handler boat % boat-action-fn))
-	            	(.text (kw-to-boat-action-label %))) 
+	       (to-array (map #(-> ($ "<button>")
+                           	(.addClass (name %))
+			            	(.click (boat-action-handler boat % boat-action-fn))
+			            	(.text (kw-to-boat-action-label %))) 
 	      		(:actions boat)))
-        	(-> ($ "<p>") (.text "You can only action 1 boat per turn"))))
+        	(-> ($ "<p>") (.text "You can only \"help\" one boat per turn."))))
 
 (defn- boat-info-window-content 
        [{:keys [name actions breakdown] :as boat} boat-action-fn]
@@ -218,8 +219,9 @@
 	                        (let [button ($ this)]
 	                        	(when (not (= option (.data button "option"))) (.addClass button "notSelected")))))))
                 (-> ($ "#event-panel") (.addClass "selected"))
-                (-> ($ ".endTurn") (.addClass "active") (.removeClass "inactive"))
+                (-> ($ ".endTurn") (.addClass "active") (.removeClass "inactive") (.find "button") (.removeAttr "disabled"))
                 (swap! event-options-selected-during-turn conj option)
+                
                 (key option)))
 
 
@@ -284,8 +286,9 @@
 
 (defn- apply-end-turn-handler 
        [{options :options} advance-turn-fn]
-       (let [end-turn-button ($ ".endTurn button")]
+       (let [end-turn-button ($ ".endTurn button")]            
             (.off end-turn-button "click")
+            (-> end-turn-button (.attr "disabled" "disabled"))
             (if (>= 1 (count options)) 
                 (-> end-turn-button (.closest ".endTurn") (.addClass "inactive") (.removeClass "active"))
                 (-> end-turn-button .show (.on "click" advance-turn-fn)))))
