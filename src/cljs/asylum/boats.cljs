@@ -39,4 +39,4 @@
     (take n (repeatedly random-boat))))
 
 (defn add-boats [state]
-  (assoc state :boats (random-boats (:morrison state))))
+  (assoc state :boats (set (random-boats (:morrison state)))))

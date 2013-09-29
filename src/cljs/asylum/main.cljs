@@ -28,3 +28,7 @@
 
 ($ (fn []
        (v/display @state (comp advance-turn apply-event-choice))))
+
+(defn action-boat [boat action]
+  (swap! state update-in [:morrison] + ({:sink 0.3 :turn-back 0.1 :rescue -0.1} action))
+  (swap! state update-in [:boats] disj boat))
