@@ -63,8 +63,16 @@
      [[-11.178402 111.870115]
       [-16.045813 114.506834]
       [-18.562947 112.924803]
+      [-13.752725 90.351563]
+      [-16.972741 100.195313]
       [-20.220966 113.540037]
       [-22.187405 109.76074]
+      [-28.767659 85.429688]
+      [-24.20689 111.708984]
+      [-23.160563 160.839844]
+      [-29.840644 160.913084]
+      [-10.746969 84.814453]
+      [-6.926427 152.841797]
       [-20.385825 105.893553]
       [-30.524413 108.969725]
       [-32.62087 108.706053]
@@ -85,6 +93,7 @@
       [-10.228437 142.456053]
       [-5.528511 100.532225]])
 
+
 (def boat-marker-opts {:options {:icon "img/boatPin.png"}})
 
 (defn- show-boats
@@ -94,7 +103,6 @@
              boats (map #(clj->js (merge {:latLng %} boat-marker-opts)) boats-coords)]
             (.gmap3 
               ($ map-selector)
-              
               (clj->js {
                         :clear (clj->js {:name ["marker"]})
                         :marker (clj->js {:values boats})}))))
@@ -116,22 +124,20 @@
 (defn- update-gauges 
        [{popularity :popularity deaths :deaths}]
        (let [popularity (str (int (* 100 popularity)) "%")
-             deaths (str (int (* 100 deaths)) "%")]
+             deaths-width (str (* 100 (/ (.log js/Math deaths) (.log js/Math 5200))) "%")]
             (-> ($ ".popularityValue") (.text popularity) (.css "width" popularity))
-            (-> ($ ".deathsValue") (.text deaths) (.css "width" deaths))))
+            (-> ($ ".deathsValue") (.text deaths) (.css "width" deaths-width))))
 
 
 (defn- option-colour 
-       [{morrison-index :morrison}]
-       (log morrison-index)
+       [{morrison-index :morrison}]       
        (if (> morrison-index 1) "orange" "blue")) 
 
 (defmulti on-event-choice-selection key)
-
 (defmethod on-event-choice-selection :continue [option]
            (-> ($ ".gaugesPanel") (.removeClass "inactive") (.addClass "active"))
+           (-> ($ "#event-panel") (.removeClass "welcome"))
            :continue)
-
 (defmethod on-event-choice-selection :default [option] (key option))
 
 
@@ -168,4 +174,41 @@
        {:levers {:offshore-intake (-> (.val ($ "#offshore-intake")) js/parseInt)
                  :detention-proportion (-> (.val ($ "#detention-proportion"))  js/parseFloat)}})
 
-($ init-map)
+(defn- init-get-user-media
+       []
+       (set! (.-getUserMedia js/navigator)
+         (or (.-getUserMedia js/navigator)
+           (.-webkitGetUserMedia js/navigator)
+           (.-mozGetUserMedia js/navigator)
+           (.-msGetUserMedia js/navigator))))
+
+(defn- init-window-url
+       []
+       (set! (.-URL js/window)
+         (or (.-URL js/window)
+           (.-webkitURL js/window))))
+
+(defn- get-user-media 
+       [on-accept-fn on-reject-fn]
+       (.getUserMedia js/navigator (clj->js {:video true :audio false}) on-accept-fn on-reject-fn))
+
+(defn- init-player-avatar
+       []
+       (do (init-window-url)
+           (init-get-user-media)
+           (get-user-media 
+             (fn [media-stream]
+                 (let [video (-> ($ "<video>") (.attr "src" (-> js/window .-URL (.createObjectURL media-stream))))]
+                      (do 
+                        (-> ($ ".profile")
+	                        (.empty)
+	                        (.append video))
+                        (.play (aget video 0)))))
+             (fn []
+                 (let [image (-> ($ "<img>") (.attr "src" "http://upload.wikimedia.org/wikipedia/commons/1/18/Scott_Morrison.jpg"))]
+                      (-> ($ ".profile")
+                        (.empty)
+                        (.append image)))))))
+
+
+($ (comp init-map init-player-avatar))
