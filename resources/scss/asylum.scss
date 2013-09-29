@@ -651,7 +651,14 @@ body * {
 			button {
 				@extend .button;
 				font-size:0.8rem;
+				&.sink, &.grant-citizenship {
+					@extend .button.orange;
+				}
+				&.turn-back {
+					@extend .button.blue;
+				}
 			}
+
 		}
 }
 
