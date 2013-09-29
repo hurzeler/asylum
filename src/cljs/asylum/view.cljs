@@ -15,7 +15,7 @@
                                   :address "Darwin, NT, Australia"
                                   :options (clj->js {
                                                      :color "#476DD5"
-                                                     :zoom 5
+                                                     :zoom 4
                                                      :mapTypeId js/google.maps.MapTypeId.ROADMAP,
                                                      :scrollwheel false
                                                      :center "-25.085875,104.284057"
@@ -324,4 +324,5 @@
         (apply-end-turn-handler (:next-event state) advance-turn-fn)
         (apply-reset-handler reset-fn)))
 
-($ (comp init-map init-player-avatar))
+;TODO: re-enable the player avatar once it works consistently on most browsers
+($ init-map)
