@@ -61,6 +61,9 @@
 (def event-store
   (atom (initial-events)))
 
+(defn reset-events []
+  (reset! event-store (initial-events)))
+
 (defn in-range [n [x y]]
   (<= x n y))
 

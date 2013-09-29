@@ -34,4 +34,5 @@
   (swap! state update-in [:boats] disj boat))
 
 (defn restart []
-  (reset! state (initial-state)))
+  (reset! state (initial-state))
+  (e/reset-events))
