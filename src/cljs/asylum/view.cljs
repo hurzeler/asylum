@@ -174,13 +174,14 @@
              content-div ($ "#event-panel")
              end-turn-button ($ ".endTurn")
              image (if (empty? (:name media)) "" (str "img/" (:name media)))
-             event-links (to-array (map link links))]           
+             event-links (to-array (map link links))
+             header (if-not (empty? event-date) "Notes on actual events" "")]           
             (-> content-div (.removeClass "selected"))
             (-> content-div (.find "header h2") (.text title))
             (-> content-div (.find "section") (.html content))
             (-> content-div (.find "aside") (.find "img") (.attr "src" image))
             (-> content-div (.find "aside .date") (.html event-date))            (-> content-div (.find "aside .links") (.append event-links))
-            (-> content-div (.find "aside h3") (if (empty? event-date) (.html "") (.html "Notes of actual event")))
+            (-> content-div (.find "aside h3") (.html header))
             (-> content-div (.find "footer") (.empty) (.append option-buttons))
             (-> end-turn-button (.addClass "inactive") (.removeClass "active"))))
 
