@@ -93,19 +93,40 @@
       [-10.228437 142.456053]
       [-5.528511 100.532225]])
 
+(defn- boat-info-window-content 
+       [boat]
+       (:name boat)       
+       )
 
-(def boat-marker-opts {:options {:icon "img/boatPin.png"}})
+(defn- boat-click-handler
+      [boat]
+      (fn [marker event context]
+          (log js/arguments)
+          (this-as this
+           	(.gmap3 
+              ($ map-selector)
+              (clj->js {:infowindow (clj->js 
+                        	{:anchor marker 
+                             :options (clj->js {:content (boat-info-window-content boat)})})})))))
+
+(defn- boat-marker 
+      [boat]
+      (let [base-marker {:options {:icon "img/boatPin.png"}}
+           	 action-handler {:events {:click (boat-click-handler boat)}}]
+           (merge base-marker action-handler)))
 
 (defn- show-boats
        "Given a number of boats to display, randomly place them on a journey to australia"
-       [num-boats]
-       (let [boats-coords (take num-boats (shuffle possible-boat-coords))
-             boats (map #(clj->js (merge {:latLng %} boat-marker-opts)) boats-coords)]
+       [{boats :boats}]
+       (let [boats-coords (take (count boats) (shuffle possible-boat-coords))
+             boats-with-coords (zipmap boats-coords (map boat-marker boats))
+             boats (map #(clj->js (merge {:latLng (key %)} (val %))) boats-with-coords)]
+            (log (to-array boats))
             (.gmap3 
               ($ map-selector)
               (clj->js {
                         :clear (clj->js {:name ["marker"]})
-                        :marker (clj->js {:values boats})}))))
+                        :marker (clj->js {:values (to-array boats)})}))))
 
 
 (defn- say
@@ -196,7 +217,7 @@
 (defn display [state apply-event-choice-fn advance-turn-fn reset-fn]
       (do 
         (say "turn" (str (-> state :turn)))
-        (show-boats (-> state :current :transit))
+        (show-boats state)
         (update-levers state)
         (update-gauges state)
         (show-event (:next-event state) apply-event-choice-fn advance-turn-fn)
