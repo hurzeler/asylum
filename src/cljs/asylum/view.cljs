@@ -162,16 +162,25 @@
               (.text title)
               (.on "click" on-click-handler)
               (.data "option" option))))
+(defn- link
+  [url]
+  (-> ($ "<a>")
+      (.attr "href" url)
+      (.html url)))
 
 (defn- show-event 
-       [{:keys [title content options media]} apply-event-choice-fn advance-turn-fn]
+       [{:keys [title content options media event-date links]} apply-event-choice-fn advance-turn-fn]
        (let [option-buttons (to-array (map (partial option-button apply-event-choice-fn advance-turn-fn (= 1 (count options))) options))
              content-div ($ "#event-panel")
              end-turn-button ($ ".endTurn")
-             image (if (empty? (:name media)) "" (str "img/" (:name media)) )]           
+             image (if (empty? (:name media)) "" (str "img/" (:name media)))
+             event-links (to-array (map link links))]           
             (-> content-div (.removeClass "selected"))
             (-> content-div (.find "header h2") (.text title))
-            (-> content-div (.find "section") (.html content))             (-> content-div (.find "aside") (.find "img") (.attr "src" image))
+            (-> content-div (.find "section") (.html content))
+            (-> content-div (.find "aside") (.find "img") (.attr "src" image))
+            (-> content-div (.find "aside .date") (.html event-date))            (-> content-div (.find "aside .links") (.append event-links))
+            (-> content-div (.find "aside h3") (if (empty? event-date) (.html "") (.html "Notes of actual event")))
             (-> content-div (.find "footer") (.empty) (.append option-buttons))
             (-> end-turn-button (.addClass "inactive") (.removeClass "active"))))
 
