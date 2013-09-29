@@ -138,7 +138,9 @@
            (-> ($ ".gaugesPanel") (.removeClass "inactive") (.addClass "active"))
            (-> ($ "#event-panel") (.removeClass "welcome"))
            :continue)
-(defmethod on-event-choice-selection :default [option] (key option))
+(defmethod on-event-choice-selection :default [option]                       
+           (-> ($ "#event-panel footer button") )
+           (key option))
 
 
 (defn- option-button
@@ -163,10 +165,12 @@
 
 (defn- apply-end-turn-handler 
        [{options :options} advance-turn-fn]
-       (log "Number of options" (count options))
- 		(if (>= 1 (count options)) 
-       		(.hide ($ ".endTurn button"))
-         	(-> ($ ".endTurn button") .show (.on "click" advance-turn-fn))))
+       (let [end-turn-button ($ ".endTurn button")]
+            (.off end-turn-button "click")
+            (if (>= 1 (count options)) 
+                (.hide end-turn-button)
+                (-> end-turn-button .show (.on "click" advance-turn-fn)))))
+ 		
  
 
 
