@@ -1,6 +1,7 @@
 (ns asylum.view
     (:use [jayq.core :only [$]]
-          [jayq.util :only [log]]))
+          [jayq.util :only [log]])
+    (:require [asylum.about-us-content :as about]))
 
 
 (def map-selector "#map")
@@ -95,6 +96,7 @@
 
 (def boats-actioned-during-turn
   (atom []))
+
 
 (defn- kw-to-boat-action-label
        [kw]
@@ -196,11 +198,18 @@
        [{morrison-index :morrison}]       
        (if (> morrison-index 1) "orange" "blue")) 
 
+
+(def event-options-selected-during-turn
+   (atom []))
+
 (defmulti on-event-choice-selection key)
 (defmethod on-event-choice-selection :continue [option]
            (-> ($ ".gaugesPanel") (.removeClass "inactive") (.addClass "active"))
            (-> ($ "#event-panel") (.removeClass "welcome"))
            :continue)
+(defmethod on-event-choice-selection :dismiss [option]
+	        (-> ($ "#event-panel") (.addClass "selected"))
+	        (-> ($ ".endTurn") (.addClass "active") (.removeClass "inactive")))
 (defmethod on-event-choice-selection :default [option]                
            (let [buttons ($ "#event-panel footer button")]
                 (-> buttons  
@@ -210,6 +219,7 @@
 	                        	(when (not (= option (.data button "option"))) (.addClass button "notSelected")))))))
                 (-> ($ "#event-panel") (.addClass "selected"))
                 (-> ($ ".endTurn") (.addClass "active") (.removeClass "inactive"))
+                (swap! event-options-selected-during-turn conj option)
                 (key option)))
 
 
@@ -263,13 +273,26 @@
  		
 (defn- apply-reset-handler
   [reset-fn]
-  (let [reset-link ($ ".reset a")]
+  (let [reset-link ($ "#reset a")]
     (.off reset-link "click")
     (.on reset-link "click"
          (fn []
            (-> ($ ".gaugesPanel") (.removeClass "active") (.addClass "inactive"))
            (-> ($ "#event-panel") (.addClass "welcome"))
            (reset-fn))))) 
+
+
+(defn- apply-about-us-handler
+	[{current-event :next-event} orig-apply-option-fn orig-advance-fn]
+  	(let [about-us-link ($ "#about-us a")]
+        (swap! event-options-selected-during-turn empty)
+	    (.off about-us-link "click")
+	    (.on about-us-link "click"
+	         (fn []
+	           (show-event about/about-us
+              			(fn [option] option)
+                 		(fn [_] (when (not (seq @event-options-selected-during-turn)) (show-event current-event orig-apply-option-fn orig-advance-fn))))))))
+
 
 (defn- lever-values 
        "Collect the lever values"
@@ -328,7 +351,7 @@
 	                        :infowindow (clj->js 
 	                        	{:anchor marker 
 	                             :options (clj->js 
-                                         {:content "<strong>\"Help\" us!</strong> Click on one of us during a turn and act as you see fit."})})}))))
+                                         {:content "<p><strong>\"Help\" us!</strong><br/>Click on one of us during a turn and act as you see fit.</p>"})})}))))
 
 
 (defn display [state apply-event-choice-fn advance-turn-fn reset-fn boat-action-fn]
@@ -340,6 +363,7 @@
         (show-event (:next-event state) apply-event-choice-fn advance-turn-fn)
         (apply-end-turn-handler (:next-event state) advance-turn-fn)
         (apply-reset-handler reset-fn)
+        (apply-about-us-handler state apply-event-choice-fn advance-turn-fn)
         (apply-turn-modifications state)))
 
 ;TODO: re-enable the player avatar once it works consistently on most browsers
