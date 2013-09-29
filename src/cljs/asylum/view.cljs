@@ -128,6 +128,7 @@
 
 (defmethod on-event-choice-selection :continue [option]
            (-> ($ ".gaugesPanel") (.removeClass "inactive") (.addClass "active"))
+           (-> ($ "#event-panel") (.removeClass "welcome"))
            :continue)
 
 (defmethod on-event-choice-selection :default [option] (key option))
