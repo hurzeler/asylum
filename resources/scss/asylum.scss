@@ -209,7 +209,7 @@ body * {
 				height: 75px;
 				width: 103px;			
 				margin-left: -23px;
-				margin-top: -17px;
+				margin-top: -15px;
 			}
 		}
 		.frame{
@@ -240,7 +240,6 @@ body * {
 			text-shadow: 0 1px 0px rgba(255,255,255, 0.3);
 			background: darken($bgColour, 5%);
 			border-radius: 9px;
-			margin: 0;
 			line-height: 1;
 		}
 
@@ -249,10 +248,7 @@ body * {
 	.popularity .popularityValue, .deaths .deathsValue {
 		height:50px;
 		border-radius: 50px;
-		box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-		color:#fff;
-		font-weight: 100;
-		font-size: 1.5rem;
+		box-shadow: 0 0 3px rgba(0,0,0,0.5);
 		padding:0.8rem;
 		line-height: 0.8;
 		min-width:36%;
@@ -267,7 +263,8 @@ body * {
 		p {
 			float:right;
 			text-align: right;
-			padding: 0.25rem 12.5% 0.8rem 0.8rem ;
+			padding: 0.25rem 12.5% 0.6rem 0.8rem ;
+			margin: 0 0 0 40%;
 		}
 		.popularityValue {
 			float:right;
@@ -275,8 +272,14 @@ body * {
 			text-align: left;
 			position: relative;
 			z-index: 1;
-			margin-top: -10px;
-			
+			margin-top: -5px;
+			p {
+				margin:0;
+				padding:0;
+				color:#fff;
+				font-weight: 100;
+				font-size: 1.5rem;
+			}
 		}
 	}
 	.deaths {
@@ -285,6 +288,7 @@ body * {
 			padding: 0.25rem 0.8rem 0.8rem 12.5%;
 			text-align: left;
 			float: left;
+			margin: 0 40% 0 0;
 		}
 		.deathsValue {
 			float:left;
@@ -293,7 +297,13 @@ body * {
 			position: relative;
 			z-index: 1;
 			margin-top: -10px;
-			
+			p {
+				margin:0;
+				padding:0;
+				color:#fff;
+				font-weight: 100;
+				font-size: 1.5rem;
+			}
 		}
 	}
 }
