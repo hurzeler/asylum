@@ -124,7 +124,7 @@
 	            	(.click (boat-action-handler boat % boat-action-fn))
 	            	(.text (kw-to-boat-action-label %))) 
 	      		(:actions boat)))
-        	(-> ($ "<p>") (.text "You can only action 1 boat per turn"))))
+        	(-> ($ "<p>") (.text "You can only \"help\" one boat per turn."))))
 
 (defn- boat-info-window-content 
        [{:keys [name actions breakdown] :as boat} boat-action-fn]
