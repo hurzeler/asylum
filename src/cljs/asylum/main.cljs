@@ -31,8 +31,12 @@
            (swap! state merge (e/choose-event @state))
            (call-display)))
 
+(defn hide-loading []
+  (.hide ($ "#loading")))
+
 ($ (fn []
-       (call-display)))
+       (call-display)
+       (hide-loading)))
 
 (defn action-boat [boat action]
   (swap! state update-in [:morrison] + ({:sink 0.3 :turn-back 0.1 :rescue -0.1} action))
