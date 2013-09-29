@@ -3724,6 +3724,16 @@ body * {
       background: #fff;
       box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
       display: block; }
+    .popUp aside ul {
+      margin: 0;
+      padding: 0; }
+      .popUp aside ul li {
+        list-style: none; }
+        .popUp aside ul li a {
+          color: #a1a1a1;
+          font-weight: 500;
+          font-size: 0.8rem;
+          text-decoration: underline; }
   .popUp footer {
     padding: 0 1rem; }
 

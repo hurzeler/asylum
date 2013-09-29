@@ -313,6 +313,19 @@ body * {
 			box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
 			display:block;
 		}
+		ul {
+			margin:0;
+			padding:0;
+			li {
+				list-style:none;
+				a {
+					color:$grey;
+					font-weight: 500;
+					font-size:0.8rem;
+					text-decoration: underline;
+				}
+			}
+		}
 	}
 	footer {
 		padding:0 $defaultPadding;
