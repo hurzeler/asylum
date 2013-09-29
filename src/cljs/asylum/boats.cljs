@@ -1,5 +1,6 @@
 (ns asylum.boats
-  (:require [clojure.set :as s]))
+  (:require [clojure.set :as s])
+  (:use [jayq.util :only [log]]))
 
 (def countries
   #{"Eritrea" "Ethiopia" "Somalia" "Sudan" "Ivory Coast" "Liberia" "Nigeria" "Sierra Leone"
@@ -36,7 +37,9 @@
            (<= 0 morrison 0.2) (rand-int 2)
            (<= 0.2 morrison 0.8) (inc (rand-int 5))
            :else (rand-int 2))]
-    (take n (repeatedly random-boat))))
+    (map (fn [_] (rand-boat)) (range n))))
 
 (defn add-boats [state]
-  (assoc state :boats (set (random-boats (:morrison state)))))
+  (let [m (:morrison state)
+        boats (set (random-boats m))]
+    (assoc state :boats boats)))

@@ -320,11 +320,15 @@ you can use the generic selector below, but it's slower:
 
 .icon-justin-burns-skull:after {
   content: "\21";
-  margin-left: 0.1em; }
+  margin-left: 0.1em;
+  position: relative;
+  top: 2px; }
 
 .icon-heart:before {
   content: "\22";
-  margin-right: 0.1em; }
+  margin-right: 0.1em;
+  position: relative;
+  top: 2px; }
 
 .cf:before, #logoBox:before,
 .cf:after,
@@ -445,7 +449,7 @@ body * {
 .gaugesPanel {
   position: absolute;
   display: none;
-  top: 5%;
+  top: 25px;
   left: 50%; }
   .gaugesPanel.active {
     display: block; }
@@ -467,34 +471,55 @@ body * {
       position: absolute;
       top: 50%;
       left: 50%;
-      margin-top: -55px;
-      margin-left: -55px;
+      margin-top: -30px;
+      margin-left: -36px;
       border-radius: 100%;
-      width: 110px;
-      height: 110px;
+      width: 72px;
+      height: 70px;
       padding: 10px;
       background: #f5ede3;
-      overflow: hidden;
+      overflow: hidden; }
+      .gaugesPanel .profileBox .profile img {
+        width: 91px;
+        margin-left: -23px;
+        margin-top: -10px; }
+      .gaugesPanel .profileBox .profile video {
+        height: 75px;
+        width: 103px;
+        margin-left: -23px;
+        margin-top: -17px; }
+    .gaugesPanel .profileBox .frame {
+      box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.9) inset, 0 1px 1px black inset;
+      position: absolute;
+      z-index: 100;
+      border: 15px solid #f5ede3;
+      border-radius: 100%;
+      top: -20px;
+      left: -40px;
+      width: 100px;
+      height: 100px;
       box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3); }
-      .gaugesPanel .profileBox .profile img, .gaugesPanel .profileBox .profile video {
-        height: 100%;
-        width: 100%;
-        border-radius: 100%;
-        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9), inset 0 1px 1px black; }
   .gaugesPanel .popularity, .gaugesPanel .deaths {
     border-radius: 50px;
     width: 350px;
     height: 50px;
     position: relative; }
+    .gaugesPanel .popularity p, .gaugesPanel .deaths p {
+      margin: 0rem 11.5% 0.2rem;
+      color: #333;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7); }
   .gaugesPanel .popularity .popularityValue, .gaugesPanel .deaths .deathsValue {
     height: 50px;
     border-radius: 50px;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     color: #fff;
     font-weight: 100;
     font-size: 1.5rem;
     padding: 0.8rem;
-    line-height: 1;
+    line-height: 0.8;
+    min-width: 36%;
     -webkit-transition: width 0.5s ease;
     -moz-transition: width 0.5s ease;
     -o-transition: width 0.5s ease;
@@ -502,18 +527,20 @@ body * {
     transition: width 0.5s ease; }
   .gaugesPanel .popularity {
     float: left; }
+    .gaugesPanel .popularity p {
+      text-align: right; }
     .gaugesPanel .popularity .popularityValue {
       float: right;
       background: #2881e2;
-      text-align: left;
-      min-width: 30%; }
+      text-align: left; }
   .gaugesPanel .deaths {
     float: right; }
+    .gaugesPanel .deaths p {
+      text-align: left; }
     .gaugesPanel .deaths .deathsValue {
       float: left;
       background: #e94506;
-      text-align: right;
-      min-width: 30%; }
+      text-align: right; }
 
 .button {
   font-size: 1.2rem;

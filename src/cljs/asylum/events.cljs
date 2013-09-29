@@ -27,6 +27,12 @@
    :content "<p>Congratulations, your popularity with the Australian people is sky high, especially with the Southern-Cross-Tattoo contingent.  Your heavy handed policies have resulted in international condemnation, cruelty that was unimaginable only a few years ago, and thousands of deaths.  But hey, you'll probably win the next election, so good on ya mate.</p>"
    :options {}})
 
+(def end-event-mid
+  {:constraints {:morrison [0.2 0.8] :turn [20 100]}
+   :title "The game has ended"
+   :content "<p>Well, it looks like you managed to muddle through your term, vacillating between policies and not really making a stand.  Your popularity remains flat as it seems the people prefer a strong leader with simple solutions.  Good luck in the next election.  That is, if you want to come back to this thankless job.</p>"
+   :options {}})
+
 (def event-store
   (atom #{end-event-0 end-event-1
           ec2/operation-steel-fences
