@@ -18,7 +18,7 @@
                                                      :zoom 4
                                                      :mapTypeId js/google.maps.MapTypeId.ROADMAP,
                                                      :scrollwheel false
-                                                     :center "-25.085875,134.284057"
+                                                     :center "-25.085875,104.284057"
                                                      :draggable false
                                                      :disableDefaultUI true
                                                      :disableDoubleClickZoom true

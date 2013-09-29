@@ -399,6 +399,25 @@ body * {
  	}
 }
 
+// END TURN BUTTON
+.endTurn {
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:-25px 0 0 -50px;
+	height:50px;
+	width:100px;
+	font-size:1.5em;
+}
+.reset {
+	position:absolute;
+	top:40%;
+	left:50%;
+	margin:-25px 0 0 -50px;
+	height:50px;
+	width:100px;
+	font-size:1.5em;	
+}
 
 // TYPOGRAPHY
 h1, h2 , h3, h4, h5, h6 {
