@@ -1,7 +1,7 @@
 (ns asylum.state)
 
-(def state
-  (atom {:turn 1
+(defn initial-state []
+  {:turn 1
          :morrison 0.35
          :current {:arrivals 250
                    :deaths 10
@@ -20,4 +20,7 @@
 <p>We invite you, the player, to sit in the hot seat of asylum policy.  As Prime Minister of Australia, you will need to determine asylum seeker policy and will have to juggle the effects on your popularity, your commitment to humanitarian standards and your basic humanity.  Be warned, the effort is fraught, and you aren't likely to succeed.</p>
 <p>Asylum is a turn-based game, each turn representing a month.  You will be shown a major event that happened in the past month, and the accumulated statistics.  You will be able to change some policy levers, and even bring into effect entire new policies every once in a while.  Will you be able to survive in office without sacrificing your values?</p>
 <p>Good luck Prime Minister, you're going to need it!</p>"
-                      :options {:continue {:effect (fn [s _] s) :title "Play now!"}}}}))
+                      :options {:continue {:effect (fn [s _] s) :title "Play now!"}}}})
+
+(def state
+  (atom (initial-state)))

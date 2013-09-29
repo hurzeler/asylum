@@ -182,15 +182,26 @@
                 (-> end-turn-button (.closest ".endTurn") (.addClass "inactive") (.removeClass "active"))
                 (-> end-turn-button .show (.on "click" advance-turn-fn)))))
  		
- 
-(defn display [state apply-event-choice-fn advance-turn-fn]
+(defn- apply-reset-handler
+  [reset-fn]
+  (let [reset-link ($ ".reset a")]
+    (.off reset-link "click")
+    (.on reset-link "click"
+         (fn []
+           (-> ($ ".gaugesPanel") (.removeClass "active") (.addClass "inactive"))
+           (-> ($ "#event-panel") (.addClass "welcome"))
+           (reset-fn))))) 
+
+
+(defn display [state apply-event-choice-fn advance-turn-fn reset-fn]
       (do 
         (say "turn" (str (-> state :turn)))
         (show-boats (-> state :current :transit))
         (update-levers state)
         (update-gauges state)
         (show-event (:next-event state) apply-event-choice-fn advance-turn-fn)
-        (apply-end-turn-handler (:next-event state) advance-turn-fn)))
+        (apply-end-turn-handler (:next-event state) advance-turn-fn)
+        (apply-reset-handler reset-fn)))
 
 
 (defn- lever-values 
