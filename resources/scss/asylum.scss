@@ -47,7 +47,7 @@ body * {
 	bottom:0;
 	height: 100%;
 	width:100%;
-	z-index: -1;
+	z-index: 0;
 }
 
 // LOGO Box
@@ -57,6 +57,7 @@ body * {
 	bottom:0;
 	left:50%;
 	margin-left:-360px;
+	z-index: 1;
 	h1 { 
 		float:right;
 		margin:0;
@@ -118,12 +119,12 @@ body * {
 	background: $bgColour;
 	box-shadow: 0 2px 5px rgba(0,0,0,0.2);  
 	position: absolute;
-	-webkit-transition: top 0.5s ease;
-	-moz-transition: top 0.5s ease;
-	-o-transition: top 0.5s ease;
-	-ms-transition: top 0.5s ease;
-	transition: top 0.5s ease;
-	
+	-webkit-transition: top 0.5s ease, height 1s ease;
+	-moz-transition: top 0.5s ease, height 1s ease;
+	-o-transition: top 0.5s ease, height 1s ease;
+	-ms-transition: top 0.5s ease, height 1s ease;
+	transition: top 0.5s ease, height 1s ease;
+	z-index: 1;
 	@extend .animated;
 	@extend .fadeInDown;
 
@@ -150,25 +151,52 @@ body * {
 		width: 720px;
 		&.welcome {
 			top:10%;	
+			header {
+				h2 {
+					margin: 0.2em 0;
+					font-size:1.4rem;
+				}
+			}
+			section{
+				float:none;
+				width:100%;
+			}
+			aside {
+				display:none;
+			}
 		}
 		
 	}
 	header {
 		background: $darkBlue;
 		padding: $defaultPadding;
-		color: #fff;
 		h2 {
+			color: #fff;
 			font-weight: 100;
-			margin: 0.2em 0;
-			font-size:1.4rem;
+			margin: 0.1em 0;
+			font-size:1.2rem;
 		}
 	}
 	section {
+		float:left;
+		width:70%;
 		padding: 0 $defaultPadding;
 		p:first-of-type {
 			font-size:0.9rem;
 			line-height: 1.5;
 			font-weight: 400;
+		}
+	}
+	aside {
+		float:right;
+		width:30%;
+		img {
+			width:80%;
+			margin:1em auto;
+			padding:0.5em;
+			background: #fff;
+			box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+			display:block;
 		}
 	}
 	footer {
@@ -183,6 +211,7 @@ body * {
 .gaugesPanel {
 	position: absolute;
 	display:none;
+	z-index:1;
 	top:25px;
 	left:50%;
 	&.active {
@@ -217,6 +246,7 @@ body * {
 			padding: 10px;
 			background: $bgColour;
 			overflow: hidden;
+			z-index: 1;
 			img {
 				width: 91px;
 				margin-left: -23px;
@@ -239,8 +269,22 @@ body * {
 			left: -40px;
 			width: 100px;
 			height: 100px;
-			box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+			box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
 			}
+		.turnPanel {
+			position: absolute;
+			width: 76px;
+			top: 54px;
+			left: 50%;
+			text-align: center;
+			margin-left: -38px;
+			background: darken($bgColour, 5%);
+			text-shadow: 0 1px 0px rgba(255,255,255, 0.3);
+			padding: 1.3rem 0.5rem 0.4rem;
+			border-radius: 0 0 50% 50%;
+			color: #414141;
+			box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+		}
 	}
 	.popularity, .deaths {
 		// border: 1px solid rgba(255,255,255,0.6);
@@ -382,6 +426,34 @@ body * {
  	}
 }
 
+// END TURN BUTTON
+.endTurn {
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:-25px 0 0 -50px;
+	button{
+		border-radius: 3px;
+		color:#fff;
+		padding:$defaultPadding $defaultPadding ($defaultPadding+0.2);
+		height:50px;
+		width:160px;
+		font-size:1.5em;
+		line-height: 1;
+		border: 1px solid darken($darkBlue, 5%);
+		background: $darkBlue;
+		box-shadow: 0 5px 0 darken($darkBlue, 15%), 0 -1px 0 rgba(255,255,255,0.2) inset;
+	}
+}
+.reset {
+	position:absolute;
+	top:40%;
+	left:50%;
+	margin:-25px 0 0 -50px;
+	height:50px;
+	width:100px;
+	font-size:1.5em;	
+}
 
 // TYPOGRAPHY
 h1, h2 , h3, h4, h5, h6 {

@@ -25,19 +25,26 @@
      :men (- adults women)}))
 
 (defn rand-boat-id []
-  (str "SIV-" (apply str (rest (str (+ 10000 (rand-int 10000)))))))
+  (str "SIEV-" (apply str (rest (str (+ 10000 (rand-int 10000)))))))
 
 (defn rand-boat []
   {:name (rand-boat-id)
    :countries (rand-countries)
    :breakdown (rand-breakdown)})
 
+(defn available-actions [morrison]
+  (concat
+   (if (<= 0.9 morrison 1) [:sink] [])
+   [:rescue]
+   (if (<= 0.5 morrison 1) [:turn-back] [])
+   (if (<= 0 morrison 0.1) [:grant-citizenship] [])))
+
 (defn random-boats [morrison]
   (let [n (cond
            (<= 0 morrison 0.2) (rand-int 2)
            (<= 0.2 morrison 0.8) (inc (rand-int 5))
            :else (rand-int 2))]
-    (map (fn [_] (rand-boat)) (range n))))
+    (map (fn [_] (assoc (rand-boat) :actions (available-actions morrison))) (range n))))
 
 (defn add-boats [state]
   (let [m (:morrison state)
