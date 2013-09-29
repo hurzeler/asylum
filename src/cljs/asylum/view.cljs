@@ -12,13 +12,13 @@
          ($ map-selector)
          (clj->js {
                    :map (clj->js {
-                                  :address "Ghan, NT, Australia"
+                                  :address "Darwin, NT, Australia"
                                   :options (clj->js {
                                                      :color "#476DD5"
-                                                     :zoom 4
+                                                     :zoom 5
                                                      :mapTypeId js/google.maps.MapTypeId.ROADMAP,
                                                      :scrollwheel false
-                                                     :center "-25.085875,134.284057"
+                                                     :center "-7.188101,133.139647"
                                                      :draggable false
                                                      :disableDefaultUI true
                                                      :disableDoubleClickZoom true
@@ -103,8 +103,7 @@
              section (-> ($ "<section>")
                        	(.append (-> ($ "<span>") (.addClass "men") (.text (-> boat :breakdown :men))))
                        	(.append (-> ($ "<span>") (.addClass "women") (.text (-> boat :breakdown :women))))
-                       	(.append (-> ($ "<span>") (.addClass "children") (.text (-> boat :breakdown :children)))))
-             
+                       	(.append (-> ($ "<span>") (.addClass "children") (.text (-> boat :breakdown :children)))))             
              footer (-> ($ "<footer>") 
                       	(.append (-> ($ "<button>") (.text "Sink")))
                       	(.append (-> ($ "<button>") (.text "Turn back")))
@@ -121,7 +120,7 @@
               (clj->js {:clear (clj->js {:name ["infowindow"]})
                         :infowindow (clj->js 
                         	{:anchor marker 
-                             :options (clj->js {:content (boat-info-window-content boat)})})})))))
+                             :options (clj->js {:zIndex 999 :content (boat-info-window-content boat)})})})))))
 
 (defn- boat-marker 
       [boat]
