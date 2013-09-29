@@ -97,18 +97,18 @@
        [kw]
        (kw {:sink "Sink"
             :turn-back "Turn back"
-            :Rescue "Rescue"
-            :grant-citizenship "Grant citizenship"
-            }))
-
+            :rescue "Rescue"
+            :grant-citizenship "Grant citizenship"}))
 
 (defn- boat-action-handler
-       [action action-fn]
+       [boat action action-fn]
        (fn []
-           (.gmap3 
-              ($ map-selector)
-              (clj->js {:clear (clj->js {:name ["infowindow"]})}))
-           (action-fn action)))
+           (do 
+             (log "Player chose to " action " " (:name boat))
+           	 (.gmap3 
+              	($ map-selector)
+              	(clj->js {:clear (clj->js {:name ["infowindow"] :id (:name boat)})}))
+           	(action-fn boat action))))
 
 (defn- boat-info-window-content 
        [boat boat-action-fn]
@@ -124,10 +124,10 @@
              footer (-> ($ "<footer>") 
                       	(.append 
                          	(to-array (map #(-> ($ "<button>") 
-                                            	(.text (kw-to-boat-action-label %)) 
-                                             	(.on "click" (boat-action-handler % boat-action-fn))) 
+                                            	(.click (boat-action-handler boat % boat-action-fn))
+                                            	(.text (kw-to-boat-action-label %))) 
                                       		(:actions boat)))))]
-			(-> info-window-container (.append header) (.append section) (.append footer) .html)))
+			(-> info-window-container (.append header) (.append section) (.append footer) (aget 0))))
 
 
 (defn- boat-click-handler
@@ -142,7 +142,7 @@
 
 (defn- boat-marker 
       [boat-action-fn boat]
-      (let [base-marker {:options {:icon "img/boatPin.png"}}
+      (let [base-marker {:options {:icon "img/boatPin.png"} :id (:name boat)}
            	 action-handler {:events {:click (boat-click-handler boat boat-action-fn)}}]
            (merge base-marker action-handler)))
 
