@@ -33,6 +33,7 @@
 
 (defn deaths [x]
   (let [deaths (+ (transient-deaths x) (in-situ-deaths x))
-        deaths (max 1 deaths)
-        deaths-log (/ (.log js/Math deaths) (.log js/Math 5200))]
-    deaths-log))
+        deaths (int (max 1 deaths))
+;;        deaths-log (/ (.log js/Math deaths) (.log js/Math 5200))
+        ]
+    deaths))
