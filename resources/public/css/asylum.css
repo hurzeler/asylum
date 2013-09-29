@@ -3547,21 +3547,41 @@ body * {
       margin-left: -360px;
       width: 720px; }
       .popUp.welcome {
-        top: 10%; } }
+        top: 10%; }
+        .popUp.welcome header h2 {
+          margin: 0.2em 0;
+          font-size: 1.4rem; }
+        .popUp.welcome section {
+          float: none;
+          width: 100%; }
+        .popUp.welcome aside {
+          display: none; } }
   .popUp header {
     background: #104386;
-    padding: 1rem;
-    color: #fff; }
+    padding: 1rem; }
     .popUp header h2 {
+      color: #fff;
       font-weight: 100;
-      margin: 0.2em 0;
-      font-size: 1.4rem; }
+      margin: 0.1em 0;
+      font-size: 1.2rem; }
   .popUp section {
+    float: left;
+    width: 70%;
     padding: 0 1rem; }
     .popUp section p:first-of-type {
       font-size: 0.9rem;
       line-height: 1.5;
       font-weight: 400; }
+  .popUp aside {
+    float: right;
+    width: 30%; }
+    .popUp aside img {
+      width: 80%;
+      margin: 1em auto;
+      padding: 0.5em;
+      background: #fff;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+      display: block; }
   .popUp footer {
     padding: 0 1rem; }
 
@@ -3757,10 +3777,18 @@ body * {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -25px 0 0 -50px;
-  height: 50px;
-  width: 100px;
-  font-size: 1.5em; }
+  margin: -25px 0 0 -50px; }
+  .endTurn button {
+    border-radius: 3px;
+    color: #fff;
+    padding: 1rem 1rem 1.2rem;
+    height: 50px;
+    width: 160px;
+    font-size: 1.5em;
+    line-height: 1;
+    border: 1px solid #0d386f;
+    background: #104386;
+    box-shadow: 0 5px 0 #082142, 0 -1px 0 rgba(255, 255, 255, 0.2) inset; }
 
 .reset {
   position: absolute;
