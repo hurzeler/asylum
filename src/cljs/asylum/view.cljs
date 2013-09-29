@@ -142,30 +142,42 @@
 
 
 (defn- option-button
-       [click-fn [option-kw {title :title effect :effect} :as option]]
+       [click-fn advance-turn-fn only-option? [option-kw {title :title effect :effect} :as option]]
        (let [morrison-index (effect {:morrison 1} 1)
-             button-colour (option-colour morrison-index)]
+             button-colour (option-colour morrison-index)
+             base-on-click-handler (comp click-fn (partial on-event-choice-selection option))
+             on-click-handler (if only-option? (comp advance-turn-fn base-on-click-handler) base-on-click-handler)]
             (-> ($ "<button>")
               (.addClass "button")
               (.addClass button-colour)
               (.text title)
-              (.on "click" (comp click-fn (partial on-event-choice-selection option))))))
+              (.on "click" on-click-handler))))
 
 (defn- show-event 
-       [{:keys [title content options]} apply-event-choice-fn]
-       (let [option-buttons (to-array (map (partial option-button apply-event-choice-fn) options))
+       [{:keys [title content options]} apply-event-choice-fn advance-turn-fn]
+       (let [option-buttons (to-array (map (partial option-button apply-event-choice-fn advance-turn-fn (= 1 (count options))) options))
              content-div ($ "#event-panel")]           
             (-> content-div (.find "header h2") (.text title))
             (-> content-div (.find "section") (.html content))
             (-> content-div (.find "footer") (.empty) (.append option-buttons))))
 
-(defn display [state apply-event-choice-fn]
+(defn- apply-end-turn-handler 
+       [{options :options} advance-turn-fn]
+       (log "Number of options" (count options))
+ 		(if (>= 1 (count options)) 
+       		(.hide ($ ".endTurn button"))
+         	(-> ($ ".endTurn button") .show (.on "click" advance-turn-fn))))
+ 
+
+
+(defn display [state apply-event-choice-fn advance-turn-fn]
       (do 
         (say "turn" (str (-> state :turn)))
         (show-boats (-> state :current :transit))
         (update-levers state)
         (update-gauges state)
-        (show-event (:next-event state) apply-event-choice-fn)))
+        (show-event (:next-event state) apply-event-choice-fn advance-turn-fn)
+        (apply-end-turn-handler (:next-event state) advance-turn-fn)))
 
 
 (defn- lever-values 

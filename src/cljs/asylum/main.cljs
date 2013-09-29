@@ -22,7 +22,7 @@
            (log "<<<STATE POST EVENT PROCESSING>>>")
            (log @state)
            (swap! state merge (e/choose-event @state))
-           (v/display @state (comp advance-turn apply-event-choice))))
+           (v/display @state apply-event-choice advance-turn)))
 
 ($ (fn []
-       (v/display @state (comp advance-turn apply-event-choice))))
+       (v/display @state apply-event-choice advance-turn)))
