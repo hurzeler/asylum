@@ -8,7 +8,7 @@
       [jayq.util :only [log]]
       [asylum.state :only [state initial-state]]))
 
-(declare restart advance-turn)
+(declare restart advance-turn action-boat)
 
 (defn apply-event-choice [choice]
       (log (str "Player chose " (name choice)))
