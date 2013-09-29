@@ -94,7 +94,6 @@
              boats (map #(clj->js (merge {:latLng %} boat-marker-opts)) boats-coords)]
             (.gmap3 
               ($ map-selector)
-              
               (clj->js {
                         :clear (clj->js {:name ["marker"]})
                         :marker (clj->js {:values boats})}))))
@@ -116,9 +115,9 @@
 (defn- update-gauges 
        [{popularity :popularity deaths :deaths}]
        (let [popularity (str (int (* 100 popularity)) "%")
-             deaths (str (int (* 100 deaths)) "%")]
+             deaths-width (str (* 100 (/ (.log js/Math deaths) (.log js/Math 5200))) "%")]
             (-> ($ ".popularityValue") (.text popularity) (.css "width" popularity))
-            (-> ($ ".deathsValue") (.text deaths) (.css "width" deaths))))
+            (-> ($ ".deathsValue") (.text deaths) (.css "width" deaths-width))))
 
 
 (defn- option-colour 
