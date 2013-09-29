@@ -340,7 +340,7 @@ body * {
       background: #f5ede3;
       overflow: hidden;
       box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3); }
-      .gaugesPanel .profileBox .profile img {
+      .gaugesPanel .profileBox .profile img, .gaugesPanel .profileBox .profile video {
         height: 100%;
         width: 100%;
         border-radius: 100%;

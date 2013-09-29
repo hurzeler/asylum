@@ -168,4 +168,41 @@
        {:levers {:offshore-intake (-> (.val ($ "#offshore-intake")) js/parseInt)
                  :detention-proportion (-> (.val ($ "#detention-proportion"))  js/parseFloat)}})
 
-($ init-map)
+(defn- init-get-user-media
+       []
+       (set! (.-getUserMedia js/navigator)
+         (or (.-getUserMedia js/navigator)
+           (.-webkitGetUserMedia js/navigator)
+           (.-mozGetUserMedia js/navigator)
+           (.-msGetUserMedia js/navigator))))
+
+(defn- init-window-url
+       []
+       (set! (.-URL js/window)
+         (or (.-URL js/window)
+           (.-webkitURL js/window))))
+
+(defn- get-user-media 
+       [on-accept-fn on-reject-fn]
+       (.getUserMedia js/navigator (clj->js {:video true :audio false}) on-accept-fn on-reject-fn))
+
+(defn- init-player-avatar
+       []
+       (do (init-window-url)
+           (init-get-user-media)
+           (get-user-media 
+             (fn [media-stream]
+                 (let [video (-> ($ "<video>") (.attr "src" (-> js/window .-URL (.createObjectURL media-stream))))]
+                      (do 
+                        (-> ($ ".profile")
+	                        (.empty)
+	                        (.append video))
+                        (.play (aget video 0)))))
+             (fn []
+                 (let [image (-> ($ "<img>") (.attr "src" "http://upload.wikimedia.org/wikipedia/commons/1/18/Scott_Morrison.jpg"))]
+                      (-> ($ ".profile")
+                        (.empty)
+                        (.append image)))))))
+
+
+($ (comp init-map init-player-avatar))

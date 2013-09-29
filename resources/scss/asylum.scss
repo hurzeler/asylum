@@ -185,7 +185,7 @@ body * {
 			background: $bgColour;
 			overflow: hidden;
 			box-shadow: 0 3px 5px rgba(0,0,0,0.3);
-			img {
+			img, video {
 				height:100%;
 				width:100%;
 				border-radius: 100%;
