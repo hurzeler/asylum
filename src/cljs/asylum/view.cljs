@@ -314,6 +314,12 @@
                         (.append image)))))))
 
 
+(defmulti apply-turn-modifications :turn)
+(defmethod apply-turn-modifications 0 [state]
+           (-> ($ ".event-panel") (.removeClass "active") (.removeClass "inactive")))
+
+
+
 (defn display [state apply-event-choice-fn advance-turn-fn reset-fn boat-action-fn]
       (do 
         (say "turn" (str (-> state :turn)))
@@ -322,7 +328,8 @@
         (update-gauges state)
         (show-event (:next-event state) apply-event-choice-fn advance-turn-fn)
         (apply-end-turn-handler (:next-event state) advance-turn-fn)
-        (apply-reset-handler reset-fn)))
+        (apply-reset-handler reset-fn)
+        (apply-turn-modifications state)))
 
 ;TODO: re-enable the player avatar once it works consistently on most browsers
 ($ init-map)
