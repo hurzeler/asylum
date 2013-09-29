@@ -42,7 +42,7 @@ you can use the generic selector below, but it's slower:
 }
 
 .icon-male, .icon-female, .icon-kid {
-	font-family: 'icomoon' !important;
+	
 
 }
 .icon-justin-burns-skull:after {
@@ -63,16 +63,19 @@ you can use the generic selector below, but it's slower:
 	top:0px;
 }
 .icon-male:before {
+	font-family: 'icomoon' !important;
 	content: "\24";
 	position:relative;
 	left:-5px;
 }
 .icon-female:before {
+	font-family: 'icomoon' !important;
 	content: "\25";
 	position:relative;
 	left:-5px;
 }
 .icon-kid:before {
+	font-family: 'icomoon' !important;
 	content: "\26";
 	position:relative;
 	left:-5px;

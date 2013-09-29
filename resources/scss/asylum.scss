@@ -647,12 +647,16 @@ body * {
 			}
 		}
 		footer {
+			@extend .cf;
 			padding:0.5em 0;
 			button {
+				float:left;
 				@extend .button;
 				font-size:0.8rem;
+				padding: 0.6rem 0.7rem;
 				&.sink, &.grant-citizenship {
 					@extend .button.orange;
+					width:100%;
 				}
 				&.turn-back {
 					@extend .button.blue;

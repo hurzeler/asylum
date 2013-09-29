@@ -3447,9 +3447,6 @@ you can use the generic selector below, but it's slower:
   -webkit-font-smoothing: antialiased;
   font-size: 0.9em; }
 
-.icon-male, .icon-female, .icon-kid {
-  font-family: 'icomoon' !important; }
-
 .icon-justin-burns-skull:after {
   content: "\21";
   position: relative;
@@ -3468,31 +3465,35 @@ you can use the generic selector below, but it's slower:
   top: 0px; }
 
 .icon-male:before {
+  font-family: 'icomoon' !important;
   content: "\24";
   position: relative;
   left: -5px; }
 
 .icon-female:before {
+  font-family: 'icomoon' !important;
   content: "\25";
   position: relative;
   left: -5px; }
 
 .icon-kid:before {
+  font-family: 'icomoon' !important;
   content: "\26";
   position: relative;
   left: -5px; }
 
-.cf:before, #logoBox:before, .gm-style .boatInfo header:before, .gm-style .boatInfo section:before,
+.cf:before, #logoBox:before, .gm-style .boatInfo header:before, .gm-style .boatInfo section:before, .gm-style .boatInfo footer:before,
 .cf:after,
 #logoBox:after,
 .gm-style .boatInfo header:after,
-.gm-style .boatInfo section:after {
+.gm-style .boatInfo section:after,
+.gm-style .boatInfo footer:after {
   content: " ";
   /* 1 */
   display: table;
   /* 2 */ }
 
-.cf:after, #logoBox:after, .gm-style .boatInfo header:after, .gm-style .boatInfo section:after {
+.cf:after, #logoBox:after, .gm-style .boatInfo header:after, .gm-style .boatInfo section:after, .gm-style .boatInfo footer:after {
   clear: both; }
 
 body {
@@ -3998,7 +3999,11 @@ body * {
   .gm-style .boatInfo footer {
     padding: 0.5em 0; }
     .gm-style .boatInfo footer button {
-      font-size: 0.8rem; }
+      float: left;
+      font-size: 0.8rem;
+      padding: 0.6rem 0.7rem; }
+      .gm-style .boatInfo footer button.sink, .gm-style .boatInfo footer button.grant-citizenship {
+        width: 100%; }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0.5em 0 1em;
