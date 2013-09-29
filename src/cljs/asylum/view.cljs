@@ -125,8 +125,8 @@
        [{popularity :popularity deaths :deaths}]
        (let [popularity (str (int (* 100 popularity)) "%")
              deaths-width (str (* 100 (/ (.log js/Math deaths) (.log js/Math 5200))) "%")]
-            (-> ($ ".popularityValue") (.text popularity) (.css "width" popularity))
-            (-> ($ ".deathsValue") (.text deaths) (.css "width" deaths-width))))
+            (-> ($ ".popularityValue p") (.text popularity) (.css "width" popularity))
+            (-> ($ ".deathsValue p") (.text deaths) (.css "width" deaths-width))))
 
 
 (defn- option-colour 
