@@ -93,6 +93,9 @@
       [-10.228437 142.456053]
       [-5.528511 100.532225]])
 
+(def boats-actioned-during-turn
+  (atom []))
+
 (defn- kw-to-boat-action-label
        [kw]
        (kw {:sink "Sink"
@@ -108,26 +111,33 @@
            	 (.gmap3 
               	($ map-selector)
               	(clj->js {:clear (clj->js {:name ["infowindow"] :id (:name boat)})}))
-           	(action-fn boat action))))
+           	(swap! boats-actioned-during-turn conj boat)
+            (action-fn boat action))))
+
+(defn- build-allowable-boat-actions 
+       [boat boat-action-fn]
+       (log "Number of boats saved this turn:" (count @boats-actioned-during-turn))
+       (if (= 0 (count @boats-actioned-during-turn))
+	       (to-array (map #(-> ($ "<button>") 
+	            	(.click (boat-action-handler boat % boat-action-fn))
+	            	(.text (kw-to-boat-action-label %))) 
+	      		(:actions boat)))
+        	(-> ($ "<p>") (.text "You can only action 1 boat per turn"))))
 
 (defn- boat-info-window-content 
-       [boat boat-action-fn]
-       (let [total-passengers (apply + (map val (:breakdown boat)))
+       [{:keys [name actions breakdown] :as boat} boat-action-fn]
+       (let [total-passengers (apply + (map val breakdown))
              info-window-container ($ "<div>")
              header (-> ($ "<header>") 
-                      	(.append (-> ($ "<h3>") (.text (:name boat))))
+                      	(.append (-> ($ "<h3>") (.text name)))
                        	(.append (-> ($ "<span>") (.text (str total-passengers "ppl")))))
              section (-> ($ "<section>")
-                       	(.append (-> ($ "<span>") (.addClass "men") (.text (-> boat :breakdown :men))))
-                       	(.append (-> ($ "<span>") (.addClass "women") (.text (-> boat :breakdown :women))))
-                       	(.append (-> ($ "<span>") (.addClass "children") (.text (-> boat :breakdown :children)))))             
+                       	(.append (-> ($ "<span>") (.addClass "men") (.text (breakdown :men))))
+                       	(.append (-> ($ "<span>") (.addClass "women") (.text (breakdown :women))))
+                       	(.append (-> ($ "<span>") (.addClass "children") (.text (breakdown :children)))))
              footer (-> ($ "<footer>") 
-                      	(.append 
-                         	(to-array (map #(-> ($ "<button>") 
-                                            	(.click (boat-action-handler boat % boat-action-fn))
-                                            	(.text (kw-to-boat-action-label %))) 
-                                      		(:actions boat)))))]
-			(-> info-window-container (.append header) (.append section) (.append footer) (aget 0))))
+                      	(.append (build-allowable-boat-actions boat boat-action-fn)))]
+			(-> info-window-container (.addClass "boatInfo") (.append header) (.append section) (.append footer) (aget 0))))
 
 
 (defn- boat-click-handler
@@ -152,11 +162,13 @@
        (let [boats-coords (take (count boats) (shuffle possible-boat-coords))
              boats-with-coords (zipmap boats-coords (map (partial boat-marker boat-action-fn) boats))
              boats (map #(clj->js (merge {:latLng (key %)} (val %))) boats-with-coords)]
-            (.gmap3 
-              ($ map-selector)
-              (clj->js {
-                        :clear (clj->js {:name ["marker"]})
-                        :marker (clj->js {:values (to-array boats)})}))))
+            (do 
+              (swap! boats-actioned-during-turn empty)
+              (.gmap3 
+	              ($ map-selector)
+	              (clj->js {
+	                        :clear (clj->js {:name ["marker"]})
+	                        :marker (clj->js {:values (to-array boats)})})))))
 
 
 (defn- say
