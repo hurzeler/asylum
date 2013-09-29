@@ -133,7 +133,7 @@
              info-window-container ($ "<div>")
              header (-> ($ "<header>") 
                       	(.append (-> ($ "<h3>") (.text name)))
-                       	(.append (-> ($ "<span>") (.text (str total-passengers "ppl")))))
+                       	(.append (-> ($ "<span>") (.text (str total-passengers " souls on board")))))
              section (-> ($ "<section>")
                        	(.append (-> ($ "<span>") (.addClass "men icon-male") (.text (breakdown :men))))
                        	(.append (-> ($ "<span>") (.addClass "women icon-female") (.text (breakdown :women))))
