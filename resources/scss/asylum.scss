@@ -428,10 +428,18 @@ body * {
 
 // END TURN BUTTON
 .endTurn {
+	@extend .animated;
+	@extend .fadeIn;
+
+	-moz-animation-delay: 1s ;
+	-webkit-animation-delay: 1s ;
+	animation-delay: 1s ;
+
 	position:absolute;
 	top:50%;
 	left:50%;
-	margin:-25px 0 0 -50px;
+	margin:-25px 0 0 -80px;
+	
 	button{
 		border-radius: 3px;
 		color:#fff;
@@ -440,10 +448,24 @@ body * {
 		width:160px;
 		font-size:1.5em;
 		line-height: 1;
-		border: 1px solid darken($darkBlue, 5%);
+		border:1px solid rgba(255,255,255,0.4);
+		border-bottom: 1px solid darken($darkBlue, 5%);
 		background: $darkBlue;
-		box-shadow: 0 5px 0 darken($darkBlue, 15%), 0 -1px 0 rgba(255,255,255,0.2) inset;
+		box-shadow: 
+				0 5px 2px darken($darkBlue, 15%), 
+				0 -1px 0 rgba(255,255,255,0.4) inset, 
+				0 6px 4px rgba(0,0,0,0.6);
+		text-shadow: 0 2px 2px rgba(0,0,0,0.8); 
+
 	}
+	// &.inactive {
+	// 	@extend .animated;
+	// 	@extend .fadeOut;
+	// }
+	// &.active {
+	// 	@extend .animated;
+	// 	@extend .fadeIn;
+	// }
 }
 .reset {
 	position:absolute;
