@@ -3940,7 +3940,7 @@ body * {
     border-radius: 3px 3px  0 0;
     color: #fff;
     padding: 1.2rem 1rem;
-    height: 69px;
+    height: 65px;
     width: 200px;
     font-size: 2.2em;
     font-weight: 500;
@@ -3950,34 +3950,36 @@ body * {
     background: #949494;
     opacity: 0.8;
     position: relative;
-    top: 4px;
+    bottom: 0px;
     box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.4) inset, 0 -1px 1px rgba(0, 0, 0, 0.6);
     text-shadow: 0 2px 2px rgba(0, 0, 0, 0.8);
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
     -ms-transition: all 0.2s ease;
-    transition: all 0.2s ease; }
+    transition: all 0.2s ease;
+    padding: 1.2rem 1rem 0.8rem;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.4) inset, 0 -1px 1px rgba(0, 0, 0, 0.6);
+    top: 4px; }
   .endTurn.inactive button {
     border: 1px solid #7b7b7b;
     background: #949494;
-    opacity: 1;
-    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.4) inset, 0 -1px 1px rgba(0, 0, 0, 0.6);
-    top: 4px; }
+    opacity: 1; }
   .endTurn.active button {
     border: 1px solid #0d386f;
     background: #104386;
     opacity: 1;
-    top: 0;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 -1px 2px rgba(0, 0, 0, 0.6);
+    bottom: 4px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 4px 0px #0d386f, 0 1px 4px rgba(0, 0, 0, 0.4);
     -webkit-transition: all 0.2s ease 0.2s;
     -moz-transition: all 0.2s ease 0.2s;
     -o-transition: all 0.2s ease 0.2s;
     -ms-transition: all 0.2s ease 0.2s;
-    transition: all 0.2s ease 0.2s; }
+    transition: all 0.2s ease 0.2s;
+    top: 0; }
     .endTurn.active button:hover {
-      -webkit-box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.4) inset, 0 -1px 1px rgba(0, 0, 0, 0.6);
-      box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.4) inset, 0 -1px 1px rgba(0, 0, 0, 0.6);
+      -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 -1px 1px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 -1px 1px rgba(0, 0, 0, 0.6);
       top: 4px;
       -webkit-transition-delay: 0;
       -moz-transition-delay: 0;

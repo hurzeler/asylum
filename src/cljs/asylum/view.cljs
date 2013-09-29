@@ -50,6 +50,16 @@
                                                                 :elementType "labels"
                                                                 :stylers [(clj->js { :visibility "off" })]
                                                                 }),
+                                                       (clj->js {
+                                                                :featureType "landscape.natural"
+                                                                :elementType "all"
+                                                                :stylers [(clj->js { :lightness "-18" })]
+                                                                }),
+                                                      (clj->js {
+                                                                :featureType "water"
+                                                                :elementType "all"
+                                                                :stylers [(clj->js { :color "#4d75ac" })]
+                                                                }),
                                                       (clj->js {
                                                                 :featureType "administrative.country"
                                                                 :elementType "geometry"
