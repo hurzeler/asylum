@@ -4015,6 +4015,15 @@ body * {
       .gm-style .boatInfo footer button.sink, .gm-style .boatInfo footer button.grant-citizenship {
         width: 100%; }
 
+#loading {
+  background: url(../img/loadingLogo.png) no-repeat center center rgba(255, 255, 255, 0.8) fixed;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  text-align: center;
+  padding-top: 70%; }
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0.5em 0 1em;
   font-family: 'Roboto Slab',  'Times', serif; }
