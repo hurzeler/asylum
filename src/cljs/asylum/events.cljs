@@ -34,7 +34,7 @@
    :options {}})
 
 (defn initial-events []
-  #{end-event-0 end-event-1
+  #{end-event-0 end-event-1 end-event-mid
           ec2/operation-steel-fences
           ec/mou-naru
           ec/int-covenant-breach
