@@ -134,9 +134,9 @@
                       	(.append (-> ($ "<h3>") (.text name)))
                        	(.append (-> ($ "<span>") (.text (str total-passengers "ppl")))))
              section (-> ($ "<section>")
-                       	(.append (-> ($ "<span>") (.addClass "men") (.text (breakdown :men))))
-                       	(.append (-> ($ "<span>") (.addClass "women") (.text (breakdown :women))))
-                       	(.append (-> ($ "<span>") (.addClass "children") (.text (breakdown :children)))))
+                       	(.append (-> ($ "<span>") (.addClass "men icon-male") (.text (breakdown :men))))
+                       	(.append (-> ($ "<span>") (.addClass "women icon-female") (.text (breakdown :women))))
+                       	(.append (-> ($ "<span>") (.addClass "children icon-kid") (.text (breakdown :children)))))
              footer (-> ($ "<footer>") 
                       	(.append (build-allowable-boat-actions boat boat-action-fn)))]
 			(-> info-window-container (.addClass "boatInfo") (.append header) (.append section) (.append footer) (aget 0))))

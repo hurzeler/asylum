@@ -3436,7 +3436,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
-.icon-justin-burns-skull, .icon-heart, .icon-cog {
+.icon-justin-burns-skull, .icon-heart, .icon-cog, .icon-male, .icon-female, .icon-kid {
   font-family: 'icomoon';
   speak: none;
   font-style: normal;
@@ -3446,6 +3446,9 @@ you can use the generic selector below, but it's slower:
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   font-size: 0.9em; }
+
+.icon-male, .icon-female, .icon-kid {
+  font-family: 'icomoon' !important; }
 
 .icon-justin-burns-skull:after {
   content: "\21";
@@ -3464,15 +3467,32 @@ you can use the generic selector below, but it's slower:
   position: relative;
   top: 0px; }
 
-.cf:before, #logoBox:before,
+.icon-male:before {
+  content: "\24";
+  position: relative;
+  left: -5px; }
+
+.icon-female:before {
+  content: "\25";
+  position: relative;
+  left: -5px; }
+
+.icon-kid:before {
+  content: "\26";
+  position: relative;
+  left: -5px; }
+
+.cf:before, #logoBox:before, .gm-style .boatInfo header:before, .gm-style .boatInfo section:before,
 .cf:after,
-#logoBox:after {
+#logoBox:after,
+.gm-style .boatInfo header:after,
+.gm-style .boatInfo section:after {
   content: " ";
   /* 1 */
   display: table;
   /* 2 */ }
 
-.cf:after, #logoBox:after {
+.cf:after, #logoBox:after, .gm-style .boatInfo header:after, .gm-style .boatInfo section:after {
   clear: both; }
 
 body {
@@ -3558,25 +3578,37 @@ body * {
       left: -25px;
       width: 100px;
       background: #f5ede3;
-      padding: 3px 3px 0;
+      padding: 0px 7px;
       margin: 0;
       border-radius: 2px;
       opacity: 0;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }
-      #logoBox #navMenu .dropdownMenu li {
+      #logoBox #navMenu .dropdownMenu li:first-child {
+        border-bottom: 1px solid #bababa; }
+      #logoBox #navMenu .dropdownMenu li.reset, #logoBox #navMenu .dropdownMenu li.about {
         list-style: none;
         text-align: center;
         position: relative;
         z-index: 1;
         font-size: 0.8rem; }
-        #logoBox #navMenu .dropdownMenu li .reset a {
+        #logoBox #navMenu .dropdownMenu li.reset a, #logoBox #navMenu .dropdownMenu li.about a {
           color: #545454;
           background: #f5ede3;
           font-weight: 600;
           line-height: 1;
-          padding: 0.33333rem 0.25rem;
+          padding: 0.5rem 0.16667rem;
           text-decoration: none;
-          display: block; }
+          display: block;
+          text-shadow: 0 1px 0 #fff;
+          height: 29px;
+          -webkit-transition: all 0.2s ease;
+          -moz-transition: all 0.2s ease;
+          -o-transition: all 0.2s ease;
+          -ms-transition: all 0.2s ease;
+          transition: all 0.2s ease; }
+          #logoBox #navMenu .dropdownMenu li.reset a:hover, #logoBox #navMenu .dropdownMenu li.about a:hover {
+            text-shadow: 0 1px 3px #fff;
+            line-height: 0.8; }
       #logoBox #navMenu .dropdownMenu:after {
         content: ".";
         position: absolute;
@@ -3835,10 +3867,10 @@ body * {
         background: none;
         min-width: 20px; }
 
-.button {
+.button, .gm-style .boatInfo footer button {
   font-size: 1.2rem;
-  font-weight: 100;
-  padding: 0.8rem 1.5rem;
+  font-weight: 200;
+  padding: 0.6rem 1.2rem;
   margin-bottom: 1rem;
   margin-right: 1rem;
   border-radius: 3px;
@@ -3851,35 +3883,35 @@ body * {
   -o-transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   transition: all 0.2s ease; }
-  .button.blue {
+  .button.blue, .gm-style .boatInfo footer button.blue {
     background: #2881e2;
     border: 1px solid #1f7ce1;
     color: #fff;
     text-shadow: 0 0px 0px rgba(0, 0, 0, 0.3); }
-  .button.darkBlue {
+  .button.darkBlue, .gm-style .boatInfo footer button.darkBlue {
     color: #fff;
     background: #104386;
     border: 1px solid #0f3e7d;
     text-shadow: 0 0px 0px rgba(0, 0, 0, 0.3); }
-  .button.grey {
+  .button.grey, .gm-style .boatInfo footer button.grey {
     color: #212121;
     background: #a1a1a1;
     border: 1px solid #9c9c9c;
     text-shadow: 0 0 0 rgba(255, 255, 255, 0.7); }
-  .button.orange {
+  .button.orange, .gm-style .boatInfo footer button.orange {
     color: #fff;
     border: 1px solid #df4206;
     background: #e94506;
     text-shadow: 0 0px 0px rgba(0, 0, 0, 0.3); }
-  .button:hover {
+  .button:hover, .gm-style .boatInfo footer button:hover {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3) inset; }
-    .button:hover.blue {
+    .button:hover.blue, .gm-style .boatInfo footer button:hover.blue {
       text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
-    .button:hover.darkBlue {
+    .button:hover.darkBlue, .gm-style .boatInfo footer button:hover.darkBlue {
       text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
-    .button:hover.grey {
+    .button:hover.grey, .gm-style .boatInfo footer button:hover.grey {
       text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7); }
-    .button:hover.orange {
+    .button:hover.orange, .gm-style .boatInfo footer button:hover.orange {
       text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
 
 .endTurn {
@@ -3941,6 +3973,32 @@ body * {
       -o-transition-delay: 0;
       -ms-transition-delay: 0;
       transition-delay: 0; }
+
+.gm-style .boatInfo {
+  width: 200px; }
+  .gm-style .boatInfo header {
+    padding: 0 0 0.2em;
+    margin: 0 0 0.3em;
+    border-bottom: 1px solid #ccc; }
+    .gm-style .boatInfo header h3 {
+      float: left;
+      margin: 0; }
+    .gm-style .boatInfo header span {
+      float: right; }
+  .gm-style .boatInfo section {
+    padding: 0.5em 0;
+    margin: 0 0 0.3em;
+    border-bottom: 1px solid #ccc; }
+    .gm-style .boatInfo section span {
+      color: #3b3b3b;
+      font-size: 1.6rem;
+      float: left;
+      margin-right: 5px;
+      padding-left: 12px; }
+  .gm-style .boatInfo footer {
+    padding: 0.5em 0; }
+    .gm-style .boatInfo footer button {
+      font-size: 0.8rem; }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0.5em 0 1em;

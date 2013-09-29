@@ -29,7 +29,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
-.icon-justin-burns-skull, .icon-heart, .icon-cog {
+.icon-justin-burns-skull, .icon-heart, .icon-cog, .icon-male, .icon-female, .icon-kid {
 	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
@@ -39,6 +39,10 @@ you can use the generic selector below, but it's slower:
 	line-height: 1;
 	-webkit-font-smoothing: antialiased;
 	font-size:0.9em;
+}
+
+.icon-male, .icon-female, .icon-kid {
+	font-family: 'icomoon' !important;
 
 }
 .icon-justin-burns-skull:after {
@@ -57,4 +61,19 @@ you can use the generic selector below, but it's slower:
 	content: "\23";
 	position: relative;
 	top:0px;
+}
+.icon-male:before {
+	content: "\24";
+	position:relative;
+	left:-5px;
+}
+.icon-female:before {
+	content: "\25";
+	position:relative;
+	left:-5px;
+}
+.icon-kid:before {
+	content: "\26";
+	position:relative;
+	left:-5px;
 }
