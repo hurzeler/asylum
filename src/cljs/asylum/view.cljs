@@ -317,7 +317,7 @@
 (defmulti apply-turn-modifications :turn)
 (defmethod apply-turn-modifications 0 [state]
            (-> ($ ".event-panel") (.removeClass "active") (.removeClass "inactive")))
-
+(defmethod apply-turn-modifications :default [state] nil)
 
 
 (defn display [state apply-event-choice-fn advance-turn-fn reset-fn boat-action-fn]
