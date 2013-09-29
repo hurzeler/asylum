@@ -416,7 +416,12 @@ body * {
 .popUp {
   background: #f5ede3;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  position: absolute; }
+  position: absolute;
+  -webkit-transition: top 0.5s ease;
+  -moz-transition: top 0.5s ease;
+  -o-transition: top 0.5s ease;
+  -ms-transition: top 0.5s ease;
+  transition: top 0.5s ease; }
   @media screen and (min-width: 500px) {
     .popUp {
       top: 20%;
@@ -425,10 +430,11 @@ body * {
       width: 500px; } }
   @media screen and (min-width: 720px) {
     .popUp {
-      top: 20%;
       left: 50%;
       margin-left: -360px;
-      width: 720px; } }
+      width: 720px; }
+      .popUp.welcome {
+        top: 10%; } }
   .popUp header {
     background: #104386;
     padding: 1rem;
