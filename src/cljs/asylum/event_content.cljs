@@ -351,7 +351,7 @@ Reintroducing offshore processing of asylum seekers in Nauru and Papua New Guine
 
 (def minister-announcement
   {:title "Announcment on Bridging Visas"
-   :media {:name "un.jpg" :type :image}
+   :media {:name "visa.jpg" :type :image}
    :content "Minister for Immigration and Citizenship considers announcing that the first group of asylum seekers in detention could soon be released on bridging visas. He also considers to announce that asylum claims will be processed under a single system regardless of whether asylum seekers arrive by boat or plane."
    :event-date "25 November 2011"
    :links [] 
@@ -360,6 +360,18 @@ Reintroducing offshore processing of asylum seekers in Nauru and Papua New Guine
     :options
    {:good {:effect (ee/dsr-factor :morrison -0.03) :title "No press release" :description "You will not proceed with the announcement"}
     :bad {:effect (ee/dsr-factor :morrison 0.03) :title "Announce" :description "You are instructing the minister to go ahead with the announcement"}}})
+
+(def rcoa
+  {:title "Refugee Council of Australia (RCOA) is 30 years old"
+   :media {:name "rcoa.jpg" :type :image}
+   :content "RCOA celebrates its 30th anniversary."
+   :event-date "19 November 2011"
+   :links ["http://www.refugeecouncil.org.au/"] 
+   :constraints {:morrison [0 1]
+                 :turn [1 10]}
+    :options
+   {:good {:effect (ee/dsr-factor :morrison -0.02) :title "Support" :description "You will continue to support the RCOA"}
+    :bad {:effect (ee/dsr-factor :morrison 0.03) :title "No suppot" :description "You feel that the RCOA is obstructive and does not further your cause"}}})
 
 
 
