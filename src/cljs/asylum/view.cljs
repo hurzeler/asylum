@@ -162,11 +162,16 @@
               (.text title)
               (.on "click" on-click-handler)
               (.data "option" option))))
+
+(defn- trim-str
+  [text size]
+  (if (< (count text) size) text (str (subs text 0 size) "...")))
+
 (defn- link
   [url]
   (-> ($ "<a>")
       (.attr "href" url)
-      (.html url)))
+      (.html (trim-str url 30))))
 
 (defn- show-event 
        [{:keys [title content options media event-date links]} apply-event-choice-fn advance-turn-fn]
