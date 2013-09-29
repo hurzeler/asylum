@@ -15,7 +15,7 @@
       (swap! state e/apply-event-choice choice))
 
 (defn call-display []
-  (v/display @state apply-event-choice advance-turn restart))
+  (v/display @state apply-event-choice advance-turn restart action-boat))
 
 (defn advance-turn []
       (let [turn-levers (v/lever-values)]

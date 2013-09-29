@@ -93,8 +93,25 @@
       [-10.228437 142.456053]
       [-5.528511 100.532225]])
 
+(defn- kw-to-boat-action-label
+       [kw]
+       (kw {:sink "Sink"
+            :turn-back "Turn back"
+            :Rescue "Rescue"
+            :grant-citizenship "Grant citizenship"
+            }))
+
+
+(defn- boat-action-handler
+       [action action-fn]
+       (fn []
+           (.gmap3 
+              ($ map-selector)
+              (clj->js {:clear (clj->js {:name ["infowindow"]})}))
+           (action-fn action)))
+
 (defn- boat-info-window-content 
-       [boat]
+       [boat boat-action-fn]
        (let [total-passengers (apply + (map val (:breakdown boat)))
              info-window-container ($ "<div>")
              header (-> ($ "<header>") 
@@ -105,36 +122,36 @@
                        	(.append (-> ($ "<span>") (.addClass "women") (.text (-> boat :breakdown :women))))
                        	(.append (-> ($ "<span>") (.addClass "children") (.text (-> boat :breakdown :children)))))             
              footer (-> ($ "<footer>") 
-                      	(.append (-> ($ "<button>") (.text "Sink")))
-                      	(.append (-> ($ "<button>") (.text "Turn back")))
-                      	(.append (-> ($ "<button>") (.text "Rescue"))))]
+                      	(.append 
+                         	(to-array (map #(-> ($ "<button>") 
+                                            	(.text (kw-to-boat-action-label %)) 
+                                             	(.on "click" (boat-action-handler % boat-action-fn))) 
+                                      		(:actions boat)))))]
 			(-> info-window-container (.append header) (.append section) (.append footer) .html)))
 
+
 (defn- boat-click-handler
-      [boat]
+      [boat boat-action-fn]
       (fn [marker event context]
-          (log js/arguments)
-          (this-as this
            	(.gmap3 
               ($ map-selector)
               (clj->js {:clear (clj->js {:name ["infowindow"]})
                         :infowindow (clj->js 
                         	{:anchor marker 
-                             :options (clj->js {:zIndex 999 :content (boat-info-window-content boat)})})})))))
+                             :options (clj->js {:content (boat-info-window-content boat boat-action-fn)})})}))))
 
 (defn- boat-marker 
-      [boat]
+      [boat-action-fn boat]
       (let [base-marker {:options {:icon "img/boatPin.png"}}
-           	 action-handler {:events {:click (boat-click-handler boat)}}]
+           	 action-handler {:events {:click (boat-click-handler boat boat-action-fn)}}]
            (merge base-marker action-handler)))
 
 (defn- show-boats
        "Given a number of boats to display, randomly place them on a journey to australia"
-       [{boats :boats}]
+       [{boats :boats} boat-action-fn]
        (let [boats-coords (take (count boats) (shuffle possible-boat-coords))
-             boats-with-coords (zipmap boats-coords (map boat-marker boats))
+             boats-with-coords (zipmap boats-coords (map (partial boat-marker boat-action-fn) boats))
              boats (map #(clj->js (merge {:latLng (key %)} (val %))) boats-with-coords)]
-            (log (to-array boats))
             (.gmap3 
               ($ map-selector)
               (clj->js {
@@ -205,7 +222,8 @@
              image (if (empty? (:name media)) "" (str "img/" (:name media)) )]           
             (-> content-div (.removeClass "selected"))
             (-> content-div (.find "header h2") (.text title))
-            (-> content-div (.find "section") (.html content))             (-> content-div (.find "aside") (.find "img") (.attr "src" image))
+            (-> content-div (.find "section") (.html content))             
+            (-> content-div (.find "aside") (.find "img") (.attr "src" image))
             (-> content-div (.find "footer") (.empty) (.append option-buttons))
             (-> end-turn-button (.addClass "inactive") (.removeClass "active"))))
 
@@ -226,18 +244,6 @@
            (-> ($ ".gaugesPanel") (.removeClass "active") (.addClass "inactive"))
            (-> ($ "#event-panel") (.addClass "welcome"))
            (reset-fn))))) 
-
-
-(defn display [state apply-event-choice-fn advance-turn-fn reset-fn]
-      (do 
-        (say "turn" (str (-> state :turn)))
-        (show-boats state)
-        (update-levers state)
-        (update-gauges state)
-        (show-event (:next-event state) apply-event-choice-fn advance-turn-fn)
-        (apply-end-turn-handler (:next-event state) advance-turn-fn)
-        (apply-reset-handler reset-fn)))
-
 
 (defn- lever-values 
        "Collect the lever values"
@@ -281,5 +287,15 @@
                         (.empty)
                         (.append image)))))))
 
+
+(defn display [state apply-event-choice-fn advance-turn-fn reset-fn boat-action-fn]
+      (do 
+        (say "turn" (str (-> state :turn)))
+        (show-boats state boat-action-fn)
+        (update-levers state)
+        (update-gauges state)
+        (show-event (:next-event state) apply-event-choice-fn advance-turn-fn)
+        (apply-end-turn-handler (:next-event state) advance-turn-fn)
+        (apply-reset-handler reset-fn)))
 
 ($ (comp init-map init-player-avatar))
