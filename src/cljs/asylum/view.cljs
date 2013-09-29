@@ -15,7 +15,7 @@
                                   :address "Darwin, NT, Australia"
                                   :options (clj->js {
                                                      :color "#476DD5"
-                                                     :zoom 5
+                                                     :zoom 4
                                                      :mapTypeId js/google.maps.MapTypeId.ROADMAP,
                                                      :scrollwheel false
                                                      :center "-25.085875,104.284057"
@@ -333,6 +333,23 @@
                         (.append image)))))))
 
 
+(defmulti apply-turn-modifications :turn)
+(defmethod apply-turn-modifications :default [state] nil)
+
+(defmethod apply-turn-modifications 0 [state]
+           (-> ($ ".endTurn") (.removeClass "active") (.removeClass "inactive")))
+(defmethod apply-turn-modifications 1 [state]           
+           (let [random-boat (rand-nth (:boats state))
+                 marker (.gmap3 ($ map-selector) (clj->js {:get (clj->js {:id (:name random-boat)})}))]
+           		(.gmap3 
+	              ($ map-selector)
+	              (clj->js {:clear (clj->js {:name ["infowindow"]})
+	                        :infowindow (clj->js 
+	                        	{:anchor marker 
+	                             :options (clj->js 
+                                         {:content "<strong>\"Help\" us!</strong> Click on one of us during a turn and act as you see fit."})})}))))
+
+
 (defn display [state apply-event-choice-fn advance-turn-fn reset-fn boat-action-fn]
       (do 
         (say "turn" (str (-> state :turn)))
@@ -341,6 +358,8 @@
         (update-gauges state)
         (show-event (:next-event state) apply-event-choice-fn advance-turn-fn)
         (apply-end-turn-handler (:next-event state) advance-turn-fn)
-        (apply-reset-handler reset-fn)))
+        (apply-reset-handler reset-fn)
+        (apply-turn-modifications state)))
 
-($ (comp init-map init-player-avatar))
+;TODO: re-enable the player avatar once it works consistently on most browsers
+($ init-map)
